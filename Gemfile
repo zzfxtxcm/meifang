@@ -3,7 +3,18 @@ source 'http://ruby.taobao.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
 gem 'haml', '4.0.5'
-gem 'devise'
+
+# 会员
+gem 'devise', github: 'plataformatec/devise', branch: 'lm-rails-4-1'
+
+# 后台页面
+gem 'activeadmin',         github: 'gregbell/active_admin'
+gem 'ransack',             github: 'ernie/ransack'
+gem 'inherited_resources', github: 'josevalim/inherited_resources'
+gem 'formtastic',          github: 'justinfrench/formtastic'
+
+# 权限
+gem 'cancancan', '1.7'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

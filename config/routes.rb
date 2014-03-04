@@ -2,6 +2,11 @@ Meifang::Application.routes.draw do
   root to: 'static_pages#home'
   
   match '/help', to: 'static_pages#help', via: 'get'
+  devise_for :users
+  
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
