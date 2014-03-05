@@ -6,6 +6,7 @@ gem 'haml', '4.0.5'
 
 # 会员
 gem 'devise', github: 'plataformatec/devise', branch: 'lm-rails-4-1'
+gem 'devise-encryptable'
 
 # 后台页面
 gem 'activeadmin',         github: 'gregbell/active_admin'
@@ -25,6 +26,8 @@ group :development, :test do
   gem 'spork-rails', '4.0.0'
   gem 'guard-spork', '1.5.0'
   gem 'childprocess', '0.3.6'
+  gem 'simplecov'
+  gem 'email_spec'
 end
 
 group :test do

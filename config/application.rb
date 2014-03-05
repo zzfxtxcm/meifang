@@ -30,5 +30,10 @@ module Meifang
     config.encoding = "utf-8"
     
     I18n.default_locale = "zh-CN".to_sym
+    
+    config.generators do |g|
+      g.view_specs false
+      g.helper_specs false
+    end
   end
 end
