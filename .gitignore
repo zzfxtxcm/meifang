@@ -33,6 +33,11 @@ doc/
 .idea
 .secret
 
+# simplecov
+coverage/
+
+# ctags
+tags
 
 # win
 Thumbs.db

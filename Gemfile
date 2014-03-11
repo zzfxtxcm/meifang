@@ -2,16 +2,49 @@ source 'http://ruby.taobao.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
+gem 'bootstrap-sass', '2.2.1'
 gem 'haml', '4.0.5'
+
+# 会员
+gem 'devise', github: 'plataformatec/devise', branch: 'lm-rails-4-1'
+gem 'devise-encryptable', '0.1.2'
+
+# 后台页面
+gem 'activeadmin',         github: 'gregbell/active_admin'
+gem 'ransack',             github: 'ernie/ransack'
+gem 'inherited_resources', github: 'josevalim/inherited_resources'
+gem 'formtastic',          github: 'justinfrench/formtastic'
+
+# 权限
+gem 'cancancan', '1.7'
+
+# 多层
+gem 'ancestry', '2.0.0'
+
+# 编辑器
+gem 'ckeditor', '4.0.10'
+
+# 图片上传
+gem 'carrierwave', '0.10.0'
+gem 'mini_magick', '3.7.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
+  gem 'pry-rails', '0.3.2'
+  gem 'guard-livereload', '2.1.1'
   gem 'rspec-rails', '2.13.1'
+  gem 'guard-rspec', '2.5.0'
+  gem 'spork-rails', '4.0.0'
+  gem 'guard-spork', '1.5.0'
+  gem 'childprocess', '0.3.6'
+  gem 'simplecov', '0.8.2'
+  gem 'email_spec', '1.5.0'
 end
 
 group :test do
   gem 'selenium-webdriver', '2.35.1'
   gem 'capybara', '2.1.0'
+  gem 'factory_girl_rails', '4.2.1'
 end
 
 gem 'sass-rails', '~> 4.0.0'
