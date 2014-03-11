@@ -1,0 +1,38 @@
+zh-CN:
+  active_admin:
+    admin_users:
+      menu:
+        admin_user: "管理员"
+    users:
+      title: "会员管理"
+      menu:
+        user: "会员"
+      list:
+        email: "电子邮箱"
+        sign_in_count: "登录次数"
+        created_at: "创建时间"
+      search:
+        email: "电子邮箱"
+        created_at: "创建时间"
+    information:
+      title: "信息管理"
+      menu:
+        information: "信息"
+      list:
+        title: "标题"
+        category: "分类"
+      form:
+        category: "信息分类"
+        title: "标题"
+        information_thumb: "缩略图"
+        keywords: "关键词"
+        description: "描述"
+        content: "内容"
+      search:
+        category: "信息分类"
+        title: "标题"
+        created_at: "创建时间"
+  activerecord:
+    models:
+      user: "会员"
+      information: "信息"
