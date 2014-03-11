@@ -2,6 +2,7 @@ source 'http://ruby.taobao.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
+gem 'bootstrap-sass', '2.2.1'
 gem 'haml', '4.0.5'
 
 # 会员
@@ -16,6 +17,9 @@ gem 'formtastic',          github: 'justinfrench/formtastic'
 
 # 权限
 gem 'cancancan', '1.7'
+
+# 多层
+gem 'ancestry'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

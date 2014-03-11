@@ -36,6 +36,9 @@ doc/
 # simplecov
 coverage/
 
+# ctags
+tags
+
 # win
 Thumbs.db
 ehthumbs.db

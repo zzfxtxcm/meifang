@@ -25,15 +25,17 @@ module Meifang
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = "zh-CN".to_sym
     I18n.enforce_available_locales = false
-    
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
-    
+
     I18n.default_locale = "zh-CN".to_sym
-    
+
     config.generators do |g|
       g.view_specs false
       g.helper_specs false
     end
+
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end
 end

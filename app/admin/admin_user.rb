@@ -1,6 +1,6 @@
 ActiveAdmin.register AdminUser do
   menu :label => proc{ I18n.t("active_admin.admin_users.menu.admin_user") }
-  
+
   permit_params :email, :password, :password_confirmation
 
   index do
