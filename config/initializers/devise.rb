@@ -194,7 +194,7 @@ Devise.setup do |config|
   # REST_AUTH_SITE_KEY to pepper).
   #
   # Require the `devise-encryptable` gem when using anything other than bcrypt
-  # config.encryptor = :sha512
+  config.encryptor = :sha512
 
   # ==> Scopes configuration
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
@@ -258,7 +258,7 @@ DeviseController.class_eval do
 
   def resource_params
     unless params[resource_name].blank?
-      params.require(resource_name).permit(:email, :password, 
+      params.require(resource_name).permit(:email, :password,
         :password_confirmation, :remember_me, :reset_password_token,
         :current_password)
     end

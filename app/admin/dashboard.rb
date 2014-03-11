@@ -23,14 +23,14 @@ ActiveAdmin.register_page "Dashboard" do
 #         end
 #       end
 
-      
-      
+
+
       column do
         panel "Info" do
           para "Welcome to ActiveAdmin."
         end
       end
-      
+
       column do
         panel "New Users" do
           table_for User.order('created_at desc').limit(10) do
