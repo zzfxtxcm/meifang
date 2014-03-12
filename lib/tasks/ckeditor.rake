@@ -1,8 +1,8 @@
-# lib/tasks/ckeditor.rake
 require 'fileutils'
+
 desc "Create nondigest versions of all ckeditor digest assets"
 task "assets:precompile" do
-  fingerprint = /\-[0-9a-f]{32}\./
+  fingerprint = /-[0-9a-f]{32}./
   for file in Dir["public/assets/ckeditor/**/*"]
     next unless file =~ fingerprint
     nondigest = file.sub fingerprint, '.'
