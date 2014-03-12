@@ -28,7 +28,7 @@ ActiveAdmin.register Information do
   end
 
   filter :category,
-         :collection => nested_dropdown(Category.all.arrange),
+        #  :collection => nested_dropdown(Category.all.arrange),
          :label => I18n.t("active_admin.information.search.category")
   filter :title, :label => I18n.t("active_admin.information.search.title")
   filter :created_at,
