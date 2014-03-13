@@ -1,3 +1,5 @@
+# coding: utf-8
+
 # config valid only for Capistrano 3.1
 lock '3.1.0'
 
@@ -22,6 +24,7 @@ set :linked_files, %w{config/database.yml}
 
 SSHKit.config.command_map[:rake]  = "bundle exec rake"
 SSHKit.config.command_map[:rails] = "bundle exec rails"
+
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
