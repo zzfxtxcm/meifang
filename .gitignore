@@ -39,6 +39,9 @@ coverage/
 # ctags
 tags
 
+# shell
+upload.sh
+
 # win
 Thumbs.db
 ehthumbs.db
