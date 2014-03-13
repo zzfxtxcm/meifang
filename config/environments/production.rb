@@ -14,6 +14,20 @@ Meifang::Application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { :host => "meifang365.com" }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.126.com",
+    :port => 25,
+    :domain => "126.com",
+    :authentication => :login,
+    :user_name => "meifang2014@126.com",
+    :password => "2940425",
+    :enable_starttls_auto => false
+  }
+
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
   # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
