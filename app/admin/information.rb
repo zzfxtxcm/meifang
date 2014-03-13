@@ -24,6 +24,7 @@ ActiveAdmin.register Information do
     id_column
     column I18n.t("active_admin.information.list.title"), :title
     column I18n.t("active_admin.information.list.category"), :category
+    column I18n.t("active_admin.information.list.source"), :source
     actions
   end
 
@@ -31,6 +32,7 @@ ActiveAdmin.register Information do
         #  :collection => nested_dropdown(Category.all.arrange),
          :label => I18n.t("active_admin.information.search.category")
   filter :title, :label => I18n.t("active_admin.information.search.title")
+  filter :source, :label => I18n.t("active_admin.information.search.source")
   filter :created_at,
          :label => I18n.t("active_admin.information.search.created_at")
 
@@ -41,6 +43,8 @@ ActiveAdmin.register Information do
       f.input :title, :label => I18n.t("active_admin.information.form.title")
       f.input :information_thumb,
               :label => I18n.t("active_admin.information.form.information_thumb")
+      f.input :source,
+              :label => I18n.t("active_admin.information.form.source")
       f.input :keywords,
               :label => I18n.t("active_admin.information.form.keywords")
       f.input :description,
@@ -59,6 +63,7 @@ ActiveAdmin.register Information do
                                      :title,
                                      :style,
                                      :information_thumb,
+                                     :source,
                                      :keywords,
                                      :description,
                                      :content,

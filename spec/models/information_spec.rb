@@ -18,6 +18,7 @@ describe Information do
   it { should respond_to(:content) }
   it { should respond_to(:listorder) }
   it { should respond_to(:status) }
+  it { should respond_to(:source) }
   it { should respond_to(:category_id) }
   it { should respond_to(:category) }
   its(:category) { should eq category }
