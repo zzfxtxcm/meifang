@@ -6,7 +6,7 @@ set :user, 'wwwroot'
 set :repo_url, 'https://github.com/zzfxtxcm/meifang.git'
 set :branch, 'master'
 
-set :deploy_to, '/home/wwwroot/www/meifang1'
+set :deploy_to, '/home/wwwroot/www/meifang'
 set :scm, :git
 
 set :format, :pretty
@@ -15,7 +15,13 @@ set :pry, true
 
 set :keep_releases, 5
 
-set :rvm_ruby_version, '2.1.0'
+set :rvm_type, :user
+set :rvm_ruby_version, 'ruby-2.1.0'
+
+set :linked_files, %w{config/database.yml}
+
+SSHKit.config.command_map[:rake]  = "bundle exec rake"
+SSHKit.config.command_map[:rails] = "bundle exec rails"
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
@@ -47,13 +53,13 @@ set :rvm_ruby_version, '2.1.0'
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-desc 'make production database.yml link'
-task :symlink_db_yml do
-  on roles(:app) do
-    execute "ln -s #{shared_path}/config/database.yml
-            #{release_path}/config/database.yml"
-  end
-end
+# desc 'make production database.yml link'
+# task :symlink_db_yml do
+#   on roles(:app) do
+#     execute "ln -s #{shared_path}/config/database.yml
+#             #{release_path}/config/database.yml"
+#   end
+# end
 
 namespace :deploy do
   set :unicorn_config, "#{current_path}/config/unicorn.rb"
@@ -64,20 +70,14 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
       # execute :touch, release_path.join('tmp/restart.txt')
-      execute "if [ -f #{fetch(:unicorn_pid)} ];
-              then
-              kill -USR2 `cat #{fetch(:unicorn_pid)}`;
-              fi"
+      execute "if [ -f #{fetch(:unicorn_pid)} ]; then kill -USR2 `cat #{fetch(:unicorn_pid)}`; fi"
     end
   end
 
   desc 'stop application'
   task :stop do
     on roles(:app), in: :sequence, wait: 5 do
-      execute "if [ -f #{fetch(:unicorn_pid)} ];
-              then
-              kill -QUIT `cat #{fetch(:unicorn_pid)}`;
-              fi"
+      execute "if [ -f #{fetch(:unicorn_pid)} ]; then kill -QUIT `cat #{fetch(:unicorn_pid)}`; fi"
     end
   end
 
@@ -106,5 +106,5 @@ namespace :deploy do
   before 'start', 'rvm:hook'
   after :finishing, 'deploy:cleanup'
 
-  after 'bundler:install', :symlink_db_yml
+  # after 'bundler:install', :symlink_db_yml
 end
