@@ -18,7 +18,7 @@ set :keep_releases, 5
 set :rvm_type, :user
 set :rvm_ruby_version, 'ruby-2.1.0'
 
-set :linked_files, %w{config/database.yml}
+# set :linked_files, %w{config/database.yml}
 
 SSHKit.config.command_map[:rake]  = "bundle exec rake"
 SSHKit.config.command_map[:rails] = "bundle exec rails"
@@ -53,13 +53,13 @@ SSHKit.config.command_map[:rails] = "bundle exec rails"
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-# desc 'make production database.yml link'
-# task :symlink_db_yml do
-#   on roles(:app) do
-#     execute "ln -s #{shared_path}/config/database.yml
-#             #{release_path}/config/database.yml"
-#   end
-# end
+desc 'make production database.yml link'
+task :symlink_db_yml do
+  on roles(:app) do
+    execute "ln -s #{shared_path}/config/database.yml
+            #{release_path}/config/database.yml"
+  end
+end
 
 namespace :deploy do
   set :unicorn_config, "#{current_path}/config/unicorn.rb"
@@ -106,5 +106,5 @@ namespace :deploy do
   before 'start', 'rvm:hook'
   after :finishing, 'deploy:cleanup'
 
-  # after 'bundler:install', :symlink_db_yml
+  after 'bundler:install', :symlink_db_yml
 end
