@@ -40,7 +40,7 @@ coverage/
 tags
 
 # shell
-upload.sh
+/shell/*
 
 # win
 Thumbs.db
