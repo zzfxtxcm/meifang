@@ -4,11 +4,13 @@
 lock '3.1.0'
 
 set :application, 'meifang'
-set :user, 'wwwroot'
+# set :user, 'wwwroot'
+set :user, 'vagrant'
 set :repo_url, 'https://github.com/zzfxtxcm/meifang.git'
 set :branch, 'master'
 
-set :deploy_to, '/home/wwwroot/www/meifang'
+# set :deploy_to, '/home/wwwroot/www/meifang'
+set :deploy_to, '/home/meifang/www/meifang'
 set :scm, :git
 
 set :format, :pretty
