@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313015330) do
+ActiveRecord::Schema.define(version: 20140316125752) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(version: 20140313015330) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
+  create_table "areas", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "areas", ["name"], name: "index_areas_on_name"
+
   create_table "categories", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -71,6 +79,14 @@ ActiveRecord::Schema.define(version: 20140313015330) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
+  create_table "developers", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "developers", ["name"], name: "index_developers_on_name"
+
   create_table "information", force: true do |t|
     t.integer  "category_id"
     t.string   "title"
@@ -87,6 +103,45 @@ ActiveRecord::Schema.define(version: 20140313015330) do
   end
 
   add_index "information", ["category_id", "title", "created_at"], name: "index_information_on_category_id_and_title_and_created_at"
+
+  create_table "new_homes", force: true do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.string   "tel"
+    t.string   "project_address"
+    t.string   "sales_address"
+    t.integer  "area_id"
+    t.integer  "developers_id"
+    t.string   "permit"
+    t.string   "agents"
+    t.string   "covers"
+    t.string   "gfa"
+    t.string   "pool_area"
+    t.string   "parking"
+    t.string   "number_users"
+    t.string   "construction_category"
+    t.string   "building_towers"
+    t.string   "floors_case"
+    t.string   "main_units"
+    t.string   "house_area"
+    t.string   "greening_rate"
+    t.string   "volume_rate"
+    t.string   "fit"
+    t.string   "property"
+    t.string   "school"
+    t.string   "hospital"
+    t.string   "bank"
+    t.string   "shopping"
+    t.string   "neighborhoods"
+    t.string   "landscapes"
+    t.string   "bus"
+    t.string   "car"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "new_homes", ["name", "price", "area_id"], name: "index_new_homes_on_name_and_price_and_area_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

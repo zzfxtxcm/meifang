@@ -1,9 +1,9 @@
 zh-CN:
   active_admin:
-    admin_users:
+    admin_users: # 管理员
       menu:
         admin_user: "管理员"
-    users:
+    users: # 会员
       title: "会员管理"
       menu:
         user: "会员"
@@ -14,7 +14,7 @@ zh-CN:
       search:
         email: "电子邮箱"
         created_at: "创建时间"
-    information:
+    information: # 信息
       title: "信息管理"
       menu:
         information: "信息"
@@ -35,7 +35,74 @@ zh-CN:
         title: "标题"
         source: "来源"
         created_at: "创建时间"
+    areas: # 房产区域
+      title: "区域管理"
+      list:
+        name: "名称"
+      form:
+        name: "名称"
+      search:
+        name: "名称"
+        created_at: "创建时间"
+    developers: # 房产开发商
+      title: "开发商管理"
+      list:
+        name: "名称"
+      form:
+        name: "名称"
+      search:
+        name: "名称"
+        created_at: "创建时间"
+    new_homes:
+      title: "新房管理"
+      menu:
+        new_home: "新房管理"
+      list:
+        name: "名称"
+      form:
+        name: "名称"
+        price: "均价"
+        tel: "咨询电话"
+        project_address: "项目地址"
+        sales_address: "售楼地址"
+        area: "城中"
+        developers: "开发商"
+        permit: "许可证"
+        agents: "代理商"
+        covers: "占地面积"
+        gfa: "建筑面积"
+        pool_area: "公摊面积"
+        parking: "车位情况"
+        number_users: "总户数"
+        construction_category: "建筑类型"
+        building_towers: "建筑栋数"
+        floors_case: "楼层情况"
+        main_units: "主力户型"
+        house_area: "户型面积"
+        greening_rate: "绿化率"
+        volume_rate: "容积率"
+        fit: "装修情况"
+        property: "产权"
+        school: "学校"
+        hospital: "医院"
+        bank: "银行"
+        shopping: "购物中心"
+        neighborhoods: "小区配套"
+        landscapes: "自然景物"
+        bus: "公交"
+        car: "自驾"
+        content: "内容"
+      search:
+        area: "区域"
+        developers: "开发商"
+        name: "名称"
+        price: "均价"
+        created_at: "创建时间"
+
   activerecord:
     models:
       user: "会员"
       information: "信息"
+      area: "区域"
+      developers: "开发商"
+      new_home: "新房"

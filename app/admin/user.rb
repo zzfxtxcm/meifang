@@ -43,8 +43,4 @@ ActiveAdmin.register User do
     "如果你对网站后台管理有问题"
   end
 
-  action_item do
-    link_to "View Site", "/"
-  end
-
 end
