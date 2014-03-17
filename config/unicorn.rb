@@ -26,14 +26,14 @@ end
 before_fork do |server, worker|
   # 参考 http://unicorn.bogomips.org/SIGNALS.html
   # 使用USR2信号，以及在进程完成后用QUIT信号来实现无缝重启
-  old_pid = shared_root + '/tmp/pids/unicorn.pid.oldbin'
-  if File.exists?(old_pid) && server.pid != old_pid
-    begin
-      Process.kill("QUIT", File.read(old_pid).to_i)
-    rescue Errno::ENOENT, Errno::ESRCH
-      # someone else did our job for us
-    end
-  end
+  # old_pid = shared_root + '/tmp/pids/unicorn.pid.oldbin'
+  # if File.exists?(old_pid) && server.pid != old_pid
+  #   begin
+  #     Process.kill("QUIT", File.read(old_pid).to_i)
+  #   rescue Errno::ENOENT, Errno::ESRCH
+  #     # someone else did our job for us
+  #   end
+  # end
 
   # the following is highly recomended for Rails + "preload_app true"
   # as there's no need for the master process to hold a connection
