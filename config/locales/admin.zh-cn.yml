@@ -130,6 +130,7 @@ zh-CN:
         landscapes: "自然景物"
         bus: "公交"
         car: "自驾"
+        property_type: "物业类型"
         content: "内容"
         status: "状态"
         new_home_thumb: "缩略图"

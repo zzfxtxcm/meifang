@@ -115,7 +115,7 @@ ActiveAdmin.register NewHome do
               :label => I18n.t("active_admin.new_homes.form.car")
       f.input :property_type,
               :prompt => true,
-              :label => I18n.t("active_admin.new_homes.form.property")
+              :label => I18n.t("active_admin.new_homes.form.property_type")
       f.input :content,
               :label => I18n.t("active_admin.new_homes.form.content"),
               :as => :ckeditor
