@@ -43,6 +43,10 @@ class NewHomeThumbUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [100, 76]
   end
 
+  version :thumb do
+    process :resize_to_fit => [200, 151]
+  end
+
   version :big do
     process :resize_to_fit => [340, 257]
   end

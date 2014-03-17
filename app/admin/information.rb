@@ -42,6 +42,7 @@ ActiveAdmin.register Information do
   form do |f|
     f.inputs "" do
       f.input :category, :collection => nested_dropdown(Category.all.arrange),
+              :prompt => true,
               :label => I18n.t("active_admin.information.form.category")
       f.input :title, :label => I18n.t("active_admin.information.form.title")
       f.input :information_thumb,
@@ -57,6 +58,7 @@ ActiveAdmin.register Information do
               :label => I18n.t("active_admin.information.form.content"),
               :as => :ckeditor
       f.input :new_home,
+              :prompt => true,
               :label => I18n.t("active_admin.information.form.new_home")
     end
     f.actions

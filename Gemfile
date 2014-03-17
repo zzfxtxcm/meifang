@@ -22,6 +22,9 @@ gem 'cancancan', '1.7'
 # 多层
 gem 'ancestry', '2.0.0'
 
+# 表单
+gem 'simple_form', '3.0.1'
+
 # 编辑器
 gem 'ckeditor', '4.0.10'
 

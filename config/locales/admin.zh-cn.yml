@@ -65,6 +65,33 @@ zh-CN:
       search:
         name: "名称"
         created_at: "创建时间"
+    sections: # 版块管理
+      title: "版块管理"
+      list:
+        name: "名称"
+      form:
+        name: "名称"
+      search:
+        name: "名称"
+        created_at: "创建时间"
+    property_types: # 物业类型
+      title: "物业管理"
+      list:
+        name: "名称"
+      form:
+        name: "名称"
+      search:
+        name: "名称"
+        created_at: "创建时间"
+    construction_categories: # 建筑类型
+      title: "建筑类型管理"
+      list:
+        name: "名称"
+      form:
+        name: "名称"
+      search:
+        name: "名称"
+        created_at: "创建时间"
     new_homes:
       title: "新房管理"
       menu:
@@ -78,8 +105,8 @@ zh-CN:
         project_address: "项目地址"
         sales_address: "售楼地址"
         area: "区域"
+        section: "版块"
         developers: "开发商"
-        permit: "许可证"
         agents: "代理商"
         covers: "占地面积"
         gfa: "建筑面积"
@@ -120,4 +147,7 @@ zh-CN:
       information: "信息"
       area: "区域"
       developers: "开发商"
+      section: "版块"
       new_home: "新房"
+      property_type: "物业类型"
+      construction_category: "建筑类型"

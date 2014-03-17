@@ -16,9 +16,12 @@ ActiveAdmin.register NewHome do
 
   menu :label => proc{ I18n.t("active_admin.new_homes.menu.new_home") }
 
-
   action_item do
     link_to "区域管理", "/admin/areas"
+  end
+
+  action_item do
+    link_to "版块管理", "/admin/sections"
   end
 
   action_item do
@@ -55,8 +58,13 @@ ActiveAdmin.register NewHome do
       f.input :sales_address,
               :label => I18n.t("active_admin.new_homes.form.sales_address")
       f.input :area,
+              :prompt => true,
               :label => I18n.t("active_admin.new_homes.form.area")
+      f.input :section,
+              :prompt => true,
+              :label => I18n.t("active_admin.new_homes.form.section")
       f.input :developers,
+              :prompt => true,
               :label => I18n.t("active_admin.new_homes.form.developers")
       f.input :agents,
               :label => I18n.t("active_admin.new_homes.form.agents")
@@ -71,6 +79,7 @@ ActiveAdmin.register NewHome do
       f.input :number_users,
               :label => I18n.t("active_admin.new_homes.form.number_users")
       f.input :construction_category,
+              :prompt => true,
               :label => I18n.t("active_admin.new_homes.form.construction_category")
       f.input :building_towers,
               :label => I18n.t("active_admin.new_homes.form.building_towers")
@@ -104,13 +113,21 @@ ActiveAdmin.register NewHome do
               :label => I18n.t("active_admin.new_homes.form.bus")
       f.input :car,
               :label => I18n.t("active_admin.new_homes.form.car")
+      f.input :property_type,
+              :prompt => true,
+              :label => I18n.t("active_admin.new_homes.form.property")
       f.input :content,
               :label => I18n.t("active_admin.new_homes.form.content"),
               :as => :ckeditor
       f.input :status,
+              :prompt => true,
               :label => I18n.t("active_admin.new_homes.form.status")
       f.input :new_home_thumb,
+              :hint => f.object.new_home_thumb.present? \
+                       ? f.template.image_tag(f.object.new_home_thumb.url(:thumb))
+                       : f.template.content_tag(:span, "未传图片"),
               :label => I18n.t("active_admin.new_homes.form.new_home_thumb")
+      f.input :new_home_thumb_cache, :as => :hidden
     end
     f.actions
   end
@@ -123,6 +140,7 @@ ActiveAdmin.register NewHome do
                                   :project_address,
                                   :sales_address,
                                   :area_id,
+                                  :section_id,
                                   :developers_id,
                                   :agents,
                                   :covers,
@@ -130,7 +148,7 @@ ActiveAdmin.register NewHome do
                                   :pool_area,
                                   :parking,
                                   :number_users,
-                                  :construction_category,
+                                  :construction_category_id,
                                   :building_towers,
                                   :floors_case,
                                   :main_units,
@@ -147,6 +165,7 @@ ActiveAdmin.register NewHome do
                                   :landscapes,
                                   :bus,
                                   :car,
+                                  :property_type_id,
                                   :content,
                                   :status_id,
                                   :new_home_thumb])
