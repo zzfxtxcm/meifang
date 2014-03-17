@@ -25,12 +25,15 @@ ActiveAdmin.register Information do
     column I18n.t("active_admin.information.list.title"), :title
     column I18n.t("active_admin.information.list.category"), :category
     column I18n.t("active_admin.information.list.source"), :source
+    column I18n.t("active_admin.information.list.new_home"), :new_home
     actions
   end
 
   filter :category,
         #  :collection => nested_dropdown(Category.all.arrange),
          :label => I18n.t("active_admin.information.search.category")
+  filter :new_home,
+         :label => I18n.t("active_admin.information.search.new_home")
   filter :title, :label => I18n.t("active_admin.information.search.title")
   filter :source, :label => I18n.t("active_admin.information.search.source")
   filter :created_at,
@@ -53,6 +56,8 @@ ActiveAdmin.register Information do
       f.input :content,
               :label => I18n.t("active_admin.information.form.content"),
               :as => :ckeditor
+      f.input :new_home,
+              :label => I18n.t("active_admin.information.form.new_home")
     end
     f.actions
   end
@@ -68,7 +73,8 @@ ActiveAdmin.register Information do
                                      :description,
                                      :content,
                                      :listorder,
-                                     :status])
+                                     :status,
+                                     :new_home_id])
     end
   end
 end

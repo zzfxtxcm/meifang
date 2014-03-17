@@ -58,8 +58,6 @@ ActiveAdmin.register NewHome do
               :label => I18n.t("active_admin.new_homes.form.area")
       f.input :developers,
               :label => I18n.t("active_admin.new_homes.form.developers")
-      f.input :permit,
-              :label => I18n.t("active_admin.new_homes.form.permit")
       f.input :agents,
               :label => I18n.t("active_admin.new_homes.form.agents")
       f.input :covers,
@@ -109,7 +107,10 @@ ActiveAdmin.register NewHome do
       f.input :content,
               :label => I18n.t("active_admin.new_homes.form.content"),
               :as => :ckeditor
-      f.input :status
+      f.input :status,
+              :label => I18n.t("active_admin.new_homes.form.status")
+      f.input :new_home_thumb,
+              :label => I18n.t("active_admin.new_homes.form.new_home_thumb")
     end
     f.actions
   end
@@ -123,7 +124,6 @@ ActiveAdmin.register NewHome do
                                   :sales_address,
                                   :area_id,
                                   :developers_id,
-                                  :permit,
                                   :agents,
                                   :covers,
                                   :gfa,
@@ -147,7 +147,9 @@ ActiveAdmin.register NewHome do
                                   :landscapes,
                                   :bus,
                                   :car,
-                                  :content])
+                                  :content,
+                                  :status_id,
+                                  :new_home_thumb])
     end
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140317033527) do
+ActiveRecord::Schema.define(version: 20140317061913) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20140317033527) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "source"
+    t.integer  "new_home_id"
   end
 
   add_index "information", ["category_id", "title", "created_at"], name: "index_information_on_category_id_and_title_and_created_at"
@@ -112,7 +113,6 @@ ActiveRecord::Schema.define(version: 20140317033527) do
     t.string   "sales_address"
     t.integer  "area_id"
     t.integer  "developers_id"
-    t.string   "permit"
     t.string   "agents"
     t.string   "covers"
     t.string   "gfa"
@@ -139,12 +139,11 @@ ActiveRecord::Schema.define(version: 20140317033527) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "opening"
     t.integer  "status_id"
+    t.string   "new_home_thumb"
   end
 
   add_index "new_homes", ["name", "price", "area_id"], name: "index_new_homes_on_name_and_price_and_area_id"
-  add_index "new_homes", ["opening"], name: "index_new_homes_on_opening"
   add_index "new_homes", ["status_id"], name: "index_new_homes_on_status_id"
 
   create_table "statuses", force: true do |t|

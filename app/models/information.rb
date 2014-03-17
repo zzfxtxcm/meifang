@@ -1,5 +1,6 @@
 class Information < ActiveRecord::Base
   belongs_to :category
+  belongs_to :new_home
 
   default_scope -> { order('created_at DESC') }
 
