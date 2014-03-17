@@ -18,11 +18,11 @@ ActiveAdmin.register NewHome do
 
 
   action_item do
-    link_to "区域管理", "areas"
+    link_to "区域管理", "/admin/areas"
   end
 
   action_item do
-    link_to "开发商管理", "developers"
+    link_to "开发商管理", "/admin/developers"
   end
 
   permit_params [:name]
@@ -34,6 +34,7 @@ ActiveAdmin.register NewHome do
     actions
   end
 
+  filter :status, :label => I18n.t("active_admin.new_homes.search.status")
   filter :area, :label => I18n.t("active_admin.new_homes.search.area")
   filter :developers, :label => I18n.t("active_admin.new_homes.search.developers")
   filter :name, :label => I18n.t("active_admin.new_homes.search.name")
@@ -108,6 +109,7 @@ ActiveAdmin.register NewHome do
       f.input :content,
               :label => I18n.t("active_admin.new_homes.form.content"),
               :as => :ckeditor
+      f.input :status
     end
     f.actions
   end

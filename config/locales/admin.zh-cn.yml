@@ -35,6 +35,15 @@ zh-CN:
         title: "标题"
         source: "来源"
         created_at: "创建时间"
+    statuses: # 状态管理
+      title: "状态管理"
+      list:
+        name: "名称"
+      form:
+        name: "名称"
+      search:
+        name: "名称"
+        created_at: "创建时间"
     areas: # 房产区域
       title: "区域管理"
       list:
@@ -93,6 +102,7 @@ zh-CN:
         car: "自驾"
         content: "内容"
       search:
+        status: "状态"
         area: "区域"
         developers: "开发商"
         name: "名称"
