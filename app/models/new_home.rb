@@ -7,9 +7,9 @@ class NewHome < ActiveRecord::Base
 
   VALID_NUMBER_REGEX = /[\d]/
   validates :name, presence: true
-  validates :price, presence: true, format: { with: VALID_NUMBER_REGEX }
-  validates :area_id, presence:true
-  validates :developers_id, presence:true
+  validates :price, format: { with: VALID_NUMBER_REGEX }
+  validates :area, presence:true
+  validates :developers, presence:true
   validates :status, presence:true
 
   mount_uploader :new_home_thumb, NewHomeThumbUploader
