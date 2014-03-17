@@ -126,7 +126,6 @@ ActiveRecord::Schema.define(version: 20140317162215) do
     t.string   "pool_area"
     t.string   "parking"
     t.string   "number_users"
-    t.integer  "construction_category_id", limit: 255
     t.string   "building_towers"
     t.string   "floors_case"
     t.string   "main_units"
@@ -149,21 +148,15 @@ ActiveRecord::Schema.define(version: 20140317162215) do
     t.integer  "status_id"
     t.string   "new_home_thumb"
     t.integer  "section_id"
-    t.integer  "property_id"
     t.integer  "property_type_id"
+    t.integer  "construction_category_id"
   end
 
   add_index "new_homes", ["construction_category_id"], name: "index_new_homes_on_construction_category_id"
   add_index "new_homes", ["name", "price", "area_id"], name: "index_new_homes_on_name_and_price_and_area_id"
-  add_index "new_homes", ["property_id"], name: "index_new_homes_on_property_id"
+  add_index "new_homes", ["property_type_id"], name: "index_new_homes_on_property_type_id"
   add_index "new_homes", ["section_id"], name: "index_new_homes_on_section_id"
   add_index "new_homes", ["status_id"], name: "index_new_homes_on_status_id"
-
-  create_table "properties", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "property_types", force: true do |t|
     t.string   "name"
