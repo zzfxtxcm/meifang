@@ -34,6 +34,7 @@ ActiveAdmin.register NewHome do
     selectable_column
     id_column
     column I18n.t("active_admin.new_homes.list.name"), :name
+    column "hh", :id
     actions
   end
 
@@ -171,5 +172,6 @@ ActiveAdmin.register NewHome do
                                   :new_home_thumb])
     end
   end
+
 
 end

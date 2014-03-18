@@ -1,4 +1,14 @@
+# encoding: utf-8
+
 include CategoriesHelper
+
+def new_homes_dropdown(items)
+  result = []
+  items.map do |item|
+    result << [PinYin.of_string(item.name)[0][0].upcase.to_s + " - " + item.name, item.id]
+  end
+  result.sort
+end
 
 ActiveAdmin.register Information do
 
@@ -30,12 +40,13 @@ ActiveAdmin.register Information do
   end
 
   filter :category,
-        #  :collection => nested_dropdown(Category.all.arrange),
+         :collection => nested_dropdown(Category.all.arrange),
          :label => I18n.t("active_admin.information.search.category")
   filter :new_home,
+         :collection => new_homes_dropdown(NewHome.all),
          :label => I18n.t("active_admin.information.search.new_home")
   filter :title, :label => I18n.t("active_admin.information.search.title")
-  filter :source, :label => I18n.t("active_admin.information.search.source")
+  filter :source, :label => I18n.t("&.information.search.source")
   filter :created_at,
          :label => I18n.t("active_admin.information.search.created_at")
 

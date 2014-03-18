@@ -32,6 +32,9 @@ gem 'ckeditor', '4.0.10'
 gem 'carrierwave', '0.10.0'
 gem 'mini_magick', '3.7.0'
 
+# 汉字转拼音
+gem 'ruby-pinyin'
+
 group :development, :test do
   gem 'sqlite3', '1.3.8'
   gem 'pry-rails', '0.3.2'
