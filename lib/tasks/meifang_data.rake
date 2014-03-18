@@ -9,7 +9,7 @@ namespace :db do
 
     categories = Category.all(limit: 5)
     20.times do
-      
+
     end
   end
 end
