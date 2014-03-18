@@ -28,13 +28,16 @@ ActiveAdmin.register NewHome do
     link_to "开发商管理", "/admin/developers"
   end
 
+  action_item do
+    link_to "开盘信息管理", "/admin/information_estate_openeds"
+  end
+
   permit_params [:name]
 
   index :title => proc{ I18n.t("active_admin.new_homes.title") } do
     selectable_column
     id_column
     column I18n.t("active_admin.new_homes.list.name"), :name
-    column "hh", :id
     actions
   end
 
@@ -90,6 +93,9 @@ ActiveAdmin.register NewHome do
               :label => I18n.t("active_admin.new_homes.form.main_units")
       f.input :house_area,
               :label => I18n.t("active_admin.new_homes.form.house_area")
+      f.input :area_range,
+              :hint => f.template.content_tag(:span, "平方米"),
+              :label => I18n.t("active_admin.new_homes.form.area_range")
       f.input :greening_rate,
               :label => I18n.t("active_admin.new_homes.form.greening_rate")
       f.input :volume_rate,
@@ -117,6 +123,9 @@ ActiveAdmin.register NewHome do
       f.input :property_type,
               :prompt => true,
               :label => I18n.t("active_admin.new_homes.form.property_type")
+      f.input :project_features,
+              :prompt => true,
+              :label => I18n.t("active_admin.new_homes.form.project_features")
       f.input :content,
               :label => I18n.t("active_admin.new_homes.form.content"),
               :as => :ckeditor
@@ -154,6 +163,7 @@ ActiveAdmin.register NewHome do
                                   :floors_case,
                                   :main_units,
                                   :house_area,
+                                  :area_range_id,
                                   :greening_rate,
                                   :volume_rate,
                                   :fit,
@@ -173,5 +183,9 @@ ActiveAdmin.register NewHome do
     end
   end
 
+  show do
+    panel "Post Details" do
 
+    end
+  end
 end

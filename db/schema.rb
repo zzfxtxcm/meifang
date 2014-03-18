@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140317162215) do
+ActiveRecord::Schema.define(version: 20140318145948) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -45,6 +45,12 @@ ActiveRecord::Schema.define(version: 20140317162215) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+
+  create_table "area_ranges", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "areas", force: true do |t|
     t.string   "name"
@@ -112,6 +118,18 @@ ActiveRecord::Schema.define(version: 20140317162215) do
   add_index "information", ["category_id", "title", "created_at"], name: "index_information_on_category_id_and_title_and_created_at"
   add_index "information", ["new_home_id"], name: "index_information_on_new_home_id"
 
+  create_table "information_estate_openeds", force: true do |t|
+    t.string   "title"
+    t.integer  "new_home_id"
+    t.datetime "opening_time"
+    t.datetime "delivery_time"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "information_estate_openeds", ["new_home_id"], name: "index_information_estate_openeds_on_new_home_id"
+
   create_table "new_homes", force: true do |t|
     t.string   "name"
     t.integer  "price"
@@ -150,13 +168,23 @@ ActiveRecord::Schema.define(version: 20140317162215) do
     t.integer  "section_id"
     t.integer  "property_type_id"
     t.integer  "construction_category_id"
+    t.integer  "area_range_id"
+    t.integer  "project_features_id"
   end
 
+  add_index "new_homes", ["area_range_id"], name: "index_new_homes_on_area_range_id"
   add_index "new_homes", ["construction_category_id"], name: "index_new_homes_on_construction_category_id"
   add_index "new_homes", ["name", "price", "area_id"], name: "index_new_homes_on_name_and_price_and_area_id"
+  add_index "new_homes", ["project_features_id"], name: "index_new_homes_on_project_features_id"
   add_index "new_homes", ["property_type_id"], name: "index_new_homes_on_property_type_id"
   add_index "new_homes", ["section_id"], name: "index_new_homes_on_section_id"
   add_index "new_homes", ["status_id"], name: "index_new_homes_on_status_id"
+
+  create_table "project_features", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "property_types", force: true do |t|
     t.string   "name"

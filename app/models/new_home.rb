@@ -5,8 +5,11 @@ class NewHome < ActiveRecord::Base
   belongs_to :section
   belongs_to :property_type
   belongs_to :construction_category
+  belongs_to :area_range
+  belongs_to :project_features
 
-  has_many :information, dependent: :destroy
+  has_many :information
+  has_many :information_estate_openeds, dependent: :destroy
 
   VALID_NUMBER_REGEX = /[\d]/
   validates :name, presence: true
