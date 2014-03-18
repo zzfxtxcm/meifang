@@ -161,6 +161,21 @@ zh-CN:
         name: "名称"
         price: "均价"
         created_at: "创建时间"
+    information_estate_openeds:
+      title: "开盘信息管理"
+      list:
+        title: "标题"
+        new_home: "所属房产"
+        opening_time: "开盘时间"
+        delivery_time: "交付时间"
+      search:
+        new_home: "所属房产"
+      form:
+        new_home: "所属房产"
+        title: "标题"
+        price: "均价"
+        opening_time: "开盘时间"
+        delivery_time: "交付时间"
 
   activerecord:
     models:
@@ -174,3 +189,4 @@ zh-CN:
       construction_category: "建筑类型"
       area_range: "面积区间"
       project_features: "项目特色"
+      information_estate_opened: "开盘信息"

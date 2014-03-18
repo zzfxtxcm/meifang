@@ -1,3 +1,3 @@
 class ProjectFeatures < ActiveRecord::Base
-  has_many :new_homes, dependent: :destroy
+  has_many :new_homes
 end

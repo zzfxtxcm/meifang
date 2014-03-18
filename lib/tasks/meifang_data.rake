@@ -8,10 +8,10 @@ namespace :db do
     make_construction_categories
     make_property_types
     make_statuses
-    make_new_homes
-    make_information
     make_area_ranges
     make_project_features
+    make_new_homes
+    make_information
   end
 
   def make_categories

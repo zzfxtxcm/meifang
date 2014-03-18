@@ -9,6 +9,7 @@ class NewHome < ActiveRecord::Base
   belongs_to :project_features
 
   has_many :information
+  has_many :information_estate_openeds, dependent: :destroy
 
   VALID_NUMBER_REGEX = /[\d]/
   validates :name, presence: true

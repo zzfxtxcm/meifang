@@ -28,6 +28,10 @@ ActiveAdmin.register NewHome do
     link_to "开发商管理", "/admin/developers"
   end
 
+  action_item do
+    link_to "开盘信息管理", "/admin/information_estate_openeds"
+  end
+
   permit_params [:name]
 
   index :title => proc{ I18n.t("active_admin.new_homes.title") } do
