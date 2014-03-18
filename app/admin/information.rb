@@ -69,6 +69,7 @@ ActiveAdmin.register Information do
               :label => I18n.t("active_admin.information.form.content"),
               :as => :ckeditor
       f.input :new_home,
+              :collection => new_homes_dropdown(NewHome.all),
               :prompt => true,
               :label => I18n.t("active_admin.information.form.new_home")
     end
