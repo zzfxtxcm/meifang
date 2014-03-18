@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140317162215) do
+ActiveRecord::Schema.define(version: 20140318130949) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -45,6 +45,12 @@ ActiveRecord::Schema.define(version: 20140317162215) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+
+  create_table "area_ranges", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "areas", force: true do |t|
     t.string   "name"
@@ -150,8 +156,10 @@ ActiveRecord::Schema.define(version: 20140317162215) do
     t.integer  "section_id"
     t.integer  "property_type_id"
     t.integer  "construction_category_id"
+    t.integer  "area_range_id"
   end
 
+  add_index "new_homes", ["area_range_id"], name: "index_new_homes_on_area_range_id"
   add_index "new_homes", ["construction_category_id"], name: "index_new_homes_on_construction_category_id"
   add_index "new_homes", ["name", "price", "area_id"], name: "index_new_homes_on_name_and_price_and_area_id"
   add_index "new_homes", ["property_type_id"], name: "index_new_homes_on_property_type_id"

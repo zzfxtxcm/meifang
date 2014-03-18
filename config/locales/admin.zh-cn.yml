@@ -92,6 +92,15 @@ zh-CN:
       search:
         name: "名称"
         created_at: "创建时间"
+    area_ranges: # 面积区间
+      title: "面积区间管理"
+      list:
+        name: "名称"
+      form:
+        name: "名称"
+      search:
+        name: "名称"
+        created_at: "创建时间"
     new_homes:
       title: "新房管理"
       menu:
@@ -118,6 +127,7 @@ zh-CN:
         floors_case: "楼层情况"
         main_units: "主力户型"
         house_area: "户型面积"
+        area_range: "面积区间"
         greening_rate: "绿化率"
         volume_rate: "容积率"
         fit: "装修情况"
@@ -152,3 +162,4 @@ zh-CN:
       new_home: "新房"
       property_type: "物业类型"
       construction_category: "建筑类型"
+      area_range: "面积区间"

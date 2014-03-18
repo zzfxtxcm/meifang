@@ -34,7 +34,6 @@ ActiveAdmin.register NewHome do
     selectable_column
     id_column
     column I18n.t("active_admin.new_homes.list.name"), :name
-    column "hh", :id
     actions
   end
 
@@ -90,6 +89,9 @@ ActiveAdmin.register NewHome do
               :label => I18n.t("active_admin.new_homes.form.main_units")
       f.input :house_area,
               :label => I18n.t("active_admin.new_homes.form.house_area")
+      f.input :area_range,
+              :hint => f.template.content_tag(:span, "平方米"),
+              :label => I18n.t("active_admin.new_homes.form.area_range")
       f.input :greening_rate,
               :label => I18n.t("active_admin.new_homes.form.greening_rate")
       f.input :volume_rate,
@@ -154,6 +156,7 @@ ActiveAdmin.register NewHome do
                                   :floors_case,
                                   :main_units,
                                   :house_area,
+                                  :area_range_id,
                                   :greening_rate,
                                   :volume_rate,
                                   :fit,

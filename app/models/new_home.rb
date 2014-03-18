@@ -5,6 +5,7 @@ class NewHome < ActiveRecord::Base
   belongs_to :section
   belongs_to :property_type
   belongs_to :construction_category
+  belongs_to :area_range
 
   has_many :information
 

@@ -10,6 +10,7 @@ namespace :db do
     make_statuses
     make_new_homes
     make_information
+    make_area_ranges
   end
 
   def make_categories
@@ -23,25 +24,34 @@ namespace :db do
   end
 
   def make_sections
-    #
+    # 版块
     Section.create!(name: "城中")
   end
 
   def make_developers
+    # 开发商
     Developers.create!(name: "万达")
   end
 
   def make_construction_categories
+    # 建筑类型
     ConstructionCategory.create!(name: "超高层")
   end
 
   def make_property_types
+    # 物业类型
     PropertyType.create!(name: "城市综合体")
     PropertyType.create!(name: "小楼")
   end
 
   def make_statuses
+    # 状态
     Status.create!(name: "优惠")
+  end
+
+  def make_area_ranges
+    # 面积区间
+    AreaRange.create!(name: "0-50")
   end
 
   def make_new_homes
@@ -64,6 +74,7 @@ namespace :db do
                     floors_case: "30",
                     main_units: "小户型",
                     house_area: "80平方米",
+                    area_range_id: AreaRange.first.id,
                     greening_rate: "30%",
                     volume_rate: "82%",
                     fit: "简修",
