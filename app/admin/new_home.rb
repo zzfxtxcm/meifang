@@ -119,6 +119,9 @@ ActiveAdmin.register NewHome do
       f.input :property_type,
               :prompt => true,
               :label => I18n.t("active_admin.new_homes.form.property_type")
+      f.input :project_features,
+              :prompt => true,
+              :label => I18n.t("active_admin.new_homes.form.project_features")
       f.input :content,
               :label => I18n.t("active_admin.new_homes.form.content"),
               :as => :ckeditor
@@ -176,5 +179,9 @@ ActiveAdmin.register NewHome do
     end
   end
 
+  show do
+    panel "Post Details" do
 
+    end
+  end
 end

@@ -6,6 +6,7 @@ class NewHome < ActiveRecord::Base
   belongs_to :property_type
   belongs_to :construction_category
   belongs_to :area_range
+  belongs_to :project_features
 
   has_many :information
 

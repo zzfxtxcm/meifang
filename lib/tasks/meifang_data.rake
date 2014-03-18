@@ -11,6 +11,7 @@ namespace :db do
     make_new_homes
     make_information
     make_area_ranges
+    make_project_features
   end
 
   def make_categories
@@ -54,6 +55,10 @@ namespace :db do
     AreaRange.create!(name: "0-50")
   end
 
+  def make_project_features
+    ProjectFeatures.create!(name: "高档社区")
+  end
+
   def make_new_homes
     NewHome.create!(name: "万达房产",
                     price: 8000,
@@ -88,6 +93,7 @@ namespace :db do
                     bus: "27",
                     car: "自驾",
                     property_type_id: PropertyType.first.id,
+                    project_features_id: ProjectFeatures.first.id,
                     content: "内容内容内容内容内容",
                     status_id: Status.first.id,
                     new_home_thumb: "")

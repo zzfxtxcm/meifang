@@ -101,6 +101,15 @@ zh-CN:
       search:
         name: "名称"
         created_at: "创建时间"
+    project_features: # 项目特色
+      title: "项目特色管理"
+      list:
+        name: "名称"
+      form:
+        name: "名称"
+      search:
+        name: "名称"
+        created_at: "创建时间"
     new_homes:
       title: "新房管理"
       menu:
@@ -141,6 +150,7 @@ zh-CN:
         bus: "公交"
         car: "自驾"
         property_type: "物业类型"
+        project_features: "项目特色"
         content: "内容"
         status: "状态"
         new_home_thumb: "缩略图"
@@ -163,3 +173,4 @@ zh-CN:
       property_type: "物业类型"
       construction_category: "建筑类型"
       area_range: "面积区间"
+      project_features: "项目特色"
