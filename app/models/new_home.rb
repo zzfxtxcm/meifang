@@ -6,7 +6,7 @@ class NewHome < ActiveRecord::Base
   belongs_to :property_type
   belongs_to :construction_category
 
-  has_many :information, dependent: :destroy
+  has_many :information
 
   VALID_NUMBER_REGEX = /[\d]/
   validates :name, presence: true
