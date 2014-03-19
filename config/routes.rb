@@ -11,6 +11,7 @@ Meifang::Application.routes.draw do
   resources :categories
   mount Ckeditor::Engine => '/ckeditor'
 
+  resources :information
 
 
   # The priority is based upon order of creation: first created -> highest priority.

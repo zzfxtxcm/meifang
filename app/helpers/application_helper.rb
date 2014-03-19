@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def full_title(page_title)
-    base_title = "Meifang"
+    base_title = "漳州美房网"
     if page_title.empty?
       base_title
     else
