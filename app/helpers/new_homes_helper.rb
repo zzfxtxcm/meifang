@@ -7,4 +7,5 @@ module NewHomesHelper
     end
     result.sort
   end
+
 end
