@@ -3,7 +3,7 @@ source 'http://ruby.taobao.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
-gem 'bootstrap-sass', '2.2.1'
+gem 'bootstrap-sass', '2.3.2'
 gem 'haml', '4.0.5'
 
 # 会员
@@ -35,6 +35,10 @@ gem 'mini_magick', '3.7.0'
 # 汉字转拼音
 gem 'ruby-pinyin'
 
+# 分页
+gem 'will_paginate', '3.0.5'
+gem 'bootstrap-will_paginate', '0.0.10'
+
 group :development, :test do
   gem 'sqlite3', '1.3.8'
   gem 'pry-rails', '0.3.2'
@@ -43,6 +47,7 @@ group :development, :test do
   gem 'guard-rspec', '2.5.0'
   gem 'spork-rails', '4.0.0'
   gem 'guard-spork', '1.5.0'
+  gem 'faker', '1.1.2'
   gem 'childprocess', '0.3.6'
   gem 'simplecov', '0.8.2'
   gem 'email_spec', '1.5.0'
