@@ -33,7 +33,7 @@
       %a{href: "http://www.ffw.com.cn/1/84/248/212305.html", style: "color:#FF0000;", target: "_blank"} 盘点五大提升桃花运的楼盘
     .clearfix
     .news_body
-      = @information.content
+      = @information.content.html_safe
     .bdsharebuttonbox.ml30
       %a.bds_more{"data-cmd" => "more", href: "#"}
       %a.bds_qzone{"data-cmd" => "qzone", href: "#"}
