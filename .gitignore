@@ -18,6 +18,9 @@
 # carrierwave
 /public/uploads/**/*
 
+# assets
+/public/assets/**/*
+
 # sunspot && solr
 /solr/data/**/*
 /solr/pids/**/*
