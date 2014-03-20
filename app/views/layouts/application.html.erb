@@ -4,19 +4,26 @@
   <meta charset="UTF-8" />
   <title><%= full_title(yield(:title)) %></title>
   <mate content: "width=device-width, initial-scale=1.0", name: "viewport">
-    <%= stylesheet_link_tag "application", params[:controller], media: "all", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag "application",
+                            params[:controller],
+                            "custom",
+                            "custom/base",
+                            "custom/common",
+                            "custom/font-awesome.min",
+                            "custom/bootstrop3code",
+                            media: "all", "data-turbolinks-track" => true %>
+
     <!--[if lte IE 6]>
       <%= stylesheet_link_tag "bootstrap/bootstrap-ie6.css", media: "all", "data-turbolinks-track" => true %>
     <![endif]-->
     <!--[if lte IE 7]>
       <%= stylesheet_link_tag "bootstrap/ie.css", media: "all", "data-turbolinks-track" => true %>
     <![endif]-->
-    <%= stylesheet_link_tag "custom", media: "all", "data-turbolinks-track" => true %>
-    <%= stylesheet_link_tag "custom/base", media: "all", "data-turbolinks-track" => true %>
-    <%= stylesheet_link_tag "custom/common", media: "all", "data-turbolinks-track" => true %>
-    <%= stylesheet_link_tag "custom/font-awesome.min", media: "all", "data-turbolinks-track" => true %>
 
-    <%= javascript_include_tag "application", params[:container], "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application",
+                               params[:container],
+                               "custom/ad_ls",
+                               "data-turbolinks-track" => true %>
     <!--[if lte IE 6]>
       <%= javascript_include_tag "bootstrap/bootstrap-ie.js", "data-turbolinks-track" => true %>
     <![endif]-->

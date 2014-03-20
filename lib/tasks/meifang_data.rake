@@ -96,7 +96,7 @@ namespace :db do
                     content: "内容内容内容内容内容",
                     status_id: Status.first.id,
                     new_home_thumb: "")
-    100.times do |n|
+    10.times do |n|
       name = Faker::Name.title
       price = 1000 * n;
       project_address = Faker::Address.street_address
@@ -150,7 +150,7 @@ namespace :db do
                         content: "内容",
                         new_home_id: NewHome.first.id)
     new_homes = NewHome.all(limit:6)
-    100.times do |n|
+    20.times do |n|
       title = Faker::Name.title
       content = Faker::Lorem.sentence(10)
       new_homes.each { |new_home| new_home.information.create!(category_id: Category.first.id,

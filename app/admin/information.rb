@@ -33,7 +33,7 @@ ActiveAdmin.register Information do
   end
 
   filter :category,
-         :collection => nested_dropdown(Category.all.arrange),
+         :collection => proc { nested_dropdown(Category.all.arrange) },
          :label => I18n.t("active_admin.information.search.category")
   filter :new_home,
          :collection => new_homes_dropdown(NewHome.all),
