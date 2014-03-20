@@ -20,7 +20,7 @@
 .clearfix
 .container
   .pull-left.mt20
-    = image_tag("bootstrap/logo.gif")
+    = link_to image_tag("bootstrap/logo.gif"), "/"
   .pull-left.f16.pt55
     %span{ style: "color:#f65c52" } 漳州
     %a 厦门
@@ -46,9 +46,9 @@
         %p Howdy, I'm in Section 2.
 / 导航
 .newnav{align: "center"}
-  %a{href: "#"}> 资讯
+  %a{href: "/information"}> 资讯
   |
-  %a{href: "#"}> 新房
+  %a{href: "/new_homes"}> 新房
   |
   %a{href: "#"}> 专题
   |
