@@ -182,10 +182,4 @@ ActiveAdmin.register NewHome do
                                   :new_home_thumb])
     end
   end
-
-  show do
-    panel "Post Details" do
-
-    end
-  end
 end
