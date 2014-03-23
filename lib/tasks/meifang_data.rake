@@ -11,6 +11,7 @@ namespace :db do
     make_area_ranges
     make_project_features
     make_new_homes
+    make_information_type_id
     make_information
   end
 
@@ -140,6 +141,20 @@ namespace :db do
     end
   end
 
+  def make_information_type_id
+    InformationType.create!(name: "首页头条")
+    InformationType.create!(name: "新房速递")
+    InformationType.create!(name: "楼盘优惠")
+    InformationType.create!(name: "市场报告")
+    InformationType.create!(name: "今日话题")
+    InformationType.create!(name: "楼市咨询")
+    InformationType.create!(name: "楼市观点")
+    InformationType.create!(name: "活动")
+    InformationType.create!(name: "购房须知")
+    InformationType.create!(name: "购房警示")
+    InformationType.create!(name: "购房指南")
+  end
+
   def make_information
     Information.create!(category_id: Category.first.id,
                         title: "漳州楼市",
@@ -148,7 +163,8 @@ namespace :db do
                         keywords: "关键词,关键词",
                         description: "描述描述描述描述",
                         content: "内容",
-                        new_home_id: NewHome.first.id)
+                        new_home_id: NewHome.first.id,
+                        information_type_id: 1)
     new_homes = NewHome.all(limit:6)
     20.times do |n|
       title = Faker::Name.title
@@ -158,7 +174,8 @@ namespace :db do
                                                       source: "来源",
                                                       keywords: "关键词,关键词",
                                                       description: "描述描述描述描述",
-                                                      content: content)  }
+                                                      content: content,
+                                                      information_type_id: 2)  }
     end
   end
 end

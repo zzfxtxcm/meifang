@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318145948) do
+ActiveRecord::Schema.define(version: 20140323152137) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -113,9 +113,11 @@ ActiveRecord::Schema.define(version: 20140318145948) do
     t.datetime "updated_at"
     t.string   "source"
     t.integer  "new_home_id"
+    t.integer  "information_type_id"
   end
 
   add_index "information", ["category_id", "title", "created_at"], name: "index_information_on_category_id_and_title_and_created_at"
+  add_index "information", ["information_type_id"], name: "index_information_on_information_type_id"
   add_index "information", ["new_home_id"], name: "index_information_on_new_home_id"
 
   create_table "information_estate_openeds", force: true do |t|
@@ -129,6 +131,12 @@ ActiveRecord::Schema.define(version: 20140318145948) do
   end
 
   add_index "information_estate_openeds", ["new_home_id"], name: "index_information_estate_openeds_on_new_home_id"
+
+  create_table "information_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "new_homes", force: true do |t|
     t.string   "name"

@@ -48,7 +48,9 @@
   / 右边
   .pull-right
     = image_tag("tmp/ad.gif", alt: "", :style => "height:58px; width:900px")
-    %h3{style: "color:#2db8ad"} "地王围城"11幅高价地今年入市今年厦门岛内房价6万/平，你信吗?
+    %h3{style: "color:#2db8ad"}
+      - Information.where(information_type_id: 1).limit(1).each do |information|
+        = link_to information.title, information
     %table
       %tbody
         %tr
@@ -64,22 +66,20 @@
             %a.pr20{href: ""} 更多
         %tr{style: "border-bottom: 1px solid #EEEEEE;"}
           %td{colspan: "2"}
-            %h4.f16{style: "color:#f65c52"} 漳州丽园君悦：最符合《星星》家的漳州楼盘
-            %a{href: "#"} 明发商业广场住在基本新手 锥体 3#、5#点秒
-            %br/
-            %a{href: "#"} 万达中央化成：前任通宵强二期 全程热捧 很期待
-            %br/
-            %a{href: "#"} 鸿达嘉园酒店式公寓去化一半 均价6500元/m2
-            %br/
+            %h4.f16{style: "color:#f65c52"}
+              - Information.where(information_type_id: 2).limit(1).each do |information|
+                = link_to information.title, information
+            - Information.where(information_type_id: 2).limit(3).offset(1).each do |information|
+              = link_to information.title, information
+              %br/
         %tr{style: "border-bottom: 1px solid #EEEEEE;"}
           %td{colspan: "2"}
-            %h4.f16{style: "color:#f65c52"} 漳州丽园君悦：最符合《星星》家的漳州楼盘
-            %a{href: "#"} 明发商业广场住在基本新手 锥体 3#、5#点秒
-            %br/
-            %a{href: "#"} 鸿达嘉园酒店式公寓去化一半 均价6500元/m2
-            %br/
-            %a{href: "#"} 万达中央化成：前任通宵强二期 全程热捧 很期待
-            %br/
+            %h4.f16{style: "color:#f65c52"}
+              - Information.where(information_type_id: 2).limit(1).offset(4).each do |information|
+                = link_to information.title, information
+            - Information.where(information_type_id: 2).limit(3).offset(5).each do |information|
+              = link_to information.title, information
+              %br/
       %table{width: "400px;"}
         %tr
           %td{style: "background:#ececec;"}

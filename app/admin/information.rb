@@ -39,7 +39,8 @@ ActiveAdmin.register Information do
          :collection => new_homes_dropdown(NewHome.all),
          :label => I18n.t("active_admin.information.search.new_home")
   filter :title, :label => I18n.t("active_admin.information.search.title")
-  filter :source, :label => I18n.t("&.information.search.source")
+  filter :source, :label => I18n.t("active_admin.information.search.source")
+  filter :information_type
   filter :created_at,
          :label => I18n.t("active_admin.information.search.created_at")
 
