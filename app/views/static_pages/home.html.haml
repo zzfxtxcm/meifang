@@ -5,7 +5,7 @@
       .panel-heading
         %h3.panel-title 漳州新房
       .panel-body
-        - @areas.each do |area|
+        - @areas[0..3].each do |area|
           %div{style: "border-bottom: 1px solid #EEEEEE; height:75px;"}
             %h4.f16.mt5.mb5{style: "color:#f65c52"} #{area.name}
             %p
@@ -88,26 +88,20 @@
             %a.pr20{href: ""} 更多
         %tr{style: "border-bottom: 1px solid #EEEEEE;"}
           %td{colspan: "2"}
-            %h4.f16{style: "color:#f65c52"} 漳州丽园君悦：最符合《星星》家的漳州楼盘
-            %a{href: "#"} 明发商业广场住在基本新手 锥体 3#、5#点秒
-            %br/
-            %a{href: "#"} 鸿达嘉园酒店式公寓去化一半 均价6500元/m2
-            %br/
-            %a{href: "#"} 万达中央化成：前任通宵强二期 全程热捧 很期待
-            %br/
-            %a{href: "#"} 鸿达嘉园酒店式公寓去化一半 均价6500元/m2
-            %br/
+            %h4.f16{style: "color:#f65c52"}
+              - Information.where(information_type_id: 3).limit(1).each do |information|
+                = link_to information.title, information
+            - Information.where(information_type_id: 3).limit(4).offset(1).each do |information|
+              = link_to information.title, information
+              %br/
         %tr{style: "border-bottom: 1px solid #EEEEEE;"}
           %td{colspan: "2"}
-            %h4.f16{style: "color:#f65c52"} 漳州丽园君悦：最符合《星星》家的漳州楼盘
-            %a{href: "#"} 明发商业广场住在基本新手 锥体 3#、5#点秒
-            %br/
-            %a{href: "#"} 鸿达嘉园酒店式公寓去化一半 均价6500元/m2
-            %br/
-            %a{href: "#"} 万达中央化成：前任通宵强二期 全程热捧 很期待
-            %br/
-            %a{href: "#"} 鸿达嘉园酒店式公寓去化一半 均价6500元/m2
-            %br/
+            %h4.f16{style: "color:#f65c52"}
+              - Information.where(information_type_id: 3).limit(1).offset(5).each do |information|
+                = link_to information.title, information
+            - Information.where(information_type_id: 3).limit(4).offset(6).each do |information|
+              = link_to information.title, information
+              %br/
       %table{width: "400px;"}
         %tr
           %td{style: "background:#ececec;"}
@@ -116,15 +110,12 @@
             %a.pr20{href: ""} 更多
         %tr{style: "border-bottom: 1px solid #EEEEEE;"}
           %td{colspan: "2"}
-            %h4.f16{style: "color:#f65c52"} 漳州丽园君悦：最符合《星星》家的漳州楼盘
-            %a{href: "#"} 明发商业广场住在基本新手 锥体 3#、5#点秒
-            %br/
-            %a{href: "#"} 鸿达嘉园酒店式公寓去化一半 均价6500元/m2
-            %br/
-            %a{href: "#"} 万达中央化成：前任通宵强二期 全程热捧 很期待
-            %br/
-            %a{href: "#"} 鸿达嘉园酒店式公寓去化一半 均价6500元/m2
-            %br/
+            %h4.f16{style: "color:#f65c52"}
+              - Information.where(information_type_id: 4).limit(1).each do |information|
+                = link_to information.title, information
+            - Information.where(information_type_id: 4).limit(4).offset(1).each do |information|
+              = link_to information.title, information
+              %br/
     / 右边右
     .pull-left.ml20{style: "480px;"}
       %div{style: "border: 1px solid #EEEEEE;"}
@@ -251,64 +242,34 @@
             %a{"data-toggle" => "tab"} 今日话题
         #myTabContent.tab-content
           .tab-pane.fade.active.in
-            %h3.cl{style: "margin:0"} 国土部确定不动产登记工作将在试点城市启动
-            %p{style: "color:#999"} 美房整理 2014-03-13
-            %div{style: "margin:20px 0px 20px 0px; border-bottom:1px dotted #CCC; height:90px"}
-              %p
-                3月10日，国土资源部部长姜大明在两会期间接受记者采访时表示，今年要建立不动产部际联席制度，编制统一调剂,符合现在发展情况...
-                %a.cr{href: ""} [详情]
-              %p
-                %a.cr.pull-right{href: ""} 往期>
-            %a{href: "#"}
-              %li 漳州全力推进富美城市建设 持续加大项目建设力度
-            %a{href: "#"}
-              %li 角美楼市逆势突围，新房成交尽显生气，已提早进入
-            %a{href: "#"}
-              %li 楼市是否真的会如预期所言崩盘？漳州楼市是否会深陷其中？
+            - Information.where(information_type_id: 5).limit(1).each do |information|
+              %h3.cl{style: "margin:0"}
+                = link_to information.title, information
+              %p{style: "color:#999"} #{information.source} #{information.created_at.strftime("%Y-%m-%d")}
+              %div{style: "margin:20px 0px 20px 0px; border-bottom:1px dotted #CCC; height:90px"}
+                %p
+                  = information.description
+                  = link_to "[详情]", information
+                %p
+                  %a.cr.pull-right{href: ""} 往期>
+            - Information.where(information_type_id: 5).limit(3).offset(1).each do |information|
+              = link_to information.title, information
       %div{style: "width:400px;"}
         %ul#myTab.nav.nav-tabs.mb5{style: "border-bottom: 1px solid #2db8ad;"}
           %li.active{style: "border-bottom: 1px solid #2db8ad;"}
             %a{"data-toggle" => "tab", href: "#l_hot"} 楼市资讯
         #myTabContent.tab-content
           #l_hot.tab-pane.fade.active.in
-            %a{href: "#"}
-              %li 漳靖打造同城化"桥头堡" 将实现30分钟内通达
-            %a{href: "#"}
-              %li 漳州地热资源丰富 温泉旅游地产迎来发展新机遇
-            %a{href: "#"}
-              %li 漳州老板姓 温泉旅游地发展市场经理产迎来发展新机遇
-            %a{href: "#"}
-              %li 漳市区纳税超千万元企业 房地产企业占半壁江山
-            %a{href: "#"}
-              %li 平和文化旅游项目新年开局良好 年度总投资7.5亿
-            %a{href: "#"}
-              %li 漳州全力推进富美城市建设 持续加大项目建设力度
-            %a{href: "#"}
-              %li 角美楼市逆势突围，新房成交尽显生气，已提早进入
-            %a{href: "#"}
-              %li 楼市是否真的会如预期所言崩盘？漳州楼市是否会深陷其中？
+            - Information.where(information_type_id: 6).limit(8).each do |information|
+              = link_to information.title, information
       %div{style: "width:400px;"}
         %ul#myTab.nav.nav-tabs.mb5{style: "border-bottom: 1px solid #2db8ad;"}
           %li.active{style: "border-bottom: 1px solid #2db8ad;"}
             %a{"data-toggle" => "tab", href: "#act"} 楼市观点
         #myTabContent.tab-content
           #act.tab-pane.fade.active.in
-            %a{href: "#"}
-              %li 漳靖打造同城化"桥头堡" 将实现30分钟内通达
-            %a{href: "#"}
-              %li 漳州地热资源丰富 温泉旅游地产迎来发展新机遇
-            %a{href: "#"}
-              %li 漳州老板姓 温泉旅游地发展市场经理产迎来发展新机遇
-            %a{href: "#"}
-              %li 漳市区纳税超千万元企业 房地产企业占半壁江山
-            %a{href: "#"}
-              %li 平和文化旅游项目新年开局良好 年度总投资7.5亿
-            %a{href: "#"}
-              %li 漳州全力推进富美城市建设 持续加大项目建设力度
-            %a{href: "#"}
-              %li 角美楼市逆势突围，新房成交尽显生气，已提早进入
-            %a{href: "#"}
-              %li 楼市是否真的会如预期所言崩盘？漳州楼市是否会深陷其中？
+            - Information.where(information_type_id: 9).limit(8).each do |information|
+              = link_to information.title, information
     / end右边中
     / 右边右
     .pull-left.ml20{style: "width:465px;"}
@@ -419,17 +380,13 @@
             = image_tag("tmp/ad8.gif", alt: "", :class => "img-polaroid ml5 mt5", :style => "height:130px; width:160px")
         %tr
           %td{colspan: "2"}
-            %a.f16.lh200{href: "#", style: "color:#2db8ad"}
-              %strong 3月9日厦门湾南岸看房团 享多重独家特惠
-            %br/
-            %a{href: "#"}
-              %li 平和文化旅游项目新年开局良好 年度总投资7.5亿
-            %a{href: "#"}
-              %li 漳州全力推进富美城市建设 持续加大项目建设力度
-            %a{href: "#"}
-              %li 平和文化旅游项目新年开局良好 年度总投资7.5亿
-            %a{href: "#"}
-              %li 漳州全力推进富美城市建设 持续加大项目建设力度
+            - Information.where(information_type_id: 8).limit(1).each do |information|
+              %strong
+                = link_to information.title, information, :class => 'f16 lh200', :style => 'color:#2db8ad'
+              %br/
+            - Information.where(information_type_id: 8).limit(4).offset(1).each do |information|
+              %li
+                = link_to information.title, information
     .pull-left.ml30.mt15
       %table{width: "320px;"}
         %tr
@@ -543,15 +500,13 @@
             %a.pr20{href: ""} 更多>
         %tr
           %td.pl15{colspan: "2"}
-            %a.f16.lh200{href: "#", style: "color:#f65c52"}
-              %strong 3月9日厦门湾南岸看房团 享多重独家特惠
-            %br/
-            %a{href: "#"}
-              %li 平和文化旅游项目新年开局良好 年度总投资7.5亿
-            %a{href: "#"}
-              %li 漳州全力推进富美城市建设 持续加大项目建设力度
-            %a{href: "#"}
-              %li 平和文化旅游项目新年开局良好 年度总投资7.5亿
+            - Information.where(information_type_id: 9).limit(1).each do |information|
+              %strong
+                = link_to information.title, information, :class => 'f16 lh200', :style => 'color: #f65c52'
+                %br/
+            - Information.where(information_type_id: 9).limit(3).offset(1).each do |information|
+              %li
+                = link_to information.title, information
       %table{border: "0", width: "410px"}
         %tr
           %td{height: "32px", style: "background: url(#{asset_path("t_2.gif")}) no-repeat; margin:0px;", width: "122px"}
@@ -560,15 +515,13 @@
             %a.pr20{href: ""} 更多>
         %tr
           %td.pl15{colspan: "2"}
-            %a.f16.lh200{href: "#", style: "color:#f65c52"}
-              %strong 3月9日厦门湾南岸看房团 享多重独家特惠
-            %br/
-            %a{href: "#"}
-              %li 平和文化旅游项目新年开局良好 年度总投资7.5亿
-            %a{href: "#"}
-              %li 漳州全力推进富美城市建设 持续加大项目建设力度
-            %a{href: "#"}
-              %li 平和文化旅游项目新年开局良好 年度总投资7.5亿
+            - Information.where(information_type_id: 10).limit(1).each do |information|
+              %strong
+                = link_to information.title, information, :class => 'f16 lh200', :style => 'color: #f65c52'
+              %br/
+            - Information.where(information_type_id: 10).limit(3).offset(1).each do |information|
+              %li
+                = link_to information.title, information
     .pull-left.mt10.ml30
       %table{border: "0", width: "410px"}
         %tr
@@ -578,18 +531,14 @@
             %a.pr20{href: ""} 更多>
         %tr
           %td.pl15{colspan: "2"}
-            %a.f16.lh200{href: "#", style: "color:#f65c52"}
-              %strong 3月9日厦门湾南岸看房团 享多重独家特惠
-            %br/
-            %a.f16.lh200{href: "#"}
-              %strong 3月9日厦门湾南岸看房团 享多重独家特惠
-            %br/
-            %a.f16.lh200{href: "#"}
-              %strong 3月9日厦门湾南岸看房团 享多重独家特惠
-            %br/
-            %a.f16.lh200{href: "#"}
-              %strong 3月9日厦门湾南岸看房团 享多重独家特惠
-            %br/
+            - Information.where(information_type_id: 11).limit(1).each do |information|
+              %strong
+                = link_to information.title, information, :class => 'f16 lh200', :style => 'color:#f65c52'
+                %br/
+            - Information.where(information_type_id: 11).limit(3).offset(1).each do |information|
+              %strong
+                = link_to information.title, information
+                %br/
         %tr
           %td{colspan: "2"}
             = image_tag "tmp/ad5.gif", :style => "width: 360px"
@@ -636,78 +585,28 @@
                   %a{href: "#"}
                     %li 8  [房产热词]保障性住房事宜
     .clearfix
-    .tool
-      %table.table.table-bordered
-        %thead
-          %tr{bgcolor: "#ececec"}
-            %th 房贷计算器
-            %th 购房计算器
-            %th 前期准备
-            %th 买房技巧
-            %th 实地看房
-            %th 楼盘比较
-        %tbody
-          %tr
-            %td
-              %a{href: "#"} 购房能力评估计算器
-              %br/
-              %a{href: "#"} 购房能力评估计算器
-              %br/
-            %td
-              %a{href: "#"} 购房能力评估计算器
-            %td
-              %a{href: "#"} 购房能力评估计算器
-            %td
-              %a{href: "#"} 购房能力评估计算器
-            %td
-              %a{href: "#"} 购房能力评估计算器
-            %td
-              %a{href: "#"} 购房能力评估计算器
-          %tr{bgcolor: "#ececec"}
-            %th 认购
-            %th 合同
-            %th 贷款
-            %th 物业
-            %th 收房
-            %th 房产证
-          %tr
-            %td
-              %a{href: "#"} 购房能力评估计算器
-              %br/
-              %a{href: "#"} 购房能力评估计算器
-              %br/
-            %td
-              %a{href: "#"} 购房能力评估计算器
-            %td
-              %a{href: "#"} 购房能力评估计算器
-            %td
-              %a{href: "#"} 购房能力评估计算器
-            %td
-              %a{href: "#"} 购房能力评估计算器
-            %td
-              %a{href: "#"} 购房能力评估计算器
       / 友情链接
-      %table.table.table-bordered
-        %tr
-          %td{bgcolor: "#ececec", width: "192px;"}
-            %p{align: "center"}
-              %strong 友情链接
-            %a.ml30{href: ""}
-              %input.btn.btn-info{style: "background:#2db8ad; width:90px;", value: "申请链接>"}/
-          %td.yqlj
-            %a 池州房产网
-            %a 苏州租房
-            %a 包头房产网
-            %a 威海房地产
-            %a 襄阳房产
-            %a 超市网盐
-            %a 城房产网
-            %a 大连房产网
-            %a 石家庄看房团
-            %a 重庆房地产
-            %a 东莞房产
-            %a 桐乡房产
-            %a 上海租房网
+    %table.table.table-bordered
+      %tr
+        %td{bgcolor: "#ececec", width: "192px;"}
+          %p{align: "center"}
+            %strong 友情链接
+          %a.ml30{href: ""}
+            %input.btn.btn-info{style: "background:#2db8ad; width:90px;", value: "申请链接>"}/
+        %td.yqlj
+          %a 池州房产网
+          %a 苏州租房
+          %a 包头房产网
+          %a 威海房地产
+          %a 襄阳房产
+          %a 超市网盐
+          %a 城房产网
+          %a 大连房产网
+          %a 石家庄看房团
+          %a 重庆房地产
+          %a 东莞房产
+          %a 桐乡房产
+          %a 上海租房网
       / end友情链接
   / end楼购房百科
 / con end

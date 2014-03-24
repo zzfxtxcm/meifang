@@ -46,6 +46,8 @@ ActiveAdmin.register Information do
 
   form do |f|
     f.inputs "" do
+      f.input :information_type,
+              :prompt => true
       f.input :category, :collection => nested_dropdown(Category.all.arrange),
               :prompt => true,
               :label => I18n.t("active_admin.information.form.category")
@@ -72,7 +74,8 @@ ActiveAdmin.register Information do
 
   controller do
     def permitted_params
-      params.permit(:information => [:category_id,
+      params.permit(:information => [:information_type_id,
+                                     :category_id,
                                      :title,
                                      :style,
                                      :information_thumb,
