@@ -94,6 +94,7 @@ ActiveAdmin.register NewHome do
       f.input :house_area,
               :label => I18n.t("active_admin.new_homes.form.house_area")
       f.input :area_range,
+              :prompt => true,
               :hint => f.template.content_tag(:span, "平方米"),
               :label => I18n.t("active_admin.new_homes.form.area_range")
       f.input :greening_rate,

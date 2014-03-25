@@ -40,14 +40,15 @@ ActiveAdmin.register Information do
          :label => I18n.t("active_admin.information.search.new_home")
   filter :title, :label => I18n.t("active_admin.information.search.title")
   filter :source, :label => I18n.t("active_admin.information.search.source")
-  filter :information_type
+  filter :information_type, :label => I18n.t("active_admin.information.search.information_type")
   filter :created_at,
          :label => I18n.t("active_admin.information.search.created_at")
 
   form do |f|
     f.inputs "" do
       f.input :information_type,
-              :prompt => true
+              :prompt => true,
+              :label => I18n.t("active_admin.information.form.information_type")
       f.input :category, :collection => nested_dropdown(Category.all.arrange),
               :prompt => true,
               :label => I18n.t("active_admin.information.form.category")

@@ -32,12 +32,14 @@ zh-CN:
         description: "描述"
         content: "内容"
         new_home: "所属楼盘"
+        information_type: "前台位置"
       search:
         category: "信息分类"
         title: "标题"
         source: "来源"
         created_at: "创建时间"
         new_home: "所属楼盘"
+        information_type: "前台位置"
     statuses: # 状态管理
       title: "状态管理"
       list:
