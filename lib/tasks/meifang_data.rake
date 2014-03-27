@@ -5,11 +5,6 @@ namespace :db do
     make_areas
     make_sections
     make_developers
-    make_construction_categories
-    make_property_types
-    make_statuses
-    make_area_ranges
-    make_project_features
     make_new_homes
     make_information_type_id
     make_information
@@ -33,30 +28,6 @@ namespace :db do
   def make_developers
     # 开发商
     Developers.create!(name: "万达")
-  end
-
-  def make_construction_categories
-    # 建筑类型
-    ConstructionCategory.create!(name: "超高层")
-  end
-
-  def make_property_types
-    # 物业类型
-    PropertyType.create!(name: "城市综合体")
-  end
-
-  def make_statuses
-    # 状态
-    Status.create!(name: "优惠")
-  end
-
-  def make_area_ranges
-    # 面积区间
-    AreaRange.create!(name: "0-50")
-  end
-
-  def make_project_features
-    ProjectFeatures.create!(name: "高档社区")
   end
 
   def make_new_homes

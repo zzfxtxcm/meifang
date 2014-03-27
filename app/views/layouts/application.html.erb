@@ -3,28 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <title><%= full_title(yield(:title)) %></title>
-  <mate content: "width=device-width, initial-scale=1.0", name: "viewport">
-    <%= stylesheet_link_tag "application",
-                            "custom",
-                            "custom/base",
-                            "custom/common",
-                            "custom/font-awesome.min",
-                            "custom/bootstrop3code",
-                            params[:controller],
-                            media: "all", "data-turbolinks-track" => true %>
-    <!--[if lte IE 6]>
-      <%= stylesheet_link_tag "bootstrap/bootstrap-ie6.css", media: "all", "data-turbolinks-track" => true %>
-    <![endif]-->
-    <!--[if lte IE 7]>
-      <%= stylesheet_link_tag "bootstrap/ie.css", media: "all", "data-turbolinks-track" => true %>
-    <![endif]-->
-
-    <%= csrf_meta_tags %>
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-  </head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <%= stylesheet_link_tag "application",
+                          "custom",
+                          "custom/base",
+                          "custom/common",
+                          "custom/font-awesome.min",
+                          "custom/bootstrop3code",
+                          params[:controller],
+                          media: "all", "data-turbolinks-track" => true %>
+  <!--[if lte IE 6]>
+    <%= stylesheet_link_tag "bootstrap/bootstrap-ie6.css", media: "all", "data-turbolinks-track" => true %>
+  <![endif]-->
+  <!--[if lte IE 7]>
+    <%= stylesheet_link_tag "bootstrap/ie.css", media: "all", "data-turbolinks-track" => true %>
+  <![endif]-->
+  <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
   <body>
     <%= render 'layouts/header' %>
     <% flash.each do |key, value| %>
