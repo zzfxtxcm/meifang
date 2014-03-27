@@ -61,6 +61,10 @@ ActiveAdmin.register NewHome do
               :label => I18n.t("active_admin.new_homes.form.price")
       f.input :tel,
               :label => I18n.t("active_admin.new_homes.form.tel")
+      f.input :project_address,
+              :label => I18n.t("active_admin.new_homes.form.project_address")
+      f.input :sales_address,
+              :label => I18n.t("active_admin.new_homes.form.sales_address")
       f.input :map_address,
               :label => I18n.t("active_admin.new_homes.form.map_address"),
               :input_html => { :readonly => true }
@@ -71,15 +75,69 @@ ActiveAdmin.register NewHome do
                                 </div>
                                 <div id=\"selectItemCount\" class=\"selectItemcont\">
                                   <div id=\"selectSub\">
-                                    <div id=\"l-map\" style=\"height:500px; width: 800px;\"></div>
+                                    <div id=\"l-map\" style=\"height:350px; width: 500px; \"></div>
+                                    <div id=\"r-result\" style=\"width:250px;\">
+                                      搜索: <input type=\"text\" id=\"suggestId\" size=\"20\" value=\"百度\" style=\"width:150px;\" />
+                                    </div>
+                                    <div id=\"searchResultPanel\" style=\"border:1px solid #C0C0C0;width:150px; height: auto; display: none;\"></div>
                                   </div>
                                 </div>
                               </div>".html_safe
       f.form_buffers.last << javascript_tag("
+
+                                             // 百度地图API功能
+                                             function G(id) {
+                                               return document.getElementById(id);
+                                             }
+
                                              var map = new BMap.Map(\"l-map\");
-                                             map.centerAndZoom(\"漳州市\",13);
-                                             // 缩放
-                                             map.enableScrollWheelZoom();
+                                             map.centerAndZoom(\"漳州\",14);
+
+                                             var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
+                                               {\"input\" : \"suggestId\"
+                                               ,\"location\" : map
+                                             });
+
+                                             ac.addEventListener(\"onhighlight\", function(e) {  //鼠标放在下拉列表上的事件
+                                             var str = \"\";
+                                               var _value = e.fromitem.value;
+                                               var value = \"\";
+                                               if (e.fromitem.index > -1) {
+                                                 value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+                                               }
+                                               str = \"FromItem<br />index = \" + e.fromitem.index + \"<br />value = \" + value;
+
+                                               value = \"\";
+                                               if (e.toitem.index > -1) {
+                                                 _value = e.toitem.value;
+                                                 value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+                                               }
+                                               str += \"<br />ToItem<br />index = \" + e.toitem.index + \"<br />value = \" + value;
+                                               G(\"searchResultPanel\").innerHTML = str;
+                                             });
+
+                                             var myValue;
+                                             ac.addEventListener(\"onconfirm\", function(e) {    //鼠标点击下拉列表后的事件
+                                             var _value = e.item.value;
+                                               myValue = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+                                               G(\"searchResultPanel\").innerHTML =\"onconfirm<br />index = \" + e.item.index + \"<br />myValue = \" + myValue;
+
+                                               setPlace();
+                                             });
+
+                                             function setPlace(){
+                                                map.clearOverlays();    //清除地图上所有覆盖物
+                                                function myFun(){
+                                                  var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+                                                  map.centerAndZoom(pp, 18);
+                                                  map.addOverlay(new BMap.Marker(pp));    //添加标注
+                                                }
+                                                var local = new BMap.LocalSearch(map, { //智能搜索
+                                                  onSearchComplete: myFun
+                                                });
+                                                local.search(myValue);
+                                             }
+
                                              // 控件
                                              map.addControl(new BMap.NavigationControl());
                                              map.addControl(new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}));
@@ -87,10 +145,6 @@ ActiveAdmin.register NewHome do
                                              // 加载值到输入框
                                              map.addEventListener('click', function(e){ document.getElementById('new_home_map_address').value = e.point.lng + ', ' + e.point.lat;});
                                             ")
-      f.input :project_address,
-              :label => I18n.t("active_admin.new_homes.form.project_address")
-      f.input :sales_address,
-              :label => I18n.t("active_admin.new_homes.form.sales_address")
       f.input :area,
               :prompt => true,
               :label => I18n.t("active_admin.new_homes.form.area")
