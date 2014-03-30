@@ -36,9 +36,10 @@
           %a{ "data-toggle" => "tab", href: "#tab2" } 专题
       .tab-content#myTabContent
         .tab-pane.fade.active.in#tab1
-          %form.form-inline.m0{ action: "{APP_PATH}index.php", method: "get", name: "myform", role: "form" }
-            %input.form-control#keyword{ name: "keyword", placeholder: "请输入关键字", style: "width:625px;", type: "text" }/
-            %button.btn.btn-danger{ type: "submit" } 搜索
+          = form_tag information_index_path, :method => :get, :class => "form-inline m0",name: "myform", :role => "form" do
+            = text_field_tag :keyword, params[:keyword], :class => "form-control", :id => "keyword", :style => "width: 625px", :placeholder => "请输入关键字"
+            %button.btn.btn-danger{ type: "submit" }
+              搜索
         .tab-pane#tab2
           %form.form-inline.m0{ action: "{APP_PATH}index.php", method: "get", name: "myform", role: "form" }
             %select#catid.form-control.selectS{:name => "catid"}
