@@ -11,6 +11,9 @@ class NewHome < ActiveRecord::Base
   has_many :information
   has_many :information_estate_openeds, dependent: :destroy
 
+  has_many :albums, dependent: :destroy
+  accepts_nested_attributes_for :albums, :allow_destroy => true
+
   VALID_NUMBER_REGEX = /[\d]/
   validates :name, presence: true
   validates :price, format: { with: VALID_NUMBER_REGEX }
@@ -19,4 +22,14 @@ class NewHome < ActiveRecord::Base
   validates :status, presence:true
 
   mount_uploader :new_home_thumb, NewHomeThumbUploader
+
+  searchable do
+    text :name, :boost => 5
+    integer :area_id
+    integer :section_id
+    integer :area_range_id
+    integer :property_type_id
+    text :content
+    time :created_at
+  end
 end
