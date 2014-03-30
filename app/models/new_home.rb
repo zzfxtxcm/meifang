@@ -25,7 +25,6 @@ class NewHome < ActiveRecord::Base
 
   searchable do
     text :name, :boost => 5
-    integer :price
     integer :area_id
     integer :section_id
     integer :area_range_id
