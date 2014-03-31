@@ -22,30 +22,6 @@ $white: #fff;
   font-size:9px;
 }
 
-.tabbable {
-  #myTab {
-    .active a {
-      background: #FFF;
-      color: #000;
-      font-weight: bolder;
-    }
-    a {
-      background: none;
-    }
-  }
-  #myTabContent {
-    border-bottom: 1px solid #DDDDDD;
-    border-left: 1px solid #DDDDDD;
-    border-right: 1px solid #DDDDDD;
-    padding: 10px 10px 10px 10px;
-    height: 30px;
-  }
-  ul li a {
-    line-height: 15px;
-    margin-right: 14px;
-    padding: 8px 20px;
-  }
-}
 
 /* 左侧菜单 */
 .areaa {
@@ -68,17 +44,12 @@ $white: #fff;
 
 /*楼盘速递*/
 .l_new2 {
-  p {
-    color: #FFF;
-    background: #2db8ad;
-    width: 70px;
-    padding: 0px 10px 0px 10px;
-    font-size: 16px;
-    line-height: 200%;
-  }
+  font-size: 16px;
+  color: #f65c52;
+  line-height: 150%;
   a {
-    font-size: 14px;
-    line-height: 200%;
+    font-size: 16px;
+    line-height: 150%;
   }
 }
 
