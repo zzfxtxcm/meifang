@@ -125,22 +125,85 @@
           %a.pull-left{href: ""} 水岸新城国际大晒优惠大酬宾 还等什么呢
           %a.pull-right.mr20.cr{href: ""} 更多团购>>
     .mt10.pt10.pl5.pb10{style: "border: 1px solid #EEEEEE;"}
-      #myCarousel.carousel.slide.m0{style: "width:462px;"}
-        .carousel-inner
-          .item.active
-            = image_tag("tmp/bootstrap-slide-01.jpg")
-            .carousel-caption{style: "padding:10px;"}
-              %h4.lh150 罗兰春天地暖精装3房热
-          .item
-            = image_tag("tmp/bootstrap-slide-02.jpg")
-            .carousel-caption{style: "padding:10px;"}
-              %h4 皇家大三精装3房热
-          .item
-            = image_tag("tmp/bootstrap-slide-03.jpg")
-            .carousel-caption{style: "padding:10px;"}
-              %h4 罗兰春天地暖精装3房热吴涛
-        %a.left.carousel-control{"data-slide" => "prev", href: "#myCarousel"} ‹
-        %a.right.carousel-control{"data-slide" => "next", href: "#myCarousel"} ›
+      .imageRotation
+        .imageBox{style: "width: 2310px; left: -924px;"}
+          %a{href: "", target: "_blank"}
+            = image_tag("tmp/01.jpg")
+          %a{href: "", target: "_blank"}
+            = image_tag("tmp/02.jpg")
+          %a{href: "", target: "_blank"}
+            = image_tag("tmp/03.jpg")
+          %a{href: "", target: "_blank"}
+            = image_tag("tmp/04.jpg")
+          %a{href: "", target: "_blank"}
+            = image_tag("tmp/05.jpg")
+        .titleBox
+          %p.active{style: "bottom: -40px;"}
+            %span 第一张图片标题
+          %p{style: "bottom: -40px;"} 第二张图片标题
+          %p{style: "bottom: 0px;"} 第三张图片标
+          %p{style: "bottom: -40px;"} 第四张图片标题
+          %p 第五张图片标题
+        .icoBox
+          %span{rel: "1"} 1
+          %span{rel: "2"} 2
+          %span.active{rel: "3"} 3
+          %span{rel: "4"} 4
+          %span{rel: "5"} 5
+      :javascript
+        $(document).ready(function() {
+          $(".imageRotation").each(function(){
+            // 获取有关参数
+            var imageRotation = this,  // 图片轮换容器
+              imageBox = $(imageRotation).children(".imageBox")[0],  // 图片容器
+              titleBox = $(imageRotation).children(".titleBox")[0],  // 标题容器
+              titleArr = $(titleBox).children(),  // 所有标题（数组）
+              icoBox = $(imageRotation).children(".icoBox")[0],  // 图标容器
+              icoArr = $(icoBox).children(),  // 所有图标（数组）
+              imageWidth = $(imageRotation).width(),  // 图片宽度
+              imageNum = $(imageBox).children().size(),  // 图片数量
+              imageReelWidth = imageWidth*imageNum,  // 图片容器宽度
+              activeID = parseInt($($(icoBox).children(".active")[0]).attr("rel")),  // 当前图片ID
+              nextID = 0,  // 下张图片ID
+              setIntervalID,  // setInterval() 函数ID
+              intervalTime = 4000,  // 间隔时间
+              imageSpeed =500,  // 图片动画执行速度
+              titleSpeed =250;  // 标题动画执行速度
+            // 设置 图片容器 的宽度
+            $(imageBox).css({'width' : imageReelWidth + "px"});
+            // 图片轮换函数
+            var rotate=function(clickID){
+              if(clickID){ nextID = clickID; }
+              else{ nextID=activeID<=3 ? activeID+1 : 1; }
+              // 交换图标
+              $(icoArr[activeID-1]).removeClass("active");
+              $(icoArr[nextID-1]).addClass("active");
+              // 交换标题
+              $(titleArr[activeID-1]).animate(
+                {bottom:"-40px"},
+                titleSpeed,
+                function(){
+                  $(titleArr[nextID-1]).animate({bottom:"0px"} , titleSpeed);
+                }
+              );
+              // 交换图片
+              $(imageBox).animate({left:"-"+(nextID-1)*imageWidth+"px"} , imageSpeed);
+              // 交换IP
+              activeID = nextID;
+            }
+            setIntervalID=setInterval(rotate,intervalTime);
+            $(imageBox).hover(
+              function(){ clearInterval(setIntervalID); },
+              function(){ setIntervalID=setInterval(rotate,intervalTime); }
+            );  
+            $(icoArr).click(function(){
+              clearInterval(setIntervalID);
+              var clickID = parseInt($(this).attr("rel"));
+              rotate(clickID);
+              setIntervalID=setInterval(rotate,intervalTime);
+            });
+          });
+        });
     .mt10{style: "border: 1px solid #EEEEEE; height:240px; "}
       .title_l
         %p  专题
