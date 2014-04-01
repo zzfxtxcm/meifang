@@ -195,7 +195,7 @@
             $(imageBox).hover(
               function(){ clearInterval(setIntervalID); },
               function(){ setIntervalID=setInterval(rotate,intervalTime); }
-            );  
+            );
             $(icoArr).click(function(){
               clearInterval(setIntervalID);
               var clickID = parseInt($(this).attr("rel"));
@@ -433,16 +433,12 @@
       = image_tag("tmp/ad8.gif", alt: "",:class=>"img-polaroid ml5 mt5")
       .ml30.lh200
         %h4
-          %a.cr{href: "#"}
-            3月9日厦门湾南岸看房团 享多重独家特惠
-        %li
-          %a{href: "#"} 平和文化旅游项目新年开局良好 年度总投bbbb资7.5亿
-        %li
-          %a{href: "#"} 平和文化旅游项目新年开局良好 年度总投bbbb资7.5亿
-        %li
-          %a{href: "#"} 平和文化旅游项目新年开局良好 年度总投bbbb资7.5亿
-        %li
-          %a{href: "#"} 平和文化旅游项目新年开局良好 年度总投bbbb资7.5亿  
+          - Information.where(information_type_id: 13).limit(1).each do |information|
+            = link_to information.title, information, :class => "cr"
+        %ul
+          - Information.where(information_type_id: 13).limit(4).offset(1).each do |information|
+            %li
+              = link_to information.title, information
     .pull-left.mt10.ml20
       .title2_l
         %h4.f16.cr{style: "margin:0px"} 楼盘评测
@@ -528,66 +524,59 @@
         %a{href: ""} 更多
       .clearfix
       .ml20
-        %a{href: "#"}
-          %h4.f16.cr 3月9日厦门湾南岸看房团 享多重独家特惠
-        %a{href: "#"}
-          %li 平和文化旅游项目新年开局良好 年度总投资7.5亿
-        %a{href: "#"}
-          %li 漳州全力推进富美城市建设 持续加大项目建设力度
-        %a{href: "#"}
-          %li 平和文化旅游项目新年开局良好 年度总投资7.5亿
+        - Information.where(information_type_id: 20).limit(1).each do |information|
+          %h4.f16.cr
+            = link_to information.title, information
+        %ul
+          - Information.where(information_type_id: 20).limit(3).offset(1).each do |information|
+            %li
+              = link_to information.title, information
       .title3_l
         %p 购房警示
       .title3_r{align: "right", style: "width:288px"}
         %a{href: ""} 更多
       .clearfix
       .ml20
-        %a{href: "#"}
-          %h4.f16.cr 3月9日厦门湾南岸看房团 享多重独家特惠
-        %a{href: "#"}
-          %li 平和文化旅游项目新年开局良好 年度总投资7.5亿
-        %a{href: "#"}
-          %li 漳州全力推进富美城市建设 持续加大项目建设力度
-        %a{href: "#"}
-          %li 平和文化旅游项目新年开局良好 年度总投资7.5亿
+        - Information.where(information_type_id: 21).limit(1).each do |information|
+          %h4.f16.cr
+            = link_to information.title, information
+        %ul
+          - Information.where(information_type_id: 21).limit(3).offset(1).each do |information|
+            %li
+              = link_to information.title, information
     .pull-left.mt10.ml30
       .title3_l
-        %p 购房警示
+        %p 购房指南
       .title3_r{align: "right", style: "width:288px"}
         %a{href: ""} 更多
       .clearfix
       .ml10
-        %p.m0
-          %a.f16.lh200.cr{href: "#"}
-            %strong 3月9日厦门湾南岸看房团 享多重独家特惠
-        %p.m0
-          %a.f16.lh200{href: "#"}
-            %strong 3月9日厦门湾南岸看房团 享多重独家特惠
-        %p.m0
-          %a.f16.lh200{href: "#"}
-            %strong 3月9日厦门湾南岸看房团 享多重独家特惠
-        %p.m0
-          %a.f16.lh200{href: "#"}
-            %strong 3月9日厦门湾南岸看房团 享多重独家特惠
-        = image_tag("tmp/ad5.gif", alt: "",:class=>"img-polaroid ml10",:style=>" width:360px;")
+        %ul.unstyled
+          - Information.where(information_type_id: 22).limit(1).each do |information|
+            %li.m0
+              = link_to information.title, information, :class => "f16 lh200 cr"
+          - Information.where(information_type_id: 22).limit(3).offset(1).each do |information|
+            %li.m0
+              = link_to information.title, information, :class => "f16 lh200"
+        = image_tag("tmp/ad5.gif", alt: "", :class => "img-polaroid ml10", :style => "width:360px;")
     .pull-left.ml30.mt15
       .title2_l
-        %h4.f16.cr{style: "margin:0px"} 楼盘评测
-      .title2_r{align: "right", style: "width:175px;"}
-        %a{href: ""} 更多
+        %h4.f16.cr{ style: "margin:0px" } 楼盘评测
+      .title2_r{ align: "right", style: "width:175px;" }
+        %a{ href: "" } 更多
       .clearfix
       %table.table.table-condensed.li_type_none
         %tr
           %td
-            %a{href: "#"}
+            %a{ href: "#" }
               %li 1  [房产热词]首套房贷
         %tr
           %td
-            %a{href: "#"}
+            %a{ href: "#" }
               %li 2  [房产热词]房价
         %tr
           %td
-            %a{href: "#"}
+            %a{ href: "#" }
               %li 3  [房产热词]漳州碧湖商业圈
         %tr
           %td
