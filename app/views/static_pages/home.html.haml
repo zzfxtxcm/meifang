@@ -483,7 +483,7 @@
             %td
               %a{href: "#"}
                 %li 8  [房产热词]保障性住房事宜
-                
+
     .pull-left.mt10
       .title3_l
         %p 代理公司
@@ -522,121 +522,166 @@
     .pull-left{style: "background:url(#{asset_path("ban2.gif")});height:53px; width: 1067px; background-repeat:repeat-x"}
       %h4{style: "color:#FFF; margin-top:24px;"} 购房百科
     .pull-left.mt10.ml30
-      %table{border: "0", width: "410px"}
-        %tr
-          %td{height: "32px", style: "background: url(#{asset_path("t_2.gif")}) no-repeat; margin:0px;", width: "122px"}
-            %a1 购房须知
-          %td{align: "right", style: "background:#ececec"}
-            %a.pr20{href: ""} 更多>
-        %tr
-          %td.pl15{colspan: "2"}
-            - Information.where(information_type_id: 9).limit(1).each do |information|
-              %strong
-                = link_to information.title, information, :class => 'f16 lh200', :style => 'color: #f65c52'
-                %br/
-            - Information.where(information_type_id: 9).limit(3).offset(1).each do |information|
-              %li
-                = link_to information.title, information
-      %table{border: "0", width: "410px"}
-        %tr
-          %td{height: "32px", style: "background: url(#{asset_path("t_2.gif")}) no-repeat; margin:0px;", width: "122px"}
-            %a1 购房警示
-          %td{align: "right", style: "background:#ececec"}
-            %a.pr20{href: ""} 更多>
-        %tr
-          %td.pl15{colspan: "2"}
-            - Information.where(information_type_id: 10).limit(1).each do |information|
-              %strong
-                = link_to information.title, information, :class => 'f16 lh200', :style => 'color: #f65c52'
-              %br/
-            - Information.where(information_type_id: 10).limit(3).offset(1).each do |information|
-              %li
-                = link_to information.title, information
+      .title3_l
+        %p 购房须知
+      .title3_r{align: "right", style: "width:288px"}
+        %a{href: ""} 更多
+      .clearfix
+      .ml20
+        %a{href: "#"}
+          %h4.f16.cr 3月9日厦门湾南岸看房团 享多重独家特惠
+        %a{href: "#"}
+          %li 平和文化旅游项目新年开局良好 年度总投资7.5亿
+        %a{href: "#"}
+          %li 漳州全力推进富美城市建设 持续加大项目建设力度
+        %a{href: "#"}
+          %li 平和文化旅游项目新年开局良好 年度总投资7.5亿
+      .title3_l
+        %p 购房警示
+      .title3_r{align: "right", style: "width:288px"}
+        %a{href: ""} 更多
+      .clearfix
+      .ml20
+        %a{href: "#"}
+          %h4.f16.cr 3月9日厦门湾南岸看房团 享多重独家特惠
+        %a{href: "#"}
+          %li 平和文化旅游项目新年开局良好 年度总投资7.5亿
+        %a{href: "#"}
+          %li 漳州全力推进富美城市建设 持续加大项目建设力度
+        %a{href: "#"}
+          %li 平和文化旅游项目新年开局良好 年度总投资7.5亿
     .pull-left.mt10.ml30
-      %table{border: "0", width: "410px"}
-        %tr
-          %td{height: "32px", style: "background: url(#{asset_path("t_2.gif")}) no-repeat; margin:0px;", width: "122px"}
-            %a1 购房指南
-          %td{align: "right", style: "background:#ececec"}
-            %a.pr20{href: ""} 更多>
-        %tr
-          %td.pl15{colspan: "2"}
-            - Information.where(information_type_id: 11).limit(1).each do |information|
-              %strong
-                = link_to information.title, information, :class => 'f16 lh200', :style => 'color:#f65c52'
-                %br/
-            - Information.where(information_type_id: 11).limit(3).offset(1).each do |information|
-              %strong
-                = link_to information.title, information
-                %br/
-        %tr
-          %td{colspan: "2"}
-            = image_tag "tmp/ad5.gif", :style => "width: 360px"
+      .title3_l
+        %p 购房警示
+      .title3_r{align: "right", style: "width:288px"}
+        %a{href: ""} 更多
+      .clearfix
+      .ml10
+        %p.m0
+          %a.f16.lh200.cr{href: "#"}
+            %strong 3月9日厦门湾南岸看房团 享多重独家特惠
+        %p.m0
+          %a.f16.lh200{href: "#"}
+            %strong 3月9日厦门湾南岸看房团 享多重独家特惠
+        %p.m0
+          %a.f16.lh200{href: "#"}
+            %strong 3月9日厦门湾南岸看房团 享多重独家特惠
+        %p.m0
+          %a.f16.lh200{href: "#"}
+            %strong 3月9日厦门湾南岸看房团 享多重独家特惠
+        = image_tag("tmp/ad5.gif", alt: "",:class=>"img-polaroid ml10",:style=>" width:360px;")
     .pull-left.ml30.mt15
-      %table{width: "250px;"}
+      .title2_l
+        %h4.f16.cr{style: "margin:0px"} 楼盘评测
+      .title2_r{align: "right", style: "width:175px;"}
+        %a{href: ""} 更多
+      .clearfix
+      %table.table.table-condensed.li_type_none
         %tr
-          %td{style: "border-bottom:2px solid #2db8ad ", width: "40%"}
-            %h4{style: "margin:0px"} 资料分享
-          %td{align: "right", style: "border-bottom:2px solid #EEEEEE "}
-            %a.pr20{href: ""} 更多
+          %td
+            %a{href: "#"}
+              %li 1  [房产热词]首套房贷
         %tr
-          %td{colspan: "2"}
-            %table.table.table-condensed
-              %tr
-                %td
-                  %a{href: "#"}
-                    %li 1  [房产热词]首套房贷
-              %tr
-                %td
-                  %a{href: "#"}
-                    %li 2  [房产热词]房价
-              %tr
-                %td
-                  %a{href: "#"}
-                    %li 3  [房产热词]漳州碧湖商业圈
-              %tr
-                %td
-                  %a{href: "#"}
-                    %li 4  [房产热词]房产证相关问题
-              %tr
-                %td
-                  %a{href: "#"}
-                    %li 5  [房产热词]国五条那些事
-              %tr
-                %td
-                  %a{href: "#"}
-                    %li 6  [房产热词]房产税如何征收
-              %tr
-                %td
-                  %a{href: "#"}
-                    %li 7  [房产热词]公积金贷款问题
-              %tr
-                %td
-                  %a{href: "#"}
-                    %li 8  [房产热词]保障性住房事宜
+          %td
+            %a{href: "#"}
+              %li 2  [房产热词]房价
+        %tr
+          %td
+            %a{href: "#"}
+              %li 3  [房产热词]漳州碧湖商业圈
+        %tr
+          %td
+            %a{href: "#"}
+              %li 4  [房产热词]房产证相关问题
+        %tr
+          %td
+            %a{href: "#"}
+              %li 5  [房产热词]国五条那些事
+        %tr
+          %td
+            %a{href: "#"}
+              %li 6  [房产热词]房产税如何征收
+        %tr
+          %td
+            %a{href: "#"}
+              %li 7  [房产热词]公积金贷款问题
+        %tr
+          %td
+            %a{href: "#"}
+              %li 8  [房产热词]保障性住房事宜
     .clearfix
+    .tool
+      %table.table.table-bordered
+        %thead
+          %tr{bgcolor: "#ececec"}
+            %th 房贷计算器
+            %th 购房计算器
+            %th 前期准备
+            %th 买房技巧
+            %th 实地看房
+            %th 楼盘比较
+        %tbody
+          %tr
+            %td
+              %a{href: "#"} 购房能力评估计算器
+              %br/
+              %a{href: "#"} 购房能力评估计算器
+              %br/
+            %td
+              %a{href: "#"} 购房能力评估计算器
+            %td
+              %a{href: "#"} 购房能力评估计算器
+            %td
+              %a{href: "#"} 购房能力评估计算器
+            %td
+              %a{href: "#"} 购房能力评估计算器
+            %td
+              %a{href: "#"} 购房能力评估计算器
+          %tr{bgcolor: "#ececec"}
+            %th 认购
+            %th 合同
+            %th 贷款
+            %th 物业
+            %th 收房
+            %th 房产证
+          %tr
+            %td
+              %a{href: "#"} 购房能力评估计算器
+              %br/
+              %a{href: "#"} 购房能力评估计算器
+              %br/
+            %td
+              %a{href: "#"} 购房能力评估计算器
+            %td
+              %a{href: "#"} 购房能力评估计算器
+            %td
+              %a{href: "#"} 购房能力评估计算器
+            %td
+              %a{href: "#"} 购房能力评估计算器
+            %td
+              %a{href: "#"} 购房能力评估计算器
       / 友情链接
-    %table.table.table-bordered
-      %tr
-        %td{bgcolor: "#ececec", width: "192px;"}
-          %p{align: "center"}
-            %strong 友情链接
-          %a.ml30{href: ""}
-            %input.btn.btn-info{style: "background:#2db8ad; width:90px;", value: "申请链接>"}/
-        %td.yqlj
-          %a 池州房产网
-          %a 苏州租房
-          %a 包头房产网
-          %a 威海房地产
-          %a 襄阳房产
-          %a 超市网盐
-          %a 城房产网
-          %a 大连房产网
-          %a 石家庄看房团
-          %a 重庆房地产
-          %a 东莞房产
-          %a 桐乡房产
-          %a 上海租房网
+      %table.table.table-bordered
+        %tr
+          %td{bgcolor: "#ececec", width: "192px;"}
+            %p{align: "center"}
+              %strong 友情链接
+            %a.ml30{href: ""}
+              %input.btn.btn-info{style: "background:#2db8ad; width:90px;", value: "申请链接>"}/
+          %td.yqlj
+            %a 池州房产网
+            %a 苏州租房
+            %a 包头房产网
+            %a 威海房地产
+            %a 襄阳房产
+            %a 超市网盐
+            %a 城房产网
+            %a 大连房产网
+            %a 石家庄看房团
+            %a 重庆房地产
+            %a 东莞房产
+            %a 桐乡房产
+            %a 上海租房网
       / end友情链接
   / end楼购房百科
 / con end
