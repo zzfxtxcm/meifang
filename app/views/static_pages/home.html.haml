@@ -324,17 +324,19 @@
           %li.active{style: "border-bottom: 1px solid #2db8ad;"}
             %a{"data-toggle" => "tab", href: "#l_hot"} 楼市资讯
         #myTabContent.tab-content
-          #l_hot.tab-pane.fade.active.in
+          %ul.tab-pane.fade.active.in#l_hot
             - Information.where(information_type_id: 6).limit(8).each do |information|
-              = link_to information.title, information
+              %li
+                = link_to information.title, information
       %div{style: "width:400px;"}
         %ul#myTab.nav.nav-tabs.mb5{style: "border-bottom: 1px solid #2db8ad;"}
           %li.active{style: "border-bottom: 1px solid #2db8ad;"}
             %a{"data-toggle" => "tab", href: "#act"} 楼市观点
         #myTabContent.tab-content
-          #act.tab-pane.fade.active.in
-            - Information.where(information_type_id: 9).limit(8).each do |information|
-              = link_to information.title, information
+          %ul.fade.active.in#act#tab-pane
+            - Information.where(information_type_id: 7).limit(8).each do |information|
+              %li
+                = link_to information.title, information
     / end右边中
     / 右边右
     .pull-left.ml20{style: "width:465px;"}

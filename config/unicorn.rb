@@ -1,4 +1,4 @@
-worker_processes 1
+worker_processes 2
 timeout 30
 
 APP_PATH = File.expand_path("../..", __FILE__)
