@@ -397,12 +397,11 @@
       %h4{style: "color:#FFF; margin-top:24px;"} 地产圈
     .clearfix
     .pull-left
-      %table.mt20{width: "1170px;"}
-        %tr
-          %td{height: "32px", style: "background: url(#{asset_path("t_1.gif")}) no-repeat; margin:0px;", width: "107px"}
-            %a1 名人堂
-          %td{align: "right", style: "border-bottom:1px solid #EEEEEE;"}
-            %a.pr20{href: ""} 更多>
+      .pull-left.mt10.mb10
+        .title3_l
+          %p 名人堂
+        .title3_r{align: "right", style: "width:1047px"}
+          %a{href: ""} 更多
     / picrotate_left start
     .blk_18
       %a.LeftBotton{href: "javascript:void(0);", onmousedown: "ISL_GoUp_1()", onmouseout: "ISL_StopUp_1()", onmouseup: "ISL_StopUp_1()", target: "_self"}
@@ -423,70 +422,68 @@
       picrun_ini()
       //-->
     / picrotate_left end
-    .pull-left.mt10
-      = image_tag("tmp/ad6.gif", alt: "", :style => "height:313px; width:290px")
-    .pull-left.mt10.ml30
-      %table{border: "0", width: "485px"}
-        %tr
-          %td{height: "32px", style: "background: url(#{asset_path("t_2.gif")}) no-repeat; margin:0px;", width: "122px"}
-            %a1 活动
-          %td{align: "right", style: "background:#ececec"}
-            %a.pr20{href: ""} 更多>
-        %tr
-          %td{colspan: "2"}
-            = image_tag("tmp/ad7.gif", alt: "", :class => "img-polaroid ml5 mt5", :style => "height:130px; width:160px")
-            = image_tag("tmp/ad8.gif", alt: "", :class => "img-polaroid ml5 mt5", :style => "height:130px; width:160px")
-        %tr
-          %td{colspan: "2"}
-            - Information.where(information_type_id: 8).limit(1).each do |information|
-              %strong
-                = link_to information.title, information, :class => 'f16 lh200', :style => 'color:#2db8ad'
-              %br/
-            - Information.where(information_type_id: 8).limit(4).offset(1).each do |information|
-              %li
-                = link_to information.title, information
-    .pull-left.ml30.mt15
-      %table{width: "320px;"}
-        %tr
-          %td{style: "border-bottom:2px solid #2db8ad ", width: "30%"}
-            %h4{style: "margin:0px"} 资料分享
-          %td{align: "right", style: "border-bottom:2px solid #EEEEEE "}
-            %a.pr20{href: ""} 更多
-        %tr
-          %td{colspan: "2"}
-            %table.table.table-condensed
-              %tr
-                %td
-                  %a{href: "#"}
-                    %li 1  [房产热词]首套房贷
-              %tr
-                %td
-                  %a{href: "#"}
-                    %li 2  [房产热词]房价
-              %tr
-                %td
-                  %a{href: "#"}
-                    %li 3  [房产热词]漳州碧湖商业圈
-              %tr
-                %td
-                  %a{href: "#"}
-                    %li 4  [房产热词]房产证相关问题
-              %tr
-                %td
-                  %a{href: "#"}
-                    %li 5  [房产热词]国五条那些事
-              %tr
-                %td
-                  %a{href: "#"}
-                    %li 6  [房产热词]房产税如何征收
-              %tr
-                %td
-                  %a{href: "#"}
-                    %li 7  [房产热词]公积金贷款问题
-              %tr
-                %td
-                  %a{href: "#"}
-                    %li 8  [房产热词]保障性住房事宜
+    .pull-left.mt10.ml30.mr20
+      = image_tag("tmp/ad6.gif", alt: "",:class=>"img-polaroid", :style => "width:270px")
+    .pull-left.mt10{style: "width:526px;"}
+      .title3_l
+        %p 活动
+      .title3_r{align: "right"}
+        %a{href: ""} 更多
+      = image_tag("tmp/ad7.gif", alt: "",:class=>"img-polaroid ml5 mt5")
+      = image_tag("tmp/ad8.gif", alt: "",:class=>"img-polaroid ml5 mt5")
+      .ml30.lh200
+        %h4
+          %a.cr{href: "#"}
+            3月9日厦门湾南岸看房团 享多重独家特惠
+        %li
+          %a{href: "#"} 平和文化旅游项目新年开局良好 年度总投bbbb资7.5亿
+        %li
+          %a{href: "#"} 平和文化旅游项目新年开局良好 年度总投bbbb资7.5亿
+        %li
+          %a{href: "#"} 平和文化旅游项目新年开局良好 年度总投bbbb资7.5亿
+        %li
+          %a{href: "#"} 平和文化旅游项目新年开局良好 年度总投bbbb资7.5亿  
+    .pull-left.mt10.ml20
+      .title2_l
+        %h4.f16.cr{style: "margin:0px"} 楼盘评测
+      .title2_r{align: "right", style: "width:200px;"}
+        %a{href: ""} 更多
+      .clearfix
+      .pull-left
+        %table.table.table-condensed.pull-left.li_type_none{style: "width:280px"}
+          %tr
+            %td
+              %a{href: "#"}
+                %li 1  [房产热词]首套房贷
+          %tr
+            %td
+              %a{href: "#"}
+                %li 2  [房产热词]房价
+          %tr
+            %td
+              %a{href: "#"}
+                %li 3  [房产热词]漳州碧湖商业圈
+          %tr
+            %td
+              %a{href: "#"}
+                %li 4  [房产热词]房产证相关问题
+          %tr
+            %td
+              %a{href: "#"}
+                %li 5  [房产热词]国五条那些事
+          %tr
+            %td
+              %a{href: "#"}
+                %li 6  [房产热词]房产税如何征收
+          %tr
+            %td
+              %a{href: "#"}
+                %li 7  [房产热词]公积金贷款问题
+          %tr
+            %td
+              %a{href: "#"}
+                %li 8  [房产热词]保障性住房事宜
+                
     .pull-left.mt10
       .title3_l
         %p 代理公司
