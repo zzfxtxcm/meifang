@@ -435,53 +435,22 @@
       = image_tag("tmp/ad8.gif", alt: "",:class=>"img-polaroid ml5 mt5")
       .ml30.lh200
         %h4
-          - Information.where(information_type_id: 13).limit(1).each do |information|
+          - Information.where(information_type_id: 8).limit(1).each do |information|
             = link_to information.title, information, :class => "cr"
         %ul
-          - Information.where(information_type_id: 13).limit(4).offset(1).each do |information|
+          - Information.where(information_type_id: 8).limit(4).offset(1).each do |information|
             %li
               = link_to information.title, information
-    .pull-left.mt10.ml20
+    .pull-right.mt10.ml20
       .title2_l
         %h4.f16.cr{style: "margin:0px"} 楼盘评测
       .title2_r{align: "right", style: "width:200px;"}
         %a{href: ""} 更多
       .clearfix
-      .pull-left
-        %table.table.table-condensed.pull-left.li_type_none{style: "width:280px"}
-          %tr
-            %td
-              %a{href: "#"}
-                %li 1  [房产热词]首套房贷
-          %tr
-            %td
-              %a{href: "#"}
-                %li 2  [房产热词]房价
-          %tr
-            %td
-              %a{href: "#"}
-                %li 3  [房产热词]漳州碧湖商业圈
-          %tr
-            %td
-              %a{href: "#"}
-                %li 4  [房产热词]房产证相关问题
-          %tr
-            %td
-              %a{href: "#"}
-                %li 5  [房产热词]国五条那些事
-          %tr
-            %td
-              %a{href: "#"}
-                %li 6  [房产热词]房产税如何征收
-          %tr
-            %td
-              %a{href: "#"}
-                %li 7  [房产热词]公积金贷款问题
-          %tr
-            %td
-              %a{href: "#"}
-                %li 8  [房产热词]保障性住房事宜
-
+      %ul.pull-left.li_type_none
+        - Information.where(information_type_id: 12).limit(8).each do |information|
+          %li
+            = link_to information.title, information
     .pull-left.mt10
       .title3_l
         %p 代理公司
@@ -567,39 +536,10 @@
       .title2_r{ align: "right", style: "width:175px;" }
         %a{ href: "" } 更多
       .clearfix
-      %table.table.table-condensed.li_type_none
-        %tr
-          %td
-            %a{ href: "#" }
-              %li 1  [房产热词]首套房贷
-        %tr
-          %td
-            %a{ href: "#" }
-              %li 2  [房产热词]房价
-        %tr
-          %td
-            %a{ href: "#" }
-              %li 3  [房产热词]漳州碧湖商业圈
-        %tr
-          %td
-            %a{href: "#"}
-              %li 4  [房产热词]房产证相关问题
-        %tr
-          %td
-            %a{href: "#"}
-              %li 5  [房产热词]国五条那些事
-        %tr
-          %td
-            %a{href: "#"}
-              %li 6  [房产热词]房产税如何征收
-        %tr
-          %td
-            %a{href: "#"}
-              %li 7  [房产热词]公积金贷款问题
-        %tr
-          %td
-            %a{href: "#"}
-              %li 8  [房产热词]保障性住房事宜
+      %ul.pull-left.li_type_none
+        - Information.where(information_type_id: 12).limit(8).each do |information|
+          %li
+            = link_to information.title, information
     .clearfix
     .tool
       %table.table.table-bordered
