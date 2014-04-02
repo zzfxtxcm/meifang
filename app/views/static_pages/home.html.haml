@@ -3,7 +3,9 @@
   .pull-left
     .panel.panel-primary
       .panel-heading
-        %h3.panel-title 漳州新房
+        %h3.panel-title
+          楼盘推荐
+          %a.pull-right.f14{href: "#"} 更多>
       .panel-body
         - @areas[0..5].each do |area|
           %div{style: "border-bottom: 1px solid #EEEEEE; height:75px;"}
@@ -126,30 +128,18 @@
           %a.pull-right.mr20.cr{href: ""} 更多团购>>
     .mt10.pt10.pl5.pb10{style: "border: 1px solid #EEEEEE;"}
       .imageRotation
-        .imageBox{style: "width: 2310px; left: -924px;"}
+        .imageBox{style: "width: 924px;"}
           %a{href: "", target: "_blank"}
-            = image_tag("tmp/01.jpg")
+            = image_tag("tmp/gad1.jpg")
           %a{href: "", target: "_blank"}
-            = image_tag("tmp/02.jpg")
-          %a{href: "", target: "_blank"}
-            = image_tag("tmp/03.jpg")
-          %a{href: "", target: "_blank"}
-            = image_tag("tmp/04.jpg")
-          %a{href: "", target: "_blank"}
-            = image_tag("tmp/05.jpg")
+            = image_tag("tmp/gad2.jpg")
         .titleBox
-          %p.active{style: "bottom: -40px;"}
-            %span 第一张图片标题
-          %p{style: "bottom: -40px;"} 第二张图片标题
-          %p{style: "bottom: 0px;"} 第三张图片标
-          %p{style: "bottom: -40px;"} 第四张图片标题
-          %p 第五张图片标题
+          %p.active{style: "bottom:0px;"}
+            %span 本地化房产团购、电商门户
+          %p{style: "bottom: -40px;"} 电商第一门户为目标
         .icoBox
-          %span{rel: "1"} 1
+          %span.active{rel: "1"} 1
           %span{rel: "2"} 2
-          %span.active{rel: "3"} 3
-          %span{rel: "4"} 4
-          %span{rel: "5"} 5
       :javascript
         $(document).ready(function() {
           $(".imageRotation").each(function(){
@@ -174,7 +164,7 @@
             // 图片轮换函数
             var rotate=function(clickID){
               if(clickID){ nextID = clickID; }
-              else{ nextID=activeID<=3 ? activeID+1 : 1; }
+              else{ nextID=activeID<=1 ? activeID+1 : 1; }
               // 交换图标
               $(icoArr[activeID-1]).removeClass("active");
               $(icoArr[nextID-1]).addClass("active");
@@ -214,9 +204,9 @@
         %p.f16.lh200
           = image_tag("tmp/ad3.jpg", :class => "img-polaroid mr20", :style => "width:265px; height:150px", :align => "left")
           %strong
-            %a.f18.cl{href: ""} 港城御龙湾
+            %a.f18.cl{href: ""} 关于美房
           %br/
-          定制型精英公馆，幸福开启定制型精英公馆，幸福开启定制型精英公馆，幸福开启港城御龙湾：定制型精英公馆型精英公馆，幸幸福开启定型,优惠...
+          定位：本地化房产团购、电商门户。目标：美房网以打造全国性的房产团购、电商第一门户为目标，致力为购房者提供优质和便利的服务。特色……
           %a{href: "#", style: "color:#f65c52"} [详情]
   / end 右边右
   / 右边end
@@ -242,33 +232,33 @@
               %th 区属
               %th 价格
           %tr
-            %td 华府国际
+            %td 永鸿国际城
             %td 芗城
-            %td 8000元/&sup2
+            %td 6800元/m&sup2
           %tr
-            %td 湘江北岸新城
+            %td 夏商书香名苑
+            %td 芗城
+            %td 6500元/m&sup2
+          %tr
+            %td 欣隆盛世外滩
+            %td 芗城
+            %td 9500元/m&sup2
+          %tr
+            %td 惠祥香槟左岸
             %td 龙文
-            %td 8500元/&sup2
+            %td 5700元/m&sup2
           %tr
-            %td 张龙御景豪宅
-            %td 芗城
-            %td 7000元/&sup2
+            %td 福隆城央璟
+            %td 龙文
+            %td 6800元/m&sup2
           %tr
-            %td 华府国际
-            %td 芗城
-            %td 8000元/&sup2
+            %td 万益广场
+            %td 角美
+            %td 8200元/m&sup2
           %tr
-            %td 华府国际
-            %td 芗城
-            %td 8000元/&sup2
-          %tr
-            %td 华府国际
-            %td 芗城
-            %td 8000元/&sup2
-          %tr
-            %td 华府国际新城
-            %td 龙海
-            %td 待定
+            %td 永鸿厦门湾南岸
+            %td 漳州港
+            %td 8300元/m&sup2
     .panel.panel-primary
       .panel-heading
         %h3.panel-title
@@ -369,7 +359,7 @@
         %a.f16{href: "#"}
           %li.lh200 大型交友会
       .title2_l
-        %h4.f16.cr{style: "margin:0px"} 楼盘评测
+        %h4.f16.cr{style: "margin:0px"} 房产词条
       .title2_r{align: "right"}
         %a{href: ""} 更多
       .clearfix
@@ -443,7 +433,7 @@
               = link_to information.title, information
     .pull-right.mt10.ml20
       .title2_l
-        %h4.f16.cr{style: "margin:0px"} 楼盘评测
+        %h4.f16.cr{style: "margin:0px"} 资料分享
       .title2_r{align: "right", style: "width:200px;"}
         %a{href: ""} 更多
       .clearfix
