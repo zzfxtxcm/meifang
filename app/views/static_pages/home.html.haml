@@ -53,12 +53,12 @@
     .pull-left.pt10
       = image_tag("jrtt.gif")
     .pull-left.ml10
-      %h3{style: "color:#2db8ad"}
-        - Information.where(information_type_id: 1).limit(1).each do |information|
+      - Information.where(information_type_id: 1).limit(1).each do |information|
+        %h3{style: "color:#2db8ad"}
           = link_to information.title, information
-      %p
-        【调查】 1月厦门房价环涨居全国第1，您咋看？1月厦门房价环涨居全国第1，您咋价环涨居全国第1，您咋看？1月厦门房？
-        %a.cr{href: "#"} 详情
+        %p
+          = information.description
+          = link_to "详情", information, :class => "cr"
     / 右边中
   .l_new2.pull-left.ml20{style: "border-right: 1px solid #EEEEEE; width:410px;"}
     .title_l
@@ -68,20 +68,20 @@
     .pull-left
       %h4
         - Information.where(information_type_id: 2).limit(1).each do |information|
-          = link_to information.title, information
+          = link_to information.title, information, :class => "cr"
       %p
         - Information.where(information_type_id: 2).limit(1).offset(1).each do |information|
           = link_to information.title, information
       %h4
         - Information.where(information_type_id: 2).limit(1).offset(2).each do |information|
-          = link_to information.title, information
+          = link_to information.title, information, :class => "cr"
       %p
         - Information.where(information_type_id: 2).limit(1).offset(3).each do |information|
           = link_to information.title, information
       .boder_line
       %h4
         - Information.where(information_type_id: 2).limit(1).offset(4).each do |information|
-          = link_to information.title, information
+          = link_to information.title, information, :class => "cr"
       - Information.where(information_type_id: 2).limit(3).offset(5).each do |information|
         %p
           = link_to information.title, information
@@ -93,14 +93,14 @@
     .pull-left
       %h4
         - Information.where(information_type_id: 3).limit(1).each do |information|
-          = link_to information.title, information
+          = link_to information.title, information, :class => "cr"
       - Information.where(information_type_id: 3).limit(3).offset(1).each do |information|
         %p
           = link_to information.title, information
       .boder_line
       %h4
         - Information.where(information_type_id: 3).limit(1).offset(4).each do |information|
-          = link_to information.title, information
+          = link_to information.title, information, :class => "cr"
       - Information.where(information_type_id: 3).limit(3).offset(5).each do |information|
         %p
           = link_to information.title, information
@@ -111,7 +111,7 @@
     .pull-left
       %h4
         - Information.where(information_type_id: 4).limit(1).each do |information|
-          = link_to information.title, information
+          = link_to information.title, information, :class => "cr"
       - Information.where(information_type_id: 4).limit(3).offset(1).each do |information|
         %p
           = link_to information.title, information
@@ -526,11 +526,11 @@
         %a{href: ""} 更多
       .clearfix
       .ml20
-        - Information.where(information_type_id: 20).limit(1).each do |information|
+        - Information.where(information_type_id: 9).limit(1).each do |information|
           %h4.f16.cr
-            = link_to information.title, information
+            = link_to information.title, information, :class => "cr"
         %ul
-          - Information.where(information_type_id: 20).limit(3).offset(1).each do |information|
+          - Information.where(information_type_id: 9).limit(3).offset(1).each do |information|
             %li
               = link_to information.title, information
       .title3_l
@@ -539,11 +539,11 @@
         %a{href: ""} 更多
       .clearfix
       .ml20
-        - Information.where(information_type_id: 21).limit(1).each do |information|
+        - Information.where(information_type_id: 10).limit(1).each do |information|
           %h4.f16.cr
-            = link_to information.title, information
+            = link_to information.title, information, :class => "cr"
         %ul
-          - Information.where(information_type_id: 21).limit(3).offset(1).each do |information|
+          - Information.where(information_type_id: 10).limit(3).offset(1).each do |information|
             %li
               = link_to information.title, information
     .pull-left.mt10.ml30
@@ -554,10 +554,10 @@
       .clearfix
       .ml10
         %ul.unstyled
-          - Information.where(information_type_id: 22).limit(1).each do |information|
+          - Information.where(information_type_id: 11).limit(1).each do |information|
             %li.m0
               = link_to information.title, information, :class => "f16 lh200 cr"
-          - Information.where(information_type_id: 22).limit(3).offset(1).each do |information|
+          - Information.where(information_type_id: 11).limit(3).offset(1).each do |information|
             %li.m0
               = link_to information.title, information, :class => "f16 lh200"
         = image_tag("tmp/ad5.gif", alt: "", :class => "img-polaroid ml10", :style => "width:360px;")
