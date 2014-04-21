@@ -163,6 +163,8 @@ zh-CN:
         name: "名称"
         price: "均价"
         created_at: "创建时间"
+    alubms:
+      alubms: "相册"
     information_estate_openeds:
       title: "开盘信息管理"
       list:

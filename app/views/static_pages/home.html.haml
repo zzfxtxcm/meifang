@@ -59,7 +59,7 @@
         %h3{style: "color:#2db8ad"}
           = link_to information.title, information
         %p
-          = information.description
+          = information.description.first(60)
           = link_to "详情", information, :class => "cr"
     / 右边中
   .l_new2.pull-left.ml20{style: "border-right: 1px solid #EEEEEE; width:410px;"}
@@ -440,7 +440,7 @@
       %ul.pull-left.li_type_none
         - Information.where(information_type_id: 12).limit(8).each do |information|
           %li
-            = link_to information.title, information
+            = link_to information.title.first(15), information
     .pull-left.mt10
       .title3_l
         %p 代理公司
