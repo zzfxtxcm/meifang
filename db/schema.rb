@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140328083906) do
+ActiveRecord::Schema.define(version: 20140421071245) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -108,6 +108,16 @@ ActiveRecord::Schema.define(version: 20140328083906) do
   end
 
   add_index "developers", ["name"], name: "index_developers_on_name"
+
+  create_table "group_buyings", force: true do |t|
+    t.integer  "new_home_id"
+    t.integer  "price"
+    t.text     "explanation"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "information", force: true do |t|
     t.integer  "category_id"

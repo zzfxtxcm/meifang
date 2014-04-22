@@ -7,6 +7,7 @@ namespace :db do
     make_developers
     make_new_homes
     make_information
+    make_group_buying
   end
 
   def make_categories
@@ -113,7 +114,7 @@ namespace :db do
 
   def make_information
     Information.create!(category_id: Category.first.id,
-                        title: "漳州楼市",
+                        title: "楼市",
                         information_thumb: "",
                         source: "来源",
                         keywords: "关键词,关键词",
@@ -131,7 +132,23 @@ namespace :db do
                                                       keywords: "关键词,关键词",
                                                       description: "描述描述描述描述",
                                                       content: content,
-                                                      information_type_id: 2)  }
+                                                      information_type_id: 2) }
+    end
+  end
+
+  def make_group_buying
+    new_homes = NewHome.all(limit:6)
+    10.times do |n|
+      price = Faker::Number.number(4)
+      explanation = Faker::Lorem.sentence(10)
+      start_time = rand(10.days).ago
+      end_time = rand(10.days).from_now
+      new_homes.each do |new_home|
+        new_home.group_buyings.create!(price: price,
+                                      explanation: explanation,
+                                      start_time: start_time,
+                                      end_time: end_time)
+      end
     end
   end
 end
