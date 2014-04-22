@@ -1,0 +1,163 @@
+/ 导航
+.tgnav
+  .container
+    .active
+      %a{href: "#"} 淘房汇
+.mt10.clearfix.container
+  / 左边
+  .pull-left{style: "width:907px;"}
+    :javascript
+      $(function() {
+      		jQuery('.marquee').kxbdSuperMarquee({
+      		  distance:850,
+      		  time:4,
+      		  navId:'#mar3Nav',
+      		  direction:'left'
+      		});
+      	  });
+    .ttf.border_bot
+      .border_top
+        %span.f20 特推房源
+      .border_cont.ttf_cont
+        #mar3Nav
+        #scrollable-1.marquee
+          %ul{style: "width:5100px;"}
+            %li
+              .pic
+                %a{alt: "滟紫台", href: "", rel: "nofollow", target: "_blank"}
+                  %img{alt: "滟紫台", src: "upload/img/ad8.gif", style: " width:265px; height:166px;", title: "滟紫台"}/
+                %h2
+                  %a{href: "", target: "_blank"} 滟紫台
+                  %span 热卖中
+                %p 限时抢购：2014.03.01-2014.06.30
+              .pic
+                %a{alt: "万达西双版纳国际度假区", href: "", rel: "nofollow", target: "_blank"}
+                  %img{alt: "万达西双版纳国际度假区", src: "upload/img/ad7.gif", style: " width:265px; height:166px;", title: "万达西双版纳国际度假区"}/
+                %h2
+                  %a{href: "", target: "_blank"} 万达西双版纳国际度假区
+                  %span 热卖中
+                %p.blue
+                %p 限时抢购：2014.03.01-2014.05.31
+              .pic
+                %a{alt: "紫荆国际公寓", href: "", rel: "nofollow", target: "_blank"}
+                  %img{alt: "紫荆国际公寓", src: "upload/img/ad7.gif", style: " width:265px; height:166px;", title: "紫荆国际公寓"}/
+                %h2
+                  %a{href: "", target: "_blank"} 紫荆国际公寓
+                  %span 热卖中
+                %p.blue
+                %p 限时抢购：2014.01.28-2014.04.15
+            %li
+              .pic
+                %a{alt: "滟紫台", href: "", rel: "nofollow", target: "_blank"}
+                  %img{alt: "滟紫台", src: "upload/img/ad8.gif", style: " width:265px; height:166px;", title: "滟紫台"}/
+                %h2
+                  %a{href: "", target: "_blank"} 滟紫台
+                  %span 热卖中
+                %p 限时抢购：2014.03.01-2014.06.30
+              .pic
+                %a{alt: "万达西双版纳国际度假区", href: "", rel: "nofollow", target: "_blank"}
+                  %img{alt: "万达西双版纳国际度假区", src: "upload/img/ad7.gif", style: " width:265px; height:166px;", title: "万达西双版纳国际度假区"}/
+                %h2
+                  %a{href: "", target: "_blank"} 万达西双版纳国际度假区
+                  %span 热卖中
+                %p.blue
+                %p 限时抢购：2014.03.01-2014.05.31
+              .pic
+                %a{alt: "紫荆国际公寓", href: "", rel: "nofollow", target: "_blank"}
+                  %img{alt: "紫荆国际公寓", src: "upload/img/ad7.gif", style: " width:265px; height:166px;", title: "紫荆国际公寓"}/
+                %h2
+                  %a{href: "", target: "_blank"} 紫荆国际公寓
+                  %span 热卖中
+                %p.blue
+                %p 限时抢购：2014.01.28-2014.04.15
+            %li
+              .pic
+                %a{alt: "滟紫台", href: "", rel: "nofollow", target: "_blank"}
+                  %img{alt: "滟紫台", src: "upload/img/ad8.gif", style: " width:265px; height:166px;", title: "滟紫台"}/
+                %h2
+                  %a{href: "", target: "_blank"} 滟紫台
+                  %span 热卖中
+                %p 限时抢购：2014.03.01-2014.06.30
+              .pic
+                %a{alt: "万达西双版纳国际度假区", href: "", rel: "nofollow", target: "_blank"}
+                  %img{alt: "万达西双版纳国际度假区", src: "upload/img/ad7.gif", style: " width:265px; height:166px;", title: "万达西双版纳国际度假区"}/
+                %h2
+                  %a{href: "", target: "_blank"} 万达西双版纳国际度假区
+                  %span 热卖中
+                %p.blue
+                %p 限时抢购：2014.03.01-2014.05.31
+              .pic
+                %a{alt: "紫荆国际公寓", href: "", rel: "nofollow", target: "_blank"}
+                  %img{alt: "紫荆国际公寓", src: "upload/img/ad7.gif", style: " width:265px; height:166px;", title: "紫荆国际公寓"}/
+                %h2
+                  %a{href: "", target: "_blank"} 紫荆国际公寓
+                  %span 热卖中
+                %p.blue
+                %p 限时抢购：2014.01.28-2014.04.15
+    .mt20{style: " border:1px solid  #F3F3F3;"}
+      .title3_l
+        %p 正在进行
+      .title3_r{align: "right", style: "width:783px;"}
+      .clearfix
+      %p.f14.ml10.mt10
+        %strong 区域：
+        %a{href: ""} 不限
+        - @areas.each do |area|
+          |
+          = area.name
+      / 团购开始
+      - @group_buyings.each do |group_buying|
+        = render group_buying
+        
+      = will_paginate
+  / end 左边
+  / 右边
+  .pull-left.ml15{style: "width:244px;"}
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title
+          大家正在买
+          %a.pull-right.f14{href: "#"} 更多>
+      .panel-body
+        %table.table.table-condensed
+          %thead
+            %tr{style: "color:#f65c52"}
+              %th 注册用户
+              %th 活动状态
+          %tr
+            %td 136****0123
+            %td 成功报名保利中央公园
+          %tr
+            %td 136****0123
+            %td 成功报名保利中央公园
+          %tr
+            %td 136****0123
+            %td 成功报名保利中央公园
+          %tr
+            %td 136****0123
+            %td 成功报名保利中央公园
+          %tr
+            %td 136****0123
+            %td 成功报名保利中央公园
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title
+          购房工具
+          %a.pull-right.f14{href: "#"} 更多>
+      .panel-body
+        %table{style: "width:215px;"}
+          %tr
+            %td
+              = link_to image_tag("tool1.gif", alt: ""), "#"
+            %td
+              = link_to image_tag("tool2.gif", alt: ""), "#"
+          %tr
+            %td
+              = link_to image_tag("tool3.gif", alt: ""), "#"
+            %td
+              = link_to image_tag("tool4.gif", alt: ""), "#"
+          %tr
+            %td
+              = link_to image_tag("tool5.gif", alt: ""), "#"
+            %td
+  / 右边
