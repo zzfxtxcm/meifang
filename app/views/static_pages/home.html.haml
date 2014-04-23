@@ -20,32 +20,26 @@
         %div{style: "border-bottom: 1px solid #EEEEEE; height:75px;"}
           %h4.f16.mt5.mb5{style: "color:#f65c52"} 价格
           %p
-            %a.areab{href: "#", target: "_blank", title: "3000-4000"} 3000-4000
-            %a.areab{href: "#", style: "color: #333;", target: "_blank", title: "4000-5000"} 4000-5000
-            %a{href: "#", target: "_blank", title: "5000-6000"} 5000-6000
-            %a.areab{href: "#", style: "color:#333;", target: "_blank", title: "6000-7000"} 6000-7000
-            %a.areab{href: "#", style: "color:#333;", target: "_blank", title: "7000-8000"} 7000-8000
-            %a{href: "#", target: "_blank", title: "5000-6000"} 8000以上
+            = render_option_of_single_price_index(3000, 4000, "")
+            = render_option_of_single_price_index(4000, 5000, "color: #333")
+            = render_option_of_single_price_index(6000, 7000, "color: #333")
+            = render_option_of_single_price_index(7000, 8000, "color: #333")
+            = render_option_of_single_price_index(8000, 20000, "color: #333")
         %div{style: " height:75px;"}
           %h4.f16.mt5.mb5{style: "color:#f65c52"} 面积
           %p
-            %a.areaa{href: "#", target: "_blank", title: "50m² 以下"} 50m&sup2 以下
-            %a.areaa{href: "#", style: "color: #333;", target: "_blank", title: "50-90m²"} 50-90m²
-            %a.areaa{href: "#", target: "_blank", title: "90-120m²"} 90-120m²
-            %a.areaa{href: "#", style: "color:#333;", target: "_blank", title: "120-150m²"} 120-200m²
-            %a.areaa{href: "#", style: "color:#333;", target: "_blank", title: "150-200m²"} 200m&sup2 以上
-        %button.btn.btn-mini{style: "height:28px; width:58px", type: "button"} 区域
-        %select#area.selectS{name: "area", style: "margin:3px 0px 0px 0px"}
-          %option{value: ""} 芗城区
-          %option{value: "1"} 5漳州港
-          %option{value: "2"} 龙海
-        %button.btn.btn-mini{style: "height:28px; width:58px", type: "button"} 板块
-        %select#area.selectS{name: "area", style: "margin:3px 0px 0px 0px"}
-          %option{value: ""} 芗城区
-          %option{value: "1"} 5漳州港
-          %option{value: "2"} 龙海
-        %input#keyword.form-control.mt10{name: "keyword", placeholder: "请输入关键字", style: "width:110px;", type: "text"}/
-        %button.btn.btn-danger.btn-mini{style: "height:28px; width:58px", type: "submit"} 搜索
+            - AreaRange.limit(1).each do |item|
+              = render_option_of_single_area_range_index(item.name, item.id, "")
+            - AreaRange.offset(1).each do |item|
+              = render_option_of_single_area_range_index(item.name, item.id, "color: #333")
+        = form_tag new_homes_path, :method => :get, :class => "form-inline m0",name: "myform", :role => "form" do
+          %button.btn.btn-mini{style: "height:28px; width:58px", type: "button"} 区域
+          = select_tag :area_id, options_from_collection_for_select(@areas, 'id', 'name'), prompt: "请选择地区", class: "selectS", id: "area", style: "margin: 3px 0 0 0"
+          %button.btn.btn-mini{style: "height:28px; width:58px", type: "button"} 板块
+          = select_tag :section_id, options_from_collection_for_select(@sections, 'id', 'name'), prompt: "请选择版块", class: "selectS", id: "area", style: "margin: 3px 0"
+          = text_field_tag :keyword, params[:keyword], :class => "form-control", :id => "keyword", :style => "width: 110px", :placeholder => "请输入关键字"
+          %button.btn.btn-danger{ type: "submit", style: "height: 28px; width: 58px" }
+            搜索
   / 左边end
   / 右边
   .pull-left.ml20
@@ -71,7 +65,7 @@
       %ul
         - Information.where(information_type_id: 2).limit(7).each do |information|
           %li
-            = link_to information.title, information   
+            = link_to information.title, information
     .clearfix
     .title_l
       %p 楼盘优惠
@@ -81,8 +75,8 @@
       %ul
         - Information.where(information_type_id: 3).limit(7).each do |information|
           %li
-            = link_to information.title, information 
-    .clearfix    
+            = link_to information.title, information
+    .clearfix
     .title_l
       %p 市场报告
     .title_r
@@ -91,7 +85,7 @@
       %ul
         - Information.where(information_type_id: 4).limit(7).each do |information|
           %li
-            = link_to information.title, information 
+            = link_to information.title, information
     / 右边右
   .pull-left.ml20{style: "width:475px;"}
     .pt5.pl5.pb5{style: "border: 1px solid #EEEEEE;"}
@@ -154,7 +148,7 @@
             $(imageBox).hover(
               function(){ clearInterval(setIntervalID); },
               function(){ setIntervalID=setInterval(rotate,intervalTime); }
-            );  
+            );
             $(icoArr).click(function(){
               clearInterval(setIntervalID);
               var clickID = parseInt($(this).attr("rel"));
@@ -219,7 +213,7 @@
     .panel.panel-primary
       .panel-heading
         %h3.panel-title
-          楼盘推荐
+          新房推荐
           %a.pull-right.f14{href: "#"} 更多>
       .panel-body
         %table.table.table-condensed
@@ -228,34 +222,11 @@
               %th 楼盘名称
               %th 区属
               %th 价格
-          %tr
-            %td 永鸿国际城
-            %td 芗城
-            %td 6800元/m&sup2
-          %tr
-            %td 夏商书香名苑
-            %td 芗城
-            %td 6500元/m&sup2
-          %tr
-            %td 欣隆盛世外滩
-            %td 芗城
-            %td 9500元/m&sup2
-          %tr
-            %td 惠祥香槟左岸
-            %td 龙文
-            %td 5700元/m&sup2
-          %tr
-            %td 福隆城央璟
-            %td 龙文
-            %td 6800元/m&sup2
-          %tr
-            %td 万益广场
-            %td 角美
-            %td 8200元/m&sup2
-          %tr
-            %td 永鸿厦门湾南岸
-            %td 漳州港
-            %td 8300元/m&sup2
+          - NewHome.limit(8).each do |item|
+            %tr
+              %td #{ item.name }
+              %td #{ Area.where(id: item.area_id).first.name }
+              %td #{ item.price }元/m&sup2
     .panel.panel-primary
       .panel-heading
         %h3.panel-title
