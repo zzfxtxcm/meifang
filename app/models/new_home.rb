@@ -31,6 +31,7 @@ class NewHome < ActiveRecord::Base
     integer :section_id
     integer :area_range_id
     integer :property_type_id
+    integer :price
     text :content
     time :created_at
   end
