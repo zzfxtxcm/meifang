@@ -212,69 +212,63 @@ $white: #fff;
   background: #eee;
   width: 897px;
   margin-top: 8px;
-
   .pcont {
     width: 840px;
     float: left;
     overflow: hidden;
     padding-left: 5px;
   }
-
   .ScrCont {
     width: 32766px;
     zoom: 1;
     margin-left: -5px;
   }
-
-  #List1_1, .blk_18 #List2_1 {
+  #List1_1, #List2_1 {
     float: left;
   }
-
-  .LeftBotton, .blk_18 .RightBotton {
+  .LeftBotton, .RightBotton {
     width: 15px;
     height: 74px;
     float: left;
-    background: url(../img/ax.gif) no-repeat;
+    background: url(asset_path("ax.gif")) no-repeat;
   }
-
   .LeftBotton {
     background-position: 0 0;
     margin: 58px 5px 0;
-    &:hover {
-      background-position: -20px 0;
-    }
   }
-
   .RightBotton {
     background-position: 0 -100px;
     margin: 58px 1px 10px 5px;
-    &:hover {
-      background-position: -20px -100px;
-    }
   }
-
+  .LeftBotton:hover {
+    background-position: -20px 0;
+  }
+  .RightBotton:hover {
+    background-position: -20px -100px;
+  }
   .pl {
-    width: 167px;
-    border: 1px solid #f3f3f3;
-    float: left;
-    text-align: center;
-    line-height: 24px;
     img {
       display: block;
       cursor: pointer;
       border: none;
       margin: 6px auto 1px auto;
     }
-    &:hover {
-      border: 1px solid #5dacec;
-      color: #5dacec;
-      background: $white;
-    }
+    width: 167px;
+    border: 1px solid #f3f3f3;
+    float: left;
+    float: left;
+    text-align: center;
+    line-height: 24px;
     h4 {
-      font-size:14px;
-      margin:0;
+      font-size: 14px;
+      margin: 0;
       color: #666;
     }
+  }
+  a.pl:hover {
+    border: 1px solid #5dacec;
+    color: #5dacec;
+    background: #fff;
   }
 }
 /*活动*/
