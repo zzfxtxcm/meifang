@@ -127,12 +127,23 @@ namespace :db do
       title = Faker::Name.title
       content = Faker::Lorem.sentence(10)
       new_homes.each { |new_home| new_home.information.create!(category_id: Category.first.id,
-                                                      title: title,
-                                                      source: "来源",
-                                                      keywords: "关键词,关键词",
-                                                      description: "描述描述描述描述",
-                                                      content: content,
-                                                      information_type_id: 2) }
+                                                               title: title,
+                                                               source: "来源",
+                                                               keywords: "关键词,关键词",
+                                                               description: "描述描述描述描述",
+                                                               content: content,
+                                                               information_type_id: 2) }
+    end
+    information_types = InformationType.all
+    30.times do |n|
+      title = Faker::Name.title
+      content = Faker::Lorem.sentence(10)
+      information_types.each { |information_type| information_type.information.create!(category_id: Category.first.id,
+                                                                                       title: title,
+                                                                                       source: "来源",
+                                                                                       keywords: "关键词",
+                                                                                       description: "描述",
+                                                                                       content: content) }
     end
   end
 
