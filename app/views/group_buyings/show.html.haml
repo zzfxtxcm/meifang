@@ -1,6 +1,5 @@
-- new_home = NewHome.where(id: @group_buying.new_home_id)
-- area = Area.where(id: new_home.first.area_id)
-- developers = Developers.where(id: new_home.first.developers_id)
+- new_home = NewHome.find(@group_buying.new_home_id)
+- developers = Developers.find(new_home.developers_id)
 / 导航
 .tgnav
   .container
@@ -16,17 +15,17 @@
         %td{height: "48px", style: "background: url(#{asset_path("dsyh.gif")}) no-repeat; margin:0px;", width: "80px"}
           %p{style: "float:left ; color:#FFF; font-size:18px ; margin:0px 0px 20px 15px;"} 优惠
         %td.cw{style: "background: url(#{asset_path("dsyh1.gif")})  repeat-x; width:163px;"}
-          %a1 #{new_home.first.name}
+          %a1 #{ new_home.name }
       %tr
         %td{colspan: "2", style: "border:1px solid #e7e7e7; border-top:0; font-size:14px; line-height:25px;"}
           .pl10{style: "color: #666"}
             %div{style: "background: url(#{asset_path("dsjb.gif")}) no-repeat; height:38px;"}
             %p
               项目地址：
-              %span.cr #{new_home.first.project_address}
+              %span.cr #{new_home.project_address}
             %p
               开发商：
-              %span.cr #{developers.first.name}
+              %span.cr #{developers.name}
             %p
               主力户型：
               %span.cr 70-135m²高附赠户型
@@ -36,7 +35,7 @@
             %p
               %a{href: "http://wpa.qq.com/msgrd?v=3&uin=398663666&site=qq&menu=yes", target: "_blank"}
                 %img{alt: "点击这里给我发消息", border: "0", src: "http://wpa.qq.com/pa?p=2:398663666:41", title: "点击这里给我发消息"}/
-                电话：#{new_home.first.tel}
+                电话：#{new_home.tel}
     .mt20.mb20{style: "border:2px solid #2db8ad; width:242px;"}
       %br/
       .pl10.pr10
@@ -162,12 +161,7 @@
     .title3_r{align: "right", style: "width:787px;"}
     .clearfix
     .f14.p10{style: "color: #666; border:1px solid #E7E7E7; border-top:0"}
-      %p 1. 团购时间：2014年1月13日至2014年3月7日；
-      %p 2.365地产家居网独家优惠：办理价值10000元团房卡享"翠屏托乐嘉"最高13万元优惠；
-      %p 3. 报名流程：打开365地产家居网"翠屏托乐嘉淘房汇页面"进行报名，留下姓名、手机；
-      %p 4. 售楼处咨询电话：400-8181-365 转 3498；
-      %p 5.本次活动最终解释权归南京筑诚置业发展有限公司和365地产家居网所有 ；
-      %p 6.销售许可证号：2013200064 2013200056 2013200057 现售20132007 2012200128 2012200129 2012200102 2012200060 2012200055
+      = @group_buying.explanation
     %div{style: "width:907px; margin-top:20px;"}
       %ul#myTab.nav.nav-tabs.mb5{style: "border-bottom: 1px solid #2db8ad; margin:0;"}
         %li.active{style: "border-bottom: 1px solid #2db8ad;"}
@@ -180,17 +174,17 @@
         #d_hot.tab-pane.fade.active.in.ml20.m5
           %table.lh180.f14
             %tr
-              %td{width: "420px;"} 当前均价：8700元/㎡
-              %td{width: "420px;"} 售楼地址：XXXXX
+              %td{width: "420px;"} 当前均价：#{ new_home.price }元/㎡
+              %td{width: "420px;"} 售楼地址：#{ new_home.sales_address }
             %tr
               %td 地段商圈：沃尔玛商圈/中心城区
               %td 项目优势：学区房、海景房
             %tr
-              %td 物业类别：商住/纯住/CBD
+              %td 物业类别：#{ PropertyType.find(new_home.property_type_id).name }
               %td 总房源数：3200套
             %tr
-              %td 面积区间：50-90㎡、90-120㎡
-              %td 绿 化 率：36%
+              %td 面积区间：#{ AreaRange.find(new_home.area_range_id).name }㎡
+              %td 绿 化 率：#{ new_home.greening_rate }
             %tr
               %td 交房时间：2016年4月
               %td 容 积 率：2.3
