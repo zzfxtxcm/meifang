@@ -54,6 +54,7 @@
           = link_to information.title, information
         %p
           = information.description.first(60)
+          = "..." if information.description.length > 100
           = link_to "详情", information, :class => "cr"
     / 右边中
   .l_new2.pull-left.ml20{style: "border-right: 1px solid #EEEEEE; width:410px;"}
@@ -227,7 +228,7 @@
               %td
                 = link_to item.name, item
               %td
-                = Area.where(id: item.area_id).first.name
+                = Area.find(item.area_id).name
               %td #{ item.price }元/m&sup2
     = render 'shared/intention_to_register_form'
 

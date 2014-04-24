@@ -180,6 +180,18 @@ zh-CN:
         price: "均价"
         opening_time: "开盘时间"
         delivery_time: "交付时间"
+    intention_to_registers:
+      menu:
+        intention_to_register: "意向登记"
+      title: "意向登记"
+      list:
+        new_home: "意向楼盘"
+        name: "姓名"
+        tel: "联系电话"
+        qq: "QQ"
+      search:
+        new_home: "所属楼盘"
+        created_at: "填写时间"
     group_buyings:
       group_buying: "团购"
       title: "团购管理"
@@ -212,3 +224,4 @@ zh-CN:
       project_features: "项目特色"
       information_estate_opened: "开盘信息"
       group_buying: "团购"
+      intention_to_register: "意向登记"
