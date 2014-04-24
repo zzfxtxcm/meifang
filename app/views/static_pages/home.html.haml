@@ -54,6 +54,7 @@
           = link_to information.title, information
         %p
           = information.description.first(60)
+          = "..." if information.description.length > 100
           = link_to "详情", information, :class => "cr"
     / 右边中
   .l_new2.pull-left.ml20{style: "border-right: 1px solid #EEEEEE; width:410px;"}
@@ -224,36 +225,13 @@
               %th 价格
           - NewHome.limit(8).each do |item|
             %tr
-              %td #{ item.name }
-              %td #{ Area.where(id: item.area_id).first.name }
+              %td
+                = link_to item.name, item
+              %td
+                = Area.find(item.area_id).name
               %td #{ item.price }元/m&sup2
-    .panel.panel-primary
-      .panel-heading
-        %h3.panel-title
-          意向登记
-          %span.f12{style: "font-weight:normal"} |为您提供优质的房源
-      .panel-body
-        %table.table-condensed
-          %tr
-            %td 姓名:
-            %td
-              %input#name.form-control{name: "name", placeholder: "请输入联系姓名", style: "width:130px;", type: "text"}/
-          %tr
-            %td QQ :
-            %td
-              %input#qq.form-control{name: "qq", placeholder: "请输入联系QQ", style: "width:130px;", type: "text"}/
-          %tr
-            %td 电话:
-            %td
-              %input#phone.form-control{name: "phone", placeholder: "请输入联系电话", style: "width:130px;", type: "text"}/
-          %tr
-            %td 楼盘:
-            %td
-              %input#keyword.form-control{name: "keyword", placeholder: "请输入中意楼盘", style: "width:130px;", type: "text"}/
-          %tr
-            %td
-            %td
-              %button.btn.btn-danger.btn-mini{style: "height:28px;", type: "submit"} 立刻报名
+    = render 'shared/intention_to_register_form'
+
   / end 左边
   / 右边
   .pull-left
@@ -288,7 +266,7 @@
             %ul
               - Information.where(information_type_id: 6).limit(6).offset(1).each do |information|
                 %li
-                  = link_to information.title, information 
+                  = link_to information.title, information
       %div{style: "width:400px;"}
         %ul#myTab.nav.nav-tabs.mb5{style: "border-bottom: 1px solid #2db8ad;"}
           %li.active{style: "border-bottom: 1px solid #2db8ad;"}
@@ -298,7 +276,7 @@
             %ul
               - Information.where(information_type_id: 7).limit(6).offset(1).each do |information|
                 %li
-                  = link_to information.title, information 
+                  = link_to information.title, information
     / end右边中
     / 右边右
     .pull-left.l_new3{style: "width:465px;"}
@@ -396,42 +374,42 @@
             #List1_1
               .pl
                 %a{href: "#"}
-                  = image_tag("tmp/pic.gif", alt: "", :style => "height:160px; width:130px")                 
+                  = image_tag("tmp/pic.gif", alt: "", :style => "height:160px; width:130px")
                 %h4 黄默默
                 %p 城东进化论 楼市风云再起
               .pl
                 %a{href: "#"}
-                  = image_tag("tmp/pic.gif", alt: "", :style => "height:160px; width:130px") 
+                  = image_tag("tmp/pic.gif", alt: "", :style => "height:160px; width:130px")
                 %h4 庄晓冬
                 %p 城东进化论 楼市风云再起
               .pl
                 %a{href: "#"}
-                  = image_tag("tmp/pic.gif", alt: "", :style => "height:160px; width:130px") 
+                  = image_tag("tmp/pic.gif", alt: "", :style => "height:160px; width:130px")
                 %h4 廖建明
                 %p 城东进化论 楼市风云再起
               .pl
                 %a{href: "#"}
-                  = image_tag("tmp/pic.gif", alt: "", :style => "height:160px; width:130px") 
+                  = image_tag("tmp/pic.gif", alt: "", :style => "height:160px; width:130px")
                 %h4 黄默默
                 %p 城东进化论 楼市风云再起
               .pl
                 %a{href: "#"}
-                  = image_tag("tmp/pic.gif", alt: "", :style => "height:160px; width:130px") 
+                  = image_tag("tmp/pic.gif", alt: "", :style => "height:160px; width:130px")
                 %h4 黄默默
                 %p 城东进化论 楼市风云再起
               .pl
                 %a{href: "#"}
-                  = image_tag("tmp/pic.gif", alt: "", :style => "height:160px; width:130px") 
+                  = image_tag("tmp/pic.gif", alt: "", :style => "height:160px; width:130px")
                 %h4 黄默默
                 %p 城东进化论 楼市风云再起
               .pl
                 %a{href: "#"}
-                  = image_tag("tmp/pic.gif", alt: "", :style => "height:160px; width:130px") 
+                  = image_tag("tmp/pic.gif", alt: "", :style => "height:160px; width:130px")
                 %h4 黄默默
                 %p 城东进化论 楼市风云再起
               .pl
                 %a{href: "#"}
-                  = image_tag("tmp/pic.gif", alt: "", :style => "height:160px; width:130px") 
+                  = image_tag("tmp/pic.gif", alt: "", :style => "height:160px; width:130px")
                 %h4 黄默默
                 %p 城东进化论 楼市风云再起
             #List2_1
@@ -449,7 +427,7 @@
           %a{href: ""} 更多
         .clearfix.m0
         .pull-left.mt10{style: "width:265px;"}
-          = image_tag("tmp/ad7.gif", alt: "", :style => "height:170px; width:260px;") 
+          = image_tag("tmp/ad7.gif", alt: "", :style => "height:170px; width:260px;")
         .pull-left.mt10.ml10{style: "width:322px; border-right:1px solid #CCC"}
           %h4
             %a.f16.cl{href: "#"} 3月9日厦门湾南岸看房团享多重独家特惠
@@ -467,13 +445,13 @@
       .clearfix
       .pull-left
         %table.table.table-condensed.pull-left{style: "width:215px; margin-bottom:5px;"}
-        - Information.where(information_type_id: 12).limit(6).each do |information|
-          %tr
-            %td
-              = link_to information.title.first(15), information        
+          - Information.where(information_type_id: 12).limit(6).each do |information|
+            %tr
+              %td
+                = link_to information.title.first(15), information
       .clearfix
       .pull-left
-        = image_tag("tmp/xw.gif", alt: "", :style => "height:260px; width:226px;") 
+        = image_tag("tmp/xw.gif", alt: "", :style => "height:260px; width:226px;")
     .pull-left.mt10
       .title3_l
         %p 代理公司
