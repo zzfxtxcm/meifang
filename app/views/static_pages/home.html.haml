@@ -266,8 +266,8 @@
         #myTabContent.tab-content
           .tab-pane.fade.active.in
             - Information.where(information_type_id: 5).limit(1).each do |information|
-              %h3.cl{style: "margin:0"}
-                = link_to information.title, information
+              %h3{style: "margin:0"}
+                = link_to information.title, information ,:class => "cl"
               %p{style: "color:#999"} #{information.source} #{information.created_at.strftime("%Y-%m-%d")}
               %div{style: "margin:20px 0px 20px 0px; border-bottom:1px dotted #CCC; height:90px"}
                 %p
@@ -313,19 +313,13 @@
                 = image_tag("tmp/ad9.gif", alt: "", :class => "mb10")
               %a{href: ""}
                 = image_tag("tmp/ad9.gif", alt: "")
-            .loushiguandian
-              %h4
-                %a.cr{href: ""} 角美万达广场：消费万达 精彩无处不在
-              %p 商铺投资经营体验会
-              %p.f14.m0
-                4月7日，漳州角美万达广场商铺投资经营体验会将在角美万达广场营销
-                %a.cl{href: ""} [详情]
-              %h4
-                %a.cr{href: ""} 角美万达广场：消费万达 精彩无处不在
-              %p 商铺投资经营体验会
-              %p.f14
-                4月7日，漳州角美万达广场商铺投资经营体验会将在角美万达广场营销
-                %a.cl{href: ""} [详情]
+            .loushiguandian   
+              - Information.where(information_type_id: 8).limit(2).each do |information|
+                %h4
+                  = link_to information.title.first(34), information, :class=> "cr"
+                %p.f14.mt5 
+                  = information.description.first(100)
+                  = link_to "[查看详情]", information,:class => "cr"      
             .clearfix
             .mb10{style: "border-top:1px dotted #333;"}
             %ul
@@ -449,11 +443,15 @@
           %a{href: ""} 更多
         .clearfix.m0
         .pull-left.mt10{style: "width:265px;"}
-          = image_tag("tmp/ad7.gif", alt: "", :style => "height:170px; width:260px;") 
+          - Information.where(information_type_id: 8).limit(1).each do |information|
+            = image_tag(information.information_thumb, alt: "", :style => "height:170px; width:260px;") 
         .pull-left.mt10.ml10{style: "width:322px; border-right:1px solid #CCC"}
-          %h4
-            %a.f16.cl{href: "#"} 3月9日厦门湾南岸看房团享多重独家特惠
-          %p 　2014大家都在谈论啥?"爸爸去哪儿?""时间去哪儿?""飞机去哪儿?"当然，当下一房难求的刚需一族最关心的还是"房子去哪儿"。2013，角美楼市的去化量往上翻了一番，但仍只有少部分的幸运儿抢到了房。四五月，角美楼市又要迎来新一轮的推盘热潮，还没抢到房源的购房者，还没抢到房源的购房者正可趁此抓紧下手。[查看详情]
+          - Information.where(information_type_id: 8).limit(1).each do |information|
+            %h4     
+              = link_to information.title.first(40), information,:class => "cl f16"
+            %p 
+              = information.description.first(300)
+              = link_to "[查看详情]", information,:class => "cr"
         .activity_list
           %ul
             - Information.where(information_type_id: 8).limit(5).offset(1).each do |information|
@@ -467,10 +465,10 @@
       .clearfix
       .pull-left
         %table.table.table-condensed.pull-left{style: "width:215px; margin-bottom:5px;"}
-        - Information.where(information_type_id: 12).limit(6).each do |information|
-          %tr
-            %td
-              = link_to information.title.first(15), information        
+          - Information.where(information_type_id: 12).limit(6).each do |information|
+            %tr
+              %td
+                = link_to information.title.first(15), information        
       .clearfix
       .pull-left
         = image_tag("tmp/xw.gif", alt: "", :style => "height:260px; width:226px;") 
@@ -519,18 +517,9 @@
       .clearfix
       .mt10.mb10
         %ul
-          %li
-            %a{href: ""} [须知]公摊面积应以房产测绘部门认证为
-          %li
-            %a{href: ""} [须知]买房合同条款意见不一致时可以退
-          %li
-            %a{href: ""} [须知]精装房PK毛坯房购房者须知的细节
-          %li
-            %a{href: ""} [指南]新加坡买房须知组屋与公寓
-          %li
-            %a{href: ""} [指南]房地产该如何继承房产？
-          %li
-            %a{href: ""} 指南]房产权到期后我们的房子该怎么办
+          - Information.where(information_type_id: 20).limit(6).each do |information|
+            %li
+              = link_to information.title.first(40), information
       .title3_l
         %p 购房警示
       .title3_r{align: "right", style: "width:168px"}
@@ -538,14 +527,9 @@
       .clearfix
       .mt10.mb10
         %ul
-          %li
-            %a{href: ""} [警示]公摊面积应以房产测绘部门认证为
-          %li
-            %a{href: ""} [警示]买房合同条款意见不一致时可以退
-          %li
-            %a{href: ""} [警示]精装房PK毛坯房购房者须知的细节
-          %li
-            %a{href: ""} [警示]新加坡买房须知组屋与公寓
+          - Information.where(information_type_id: 21).limit(4).each do |information|
+            %li
+              = link_to information.title.first(40), information
     .pull-left.mt10{style: " width:415px; border-right:1px solid #CCC ; margin-left:15px;"}
       .title3_l
         %p 房事八卦
