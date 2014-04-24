@@ -69,7 +69,7 @@ namespace :db do
                     status_id: Status.first.id,
                     new_home_thumb: "")
     10.times do |n|
-      name = Faker::Name.title
+      name = Faker::Lorem.word
       price = 1000 * n;
       project_address = Faker::Address.street_address
       NewHome.create!(name: name,
