@@ -55,7 +55,7 @@ ActiveAdmin.register Information do
       f.input :title,
               :label => I18n.t("active_admin.information.form.title")
       f.input :information_thumb,
-            :label => I18n.t("active_admin.information.form.information_thumb")
+              :label => I18n.t("active_admin.information.form.information_thumb")
       f.input :source,
               :label => I18n.t("active_admin.information.form.source")
       f.input :keywords,

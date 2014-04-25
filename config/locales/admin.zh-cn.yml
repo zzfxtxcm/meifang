@@ -210,6 +210,33 @@ zh-CN:
         explanation: "团购说明"
         start_time: "开团时间"
         end_time: "结束时间"
+    activities:
+      menu:
+        activity: "活动管理"
+      title: "活动管理"
+      list:
+        title: "标题"
+        opening_time: "活动时间"
+      search:
+        title: "标题"
+        opening_time: "活动时间"
+      form:
+        title: "标题"
+        content: "内容"
+        opening_time: "活动时间"
+    characters:
+      menu:
+        character: "名人堂"
+      title: "名人堂"
+      list:
+        name: "姓名"
+        character_thumb: "照片"
+      search:
+        name: "姓名"
+      form:
+        name: "姓名"
+        content: "内容"
+        character_thumb: "照片"
   activerecord:
     models:
       user: "会员"
@@ -225,3 +252,5 @@ zh-CN:
       information_estate_opened: "开盘信息"
       group_buying: "团购"
       intention_to_register: "意向登记"
+      activity: "活动"
+      character: "名人"
