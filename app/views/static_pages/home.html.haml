@@ -53,7 +53,7 @@
         %h3
           = link_to information.title.first(30), information, :class => "cl"
           %span.cl
-            = "..." if information.title.length >31 
+            = "..." if information.title.length >31
         %p
           = information.description.first(60)
           = "..." if information.description.length > 60
@@ -161,8 +161,7 @@
           });
         });
     %div{style: "border: 1px solid #EEEEEE; height:234px; margin-top:10px;"}
-      %a{href: "#"}
-        = image_tag("tmp/ad1.jpg", :class => "pt5 pl5", :style => "width:462px; height:222px;")
+      = link_to image_tag("tmp/ad1.jpg", :class => "pt5 pl5", :style => "width:462px; height:222px;"), group_buyings_path
     .mt10{style: "height:240px; width:473px "}
       .title_l
         %p 楼市日历
@@ -280,7 +279,7 @@
                   = link_to information.title.first(14), information, :class=> "cr"
                 .mt5{style: "height:80px"}
                   %p.f14
-                    = information.description.first(60)
+                    = information.description.first(50)
                     = link_to "[查看详情]", information,:class => "cr"
             .clearfix
             .mb10{style: "border-top:1px dotted #333;"}
@@ -347,7 +346,7 @@
                   = image_tag(item.character_thumb, alt: item.name, :style => "height:160px; width:130px")
                   %h4
                     = item.name.first(8)
-                  %p 
+                  %p
                     = item.content.first(13)
             #List2_1
         %a.RightBotton{href: "javascript:void(0);", onmousedown: "ISL_GoDown_1()", onmouseout: "ISL_StopDown_1()", onmouseup: "ISL_StopDown_1()", target: "_self"}
@@ -505,7 +504,7 @@
               %input.btn.btn-info{style: "background:#2db8ad; width:90px;", value: "申请链接>"}/
           %td.yqlj
             %a 百度贴吧
-            
+
       / end友情链接
   / end楼购房百科
 / con end
