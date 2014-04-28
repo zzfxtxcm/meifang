@@ -25,8 +25,7 @@
          });
       });
     .njleft_tfh
-      %a{alt: "富力水街坊", href: "http://tlf.house365.com/tfh.php?t=189", rel: "nofollow", target: "_blank"}
-        %img{alt: "", src: "upload/img/tg.jpg", style: "width:367px; height:275px;", title: ""}/
+      = link_to image_tag(new_home.first.new_home_thumb, :style => "width:367px; height:275px", :alt => new_home.name), group_buying, :rel => "nofollow", :target => "_blank"
       .nj_title_bg
       .nj_title
         [#{area.first.name}]
