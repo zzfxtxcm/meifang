@@ -1,11 +1,11 @@
 .container
   / 左边
-  .pull-left
+  .pull-left{style: "width:242px;"}
     .panel.panel-primary
       .panel-heading
         %h3.panel-title
           楼盘推荐
-          %a.pull-right.f14{href: "#"} 更多>
+          = link_to "更多>", new_homes, :class => "pull-right f14"
       .panel-body
         - @areas[0..5].each do |area|
           %div{style: "border-bottom: 1px solid #EEEEEE; height:75px;"}
