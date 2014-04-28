@@ -52,7 +52,8 @@
       - Information.where(information_type_id: 1).limit(1).each do |information|
         %h3
           = link_to information.title.first(30), information, :class => "cl"
-          = "..." if information.title.length >31
+          %span.cl
+            = "..." if information.title.length >31 
         %p
           = information.description.first(60)
           = "..." if information.description.length > 60
@@ -80,12 +81,12 @@
             = link_to information.title.first(26), information
     .clearfix
     .title_l
-      %p 市场报告
+      %p 楼盘评测
     .title_r
       %a.pr15.pull-right.mt5{href: ""} 更多
     .pull-left.mt10
       %ul
-        - Information.where(information_type_id: 4).limit(7).each do |information|
+        - Information.where(information_type_id: 12).limit(7).each do |information|
           %li
             = link_to information.title.first(26), information
     / 右边右
@@ -286,36 +287,37 @@
               - Information.where(information_type_id: 8).limit(6).offset(1).each do |information|
                 %li
                   = link_to information.title, information
-      %div{style: "width:465px;"}
-        %ul#myTab.nav.nav-tabs.mb5{style: "border-bottom: 1px solid #2db8ad;"}
-          %li.active{style: "border-bottom: 1px solid #2db8ad;"}
-            %a{"data-toggle" => "tab", href: "#act"}   专题  
-        #myTabContent.tab-content
-          #act.tab-pane.fade.active.in
-            .pull-left.pt10{style: " width:174px;"}
-              %a{href: ""}
-                = image_tag("tmp/ad9.gif", alt: "")
-            .loushiguandian
-              %h4
-                %a.cr{href: ""} 角美万达广场：消费万达 精彩无处不在
-              %p.f14.m0
-                4月7日，漳州角美万达广场商铺投资经营体验会将在角美万达广场营销,漳州角美万达广场商铺投资经营体验会将在角美万达广场营销
-                %a.cl{href: ""} [详情]
-            .clearfix
-            .mb10{style: "border-top:1px dotted #333;"}
-            %ul
-              %li
-                %a{href: ""} 4月1日 | 水岸新城：经典手工彩绘DIY欢乐季圆满落幕圆满落幕
-              %li
-                %a{href: ""} 4月1日 | 丽园君悦：房产/投资理财讲座圆满成功圆满落幕
-              %li
-                %a{href: ""} 4月1日 | 水岸新城：经典手工彩绘DIY欢乐季圆满落幕圆满落幕
-              %li
-                %a{href: ""} 4月1日 | 丽园君悦：房产/投资理财讲座圆满成功圆满落幕
-              %li
-                %a{href: ""} 4月1日 | 水岸新城：经典手工彩绘DIY欢乐季圆满落幕圆满落幕
-              %li
-                %a{href: ""} 4月1日 | 丽园君悦：房产/投资理财讲座圆满成功圆满落幕
+                  
+      / %div{style: "width:465px;"}
+      /   %ul#myTab.nav.nav-tabs.mb5{style: "border-bottom: 1px solid #2db8ad;"}
+      /     %li.active{style: "border-bottom: 1px solid #2db8ad;"}
+      /       %a{"data-toggle" => "tab", href: "#act"}   专题  
+      /   #myTabContent.tab-content
+      /     #act.tab-pane.fade.active.in
+      /       .pull-left.pt10{style: " width:174px;"}
+      /         %a{href: ""}
+      /           = image_tag("tmp/ad9.gif", alt: "")
+      /       .loushiguandian
+      /         %h4
+      /           %a.cr{href: ""} 角美万达广场：消费万达 精彩无处不在
+      /         %p.f14.m0
+      /           4月7日，漳州角美万达广场商铺投资经营体验会将在角美万达广场营销,漳州角美万达广场商铺投资经营体验会将在角美万达广场营销
+      /           %a.cl{href: ""} [详情]
+      /       .clearfix
+      /       .mb10{style: "border-top:1px dotted #333;"}
+      /       %ul
+      /         %li
+      /           %a{href: ""} 4月1日 | 水岸新城：经典手工彩绘DIY欢乐季圆满落幕圆满落幕
+      /         %li
+      /           %a{href: ""} 4月1日 | 丽园君悦：房产/投资理财讲座圆满成功圆满落幕
+      /         %li
+      /           %a{href: ""} 4月1日 | 水岸新城：经典手工彩绘DIY欢乐季圆满落幕圆满落幕
+      /         %li
+      /           %a{href: ""} 4月1日 | 丽园君悦：房产/投资理财讲座圆满成功圆满落幕
+      /         %li
+      /           %a{href: ""} 4月1日 | 水岸新城：经典手工彩绘DIY欢乐季圆满落幕圆满落幕
+      /         %li
+      /           %a{href: ""} 4月1日 | 丽园君悦：房产/投资理财讲座圆满成功圆满落幕
   / end 右边右
   / end 右边右
   / end 右边
@@ -341,7 +343,11 @@
             #List1_1
               - Character.all.limit(8).each do |item|
                 .pl
-                  = image_tag(item.character_thumb, alt: item.name)
+                  = image_tag(item.character_thumb, alt: item.name, :style => "height:160px; width:130px")
+                  %h4
+                    = item.name.first(8)
+                  %p 
+                    = item.content.first(13)
             #List2_1
         %a.RightBotton{href: "javascript:void(0);", onmousedown: "ISL_GoDown_1()", onmouseout: "ISL_StopDown_1()", onmouseup: "ISL_StopDown_1()", target: "_self"}
       .c
@@ -497,19 +503,8 @@
             %a.ml30{href: ""}
               %input.btn.btn-info{style: "background:#2db8ad; width:90px;", value: "申请链接>"}/
           %td.yqlj
-            %a 池州房产网
-            %a 苏州租房
-            %a 包头房产网
-            %a 威海房地产
-            %a 襄阳房产
-            %a 超市网盐
-            %a 城房产网
-            %a 大连房产网
-            %a 石家庄看房团
-            %a 重庆房地产
-            %a 东莞房产
-            %a 桐乡房产
-            %a 上海租房网
+            %a 百度贴吧
+            
       / end友情链接
   / end楼购房百科
 / con end
