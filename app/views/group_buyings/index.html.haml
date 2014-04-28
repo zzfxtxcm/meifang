@@ -23,77 +23,31 @@
         #scrollable-1.marquee
           %ul{style: "width:5100px;"}
             %li
-              .pic
-                %a{alt: "滟紫台", href: "", rel: "nofollow", target: "_blank"}
-                  %img{alt: "滟紫台", src: "upload/img/ad8.gif", style: " width:265px; height:166px;", title: "滟紫台"}/
-                %h2
-                  %a{href: "", target: "_blank"} 滟紫台
-                  %span 热卖中
-                %p 限时抢购：2014.03.01-2014.06.30
-              .pic
-                %a{alt: "万达西双版纳国际度假区", href: "", rel: "nofollow", target: "_blank"}
-                  %img{alt: "万达西双版纳国际度假区", src: "upload/img/ad7.gif", style: " width:265px; height:166px;", title: "万达西双版纳国际度假区"}/
-                %h2
-                  %a{href: "", target: "_blank"} 万达西双版纳国际度假区
-                  %span 热卖中
-                %p.blue
-                %p 限时抢购：2014.03.01-2014.05.31
-              .pic
-                %a{alt: "紫荆国际公寓", href: "", rel: "nofollow", target: "_blank"}
-                  %img{alt: "紫荆国际公寓", src: "upload/img/ad7.gif", style: " width:265px; height:166px;", title: "紫荆国际公寓"}/
-                %h2
-                  %a{href: "", target: "_blank"} 紫荆国际公寓
-                  %span 热卖中
-                %p.blue
-                %p 限时抢购：2014.01.28-2014.04.15
-            %li
-              .pic
-                %a{alt: "滟紫台", href: "", rel: "nofollow", target: "_blank"}
-                  %img{alt: "滟紫台", src: "upload/img/ad8.gif", style: " width:265px; height:166px;", title: "滟紫台"}/
-                %h2
-                  %a{href: "", target: "_blank"} 滟紫台
-                  %span 热卖中
-                %p 限时抢购：2014.03.01-2014.06.30
-              .pic
-                %a{alt: "万达西双版纳国际度假区", href: "", rel: "nofollow", target: "_blank"}
-                  %img{alt: "万达西双版纳国际度假区", src: "upload/img/ad7.gif", style: " width:265px; height:166px;", title: "万达西双版纳国际度假区"}/
-                %h2
-                  %a{href: "", target: "_blank"} 万达西双版纳国际度假区
-                  %span 热卖中
-                %p.blue
-                %p 限时抢购：2014.03.01-2014.05.31
-              .pic
-                %a{alt: "紫荆国际公寓", href: "", rel: "nofollow", target: "_blank"}
-                  %img{alt: "紫荆国际公寓", src: "upload/img/ad7.gif", style: " width:265px; height:166px;", title: "紫荆国际公寓"}/
-                %h2
-                  %a{href: "", target: "_blank"} 紫荆国际公寓
-                  %span 热卖中
-                %p.blue
-                %p 限时抢购：2014.01.28-2014.04.15
-            %li
-              .pic
-                %a{alt: "滟紫台", href: "", rel: "nofollow", target: "_blank"}
-                  %img{alt: "滟紫台", src: "upload/img/ad8.gif", style: " width:265px; height:166px;", title: "滟紫台"}/
-                %h2
-                  %a{href: "", target: "_blank"} 滟紫台
-                  %span 热卖中
-                %p 限时抢购：2014.03.01-2014.06.30
-              .pic
-                %a{alt: "万达西双版纳国际度假区", href: "", rel: "nofollow", target: "_blank"}
-                  %img{alt: "万达西双版纳国际度假区", src: "upload/img/ad7.gif", style: " width:265px; height:166px;", title: "万达西双版纳国际度假区"}/
-                %h2
-                  %a{href: "", target: "_blank"} 万达西双版纳国际度假区
-                  %span 热卖中
-                %p.blue
-                %p 限时抢购：2014.03.01-2014.05.31
-              .pic
-                %a{alt: "紫荆国际公寓", href: "", rel: "nofollow", target: "_blank"}
-                  %img{alt: "紫荆国际公寓", src: "upload/img/ad7.gif", style: " width:265px; height:166px;", title: "紫荆国际公寓"}/
-                %h2
-                  %a{href: "", target: "_blank"} 紫荆国际公寓
-                  %span 热卖中
-                %p.blue
-                %p 限时抢购：2014.01.28-2014.04.15
+              - @group_buyings.where("NOT recommend").limit(3).each do |group_buying|
+                .pic
+                  = link_to image_tag(NewHome.find(group_buying.new_home_id).new_home_thumb, :style => "width:265px; height:166px", :title => NewHome.find(group_buying.new_home_id).name), :rel => "nofollow", :target => "_blank"
+                  %h2
+                    = link_to NewHome.find(group_buying.new_home_id).name, :target => "_blank"
+                    %span 热卖中
+                  %p.blue
+                  %p 限时抢购：#{ group_buying.start_time.strftime("%Y-%m-%d") } - #{ group_buying.end_time.strftime("%Y-%m-%d") }
+              - @group_buyings.where("NOT recommend").limit(3).offset(3).each do |group_buying|
+                .pic
+                  = link_to image_tag(NewHome.find(group_buying.new_home_id).new_home_thumb, :style => "width:265px; height:166px", :title => NewHome.find(group_buying.new_home_id).name), :rel => "nofollow", :target => "_blank"
+                  %h2
+                    = link_to NewHome.find(group_buying.new_home_id).name, :target => "_blank"
+                    %span 热卖中
+                  %p.blue
+                  %p 限时抢购：#{ group_buying.start_time.strftime("%Y-%m-%d") } - #{ group_buying.end_time.strftime("%Y-%m-%d") }
+              - @group_buyings.where("NOT recommend").limit(3).offset(6).each do |group_buying|
+                .pic
+                  = link_to image_tag(NewHome.find(group_buying.new_home_id).new_home_thumb, :style => "width:265px; height:166px", :title => NewHome.find(group_buying.new_home_id).name), :rel => "nofollow", :target => "_blank"
+                  %h2
+                    = link_to NewHome.find(group_buying.new_home_id).name, :target => "_blank"
+                    %span 热卖中
+                  %p.blue
+                  %p 限时抢购：#{ group_buying.start_time.strftime("%Y-%m-%d") } - #{ group_buying.end_time.strftime("%Y-%m-%d") }
+
     .mt20{style: " border:1px solid  #F3F3F3;"}
       .title3_l
         %p 正在进行
@@ -108,7 +62,7 @@
       / 团购开始
       - @group_buyings.each do |group_buying|
         = render group_buying
-        
+
       = will_paginate
   / end 左边
   / 右边

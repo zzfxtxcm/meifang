@@ -14,6 +14,7 @@ class Information < ActiveRecord::Base
   mount_uploader :information_thumb, InformationThumbUploader
 
   searchable do
+    integer :information_type_id
     text :title, :boost => 5
     text :description
     text :content
