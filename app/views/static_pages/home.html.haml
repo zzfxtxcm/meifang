@@ -63,7 +63,7 @@
     .title_l
       %p 楼盘速递
     .title_r
-      %a.pr15.pull-right.mt5{href: ""} 更多
+      = link_to '更多', information_index_path(:information_type_id => 2), :class => 'pull-right mt5'
     .pull-left.mt10
       %ul
         - Information.where(information_type_id: 2).limit(7).each do |information|
@@ -73,7 +73,7 @@
     .title_l
       %p 楼盘优惠
     .title_r
-      %a.pr15.pull-right.mt5{href: ""} 更多
+      = link_to '更多', information_index_path(:information_type_id => 3), :class => 'pull-right mt5'
     .pull-left.mt10
       %ul
         - Information.where(information_type_id: 3).limit(7).each do |information|
@@ -83,7 +83,7 @@
     .title_l
       %p 楼盘评测
     .title_r
-      %a.pr15.pull-right.mt5{href: ""} 更多
+      = link_to '更多', information_index_path(:information_type_id => 4), :class => 'pull-right mt5'
     .pull-left.mt10
       %ul
         - Information.where(information_type_id: 12).limit(7).each do |information|
@@ -167,7 +167,7 @@
       .title_l
         %p 楼市日历
       .title_r{style: "width:380px;"}
-        %a.pr15.pull-right.mt5{href: ""} 更多
+        = link_to '更多', information_index_path, :class => 'pull-right mt5'
       .clearfix
       .pull-left{style: "width:450px;"}
         #navbarExample.navbar.navbar-static.m0{style: "width: 473px; padding-top:10px;"}
@@ -199,7 +199,7 @@
       .panel-heading
         %h3.panel-title
           新房推荐
-          %a.pull-right.f14{href: "#"} 更多>
+          = link_to '更多', new_homes_path, :class => 'pull-right mt5'
       .panel-body
         %table.table.table-condensed
           %thead
@@ -434,7 +434,7 @@
       .title3_l
         %p 购房须知
       .title3_r{align: "right", style: "width:168px"}
-        %a{href: ""} 更多
+        = link_to '更多', information_index_path(:information_type_id => 9)
       .clearfix
       .mt10.mb10
         %ul
@@ -444,7 +444,7 @@
       .title3_l
         %p 购房警示
       .title3_r{align: "right", style: "width:168px"}
-        %a{href: ""} 更多
+        = link_to '更多', information_index_path(:information_type_id => 10)
       .clearfix
       .mt10.mb10
         %ul
@@ -455,7 +455,7 @@
       .title3_l
         %p 房事八卦
       .title3_r{align: "right", style: "width:278px"}
-        %a{href: ""} 更多
+        = link_to '更多', information_index_path(:information_type_id => 13)
       .clearfix
       - Information.where("information_type_id = 13 AND information_thumb IS NOT NULL").limit(1).each do |information|
         .pull-left.pt10{style: " width:174px;"}
@@ -476,7 +476,7 @@
       .title3_l
         %p 家居轶事
       .title3_r{align: "right", style: "width:278px"}
-        %a{href: ""} 更多
+        = link_to '更多', information_index_path(:information_type_id => 14)
       .clearfix
         - Information.where("information_type_id = 14 AND information_thumb IS NOT NULL").limit(1).each do |information|
           .pull-left.pt10{style: " width:174px;"}
