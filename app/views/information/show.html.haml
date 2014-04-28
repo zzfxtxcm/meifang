@@ -15,12 +15,6 @@
         %h1
           = @information.title
         %p
-          %font{style: "right:0px; float:right;"}>
-            [
-            %a{href: "javascript:zoom('news_body', 16);"} 大
-            %a{href: "javascript:zoom('news_body', 14);"} 中
-            = succeed "]" do
-              %a{href: "javascript:zoom('news_body', 12);"} 小
           #{@information.created_at.strftime("%Y-%m-%d %H:%M")}　来源: #{@information.source}
           %font{color: "#CC0000"}> 859次
       .review

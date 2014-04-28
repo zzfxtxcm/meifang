@@ -277,10 +277,11 @@
             .loushiguandian
               - Information.where(information_type_id: 8).limit(2).each do |information|
                 %h4
-                  = link_to information.title.first(34), information, :class=> "cr"
-                %p.f14.mt5
-                  = information.description.first(100)
-                  = link_to "[查看详情]", information,:class => "cr"
+                  = link_to information.title.first(14), information, :class=> "cr"
+                .mt5{style: "height:80px"}
+                  %p.f14
+                    = information.description.first(60)
+                    = link_to "[查看详情]", information,:class => "cr"
             .clearfix
             .mb10{style: "border-top:1px dotted #333;"}
             %ul
@@ -471,7 +472,7 @@
         - Information.where(information_type_id: 13).limit(8).each do |information|
           %li
             = link_to information.title.first(26), information
-    .pull-left.mt10{style: " margin-left:15px;"}
+    .pull-left.mt10{style: " margin-left:15px;width:405px;"}
       .title3_l
         %p 家居轶事
       .title3_r{align: "right", style: "width:278px"}
