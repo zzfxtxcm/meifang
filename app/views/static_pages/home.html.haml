@@ -287,7 +287,7 @@
               - Information.where(information_type_id: 8).limit(6).offset(1).each do |information|
                 %li
                   = link_to information.title, information
-                  
+
       / %div{style: "width:465px;"}
       /   %ul#myTab.nav.nav-tabs.mb5{style: "border-bottom: 1px solid #2db8ad;"}
       /     %li.active{style: "border-bottom: 1px solid #2db8ad;"}
@@ -458,10 +458,10 @@
       .clearfix
       - Information.where("information_type_id = 13 AND information_thumb IS NOT NULL").limit(1).each do |information|
         .pull-left.pt10{style: " width:174px;"}
-          = link_to image_tag(information.information_thumb, alt: information.title, :class => "mb10"), information
+          = link_to image_tag(information.information_thumb, alt: information.title, :class => "mb10", :style => "height:98px; width:174px"), information
         %div{style: "float:left; width:212px; margin-left:10px;"}
           %h4.m0
-            = link_to information.title, information, :class => "cr f14"
+            = link_to information.title.first(14), information, :class => "cr f14"
           %p.f12.m0
             = information.description.first(60)
             = link_to "[详情]", information, :class => "cl"
@@ -470,7 +470,7 @@
       %ul
         - Information.where(information_type_id: 13).limit(8).each do |information|
           %li
-            = link_to information.title.first(40), information
+            = link_to information.title.first(26), information
     .pull-left.mt10{style: " margin-left:15px;"}
       .title3_l
         %p 家居轶事
@@ -479,10 +479,10 @@
       .clearfix
         - Information.where("information_type_id = 14 AND information_thumb IS NOT NULL").limit(1).each do |information|
           .pull-left.pt10{style: " width:174px;"}
-            = link_to image_tag(information.information_thumb, alt: information.title, :class => "mb10"), information
+            = link_to image_tag(information.information_thumb, alt: information.title, :class => "mb10", :style => "height:98px; width:174px"), information
           %div{style: "float:left; width:212px; margin-left:10px;"}
             %h4.m0
-              = link_to information.title, information, :class => "cr f14"
+              = link_to information.title.first(14), information, :class => "cr f14"
             %p.f12.m0
               = information.description.first(60)
               = link_to "[详情]", information, :class => "cl"
@@ -491,7 +491,7 @@
       %ul
         - Information.where(information_type_id: 14).limit(8).each do |information|
           %li
-            = link_to information.title.first(40), information
+            = link_to information.title.first(26), information
     .clearfix
     .tool
       / 友情链接
