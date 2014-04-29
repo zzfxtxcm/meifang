@@ -382,14 +382,14 @@
       .title2_l
         %h4.f16.cr{style: "margin:0px"} 资料分享
       .title2_r{align: "right", style: "width:140px;"}
-        %a{href: ""} 更多
+        %a{href: "/information_sharings"} 更多
       .clearfix
       .pull-left
         %table.table.table-condensed.pull-left{style: "width:215px; margin-bottom:5px;"}
-          - InformationSharing.limit(6).each do |information|
+          - InformationSharing.limit(6).each do |sharp|
             %tr
               %td
-                = link_to information.title.first(15), information
+                = link_to sharp.title.first(17), sharp
       .clearfix
       .pull-left
         = image_tag("tmp/xw.gif", alt: "", :style => "height:260px; width:226px;")
