@@ -386,7 +386,7 @@
       .clearfix
       .pull-left
         %table.table.table-condensed.pull-left{style: "width:215px; margin-bottom:5px;"}
-          - Information.where(information_type_id: 12).limit(6).each do |information|
+          - InformationSharing.limit(6).each do |information|
             %tr
               %td
                 = link_to information.title.first(15), information

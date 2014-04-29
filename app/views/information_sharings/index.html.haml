@@ -3,13 +3,11 @@
     当前位置：
     %a{href: ""} 馨窝网
     \>
-    %a{href: ""} 房产
-    \>
-    %a 新闻
+    %a 资料分享
   .clearfix
-  .pull-left{ style: "width: 900px;" }
-    - @information.each do |information|
-      = render information
+  .pull-left{style: "width:900px;"}
+    - @information_sharings.each do |information_sharing|
+      = render information_sharing
     .fenye
       .pagination.pull-right{style: "margin-top:0px;"}
         = will_paginate
