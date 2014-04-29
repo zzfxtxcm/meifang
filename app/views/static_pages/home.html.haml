@@ -214,6 +214,8 @@
                 = Area.find(item.area_id).name
               %td #{ item.price }元/m&sup2
     = render 'shared/intention_to_register_form'
+    .p5
+      = image_tag("tmp/jjsx.gif", alt: "")
 
   / end 左边
   / 右边
@@ -287,7 +289,8 @@
               - Information.where(information_type_id: 8).limit(6).offset(1).each do |information|
                 %li
                   = link_to information.title, information
-
+      .pt10{style: "width:465px"}
+        = image_tag("tmp/newh.jpg", alt: "",:style =>" height:360px;width:465px;")
       / %div{style: "width:465px;"}
       /   %ul#myTab.nav.nav-tabs.mb5{style: "border-bottom: 1px solid #2db8ad;"}
       /     %li.active{style: "border-bottom: 1px solid #2db8ad;"}
@@ -376,7 +379,7 @@
           %ul
             - Information.where(information_type_id: 8).limit(5).offset(1).each do |information|
               %li
-                = link_to information.title, information
+                = link_to information.title.first(17), information
     .pull-left.mt10.ml20
       .title2_l
         %h4.f16.cr{style: "margin:0px"} 资料分享
