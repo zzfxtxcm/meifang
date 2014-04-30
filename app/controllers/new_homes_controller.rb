@@ -26,5 +26,9 @@ class NewHomesController < ApplicationController
 
   def show
     @new_home = NewHome.find(params[:id])
+    @apartments = Apartment.all
+    @albums = Album.order('created_at DESC')
+                  .paginate(page: params[:page])
+                  .per_page(9)
   end
 end

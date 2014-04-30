@@ -239,14 +239,27 @@ ActiveAdmin.register NewHome do
       f.has_many :albums do |album|
         album.input :name, :label => "名称"
         album.input :url, :as => :file,
-                        :label => "相册地址",
-                        :hint => album.object.url.nil? \
-                                 ? album.template.content_tag(:span, "No Image Yet")
-                                 : album.template.image_tag(album.object.url.url(:normal))
+                          :label => "相册地址",
+                          :hint => album.object.url.nil? \
+                                   ? album.template.content_tag(:span, "No Image Yet")
+                                   : album.template.image_tag(album.object.url.url(:normal))
         album.input :_destroy, :as => :boolean, :required => false, :label => '选定删除'
         # album.actions do
         #   album.action :submit
         # end
+      end
+    end
+
+    f.inputs I18n.t("active_admin.apartment.apartment") do
+      f.has_many :apartments do |apartment|
+        apartment.input :name, :label => "名称"
+        apartment.input :apartment_name, :label => "户型"
+        apartment.input :area, :label => "面积"
+        apartment.input :apartment_thumb, :as => :file,
+                                          :label => "图片地址",
+                                          :hint => apartment.object.apartment_thumb.nil? \
+                                                   ? apartment.template.content_tag(:span, "No Image Yet")
+                                                   : apartment.template.image_tag(apartment.object.apartment_thumb.url(:thumb))
       end
     end
 

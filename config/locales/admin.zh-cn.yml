@@ -166,6 +166,8 @@ zh-CN:
         created_at: "创建时间"
     alubms:
       alubms: "相册"
+    apartment:
+      apartment: "户型图"
     information_estate_openeds:
       title: "开盘信息管理"
       list:
@@ -257,3 +259,5 @@ zh-CN:
       intention_to_register: "意向登记"
       activity: "活动"
       character: "名人"
+      album: "相册"
+      apartment: "户型图"
