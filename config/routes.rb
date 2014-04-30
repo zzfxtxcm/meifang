@@ -17,6 +17,7 @@ Meifang::Application.routes.draw do
   resources :group_buyings
   resources :intention_to_registers
   resources :information_sharings
+  resources :characters
 
 
   # The priority is based upon order of creation: first created -> highest priority.
