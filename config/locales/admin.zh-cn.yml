@@ -23,6 +23,16 @@ zh-CN:
         content: "内容说明"
         url: "下载地址"
         information_sharing_thumb: "缩略图"
+      search:
+        title: "标题"
+        content: "内容说明"
+        url: "下载地址"
+        information_sharing_thumb: "缩略图"
+      form:
+        title: "标题"
+        content: "内容说明"
+        url: "下载地址"
+        information_sharing_thumb: "缩略图"
     information: # 信息
       title: "信息管理"
       menu:

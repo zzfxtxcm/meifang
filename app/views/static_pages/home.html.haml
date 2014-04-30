@@ -346,11 +346,11 @@
             #List1_1
               - Character.all.limit(8).each do |item|
                 .pl
-                  = image_tag(item.character_thumb, alt: item.name, :style => "height:160px; width:130px")
+                  = link_to image_tag(item.character_thumb, alt: item.name, :style => "height:160px; width:130px"),item
                   %h4
-                    = item.name.first(8)
+                    = link_to item.name.first(8), item
                   %p
-                    = item.content.first(13)
+                    = item.content.first(13).html_safe
             #List2_1
         %a.RightBotton{href: "javascript:void(0);", onmousedown: "ISL_GoDown_1()", onmouseout: "ISL_StopDown_1()", onmouseup: "ISL_StopDown_1()", target: "_self"}
       .c
