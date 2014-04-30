@@ -37,11 +37,11 @@
       %td{colspan: "2"}
         - @albums.each do |item|
           .prhxtinfo.pull-left.ml10.mr10
-            %img.img-polaroid{src: "upload/img/ad8.gif", style: "padding:10px 10px 10px 10px; width:236px ; height:138px"}/
+            = image_tag(item.url, :class => "img-polaroid", :style => "padding:10px; width:236px; height:138px")
             %table
               %tr
                 %td{colspan: "2"}
-                  %h4.cl 画虎国际f-3 e-2户型图 92m²
+                  %h4.cl= item.name
               %tr
                 %td{align: " center", colspan: "2"}
                   浏览：

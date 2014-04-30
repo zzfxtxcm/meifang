@@ -12,13 +12,15 @@
     .pull-left{style: "background: url(#{asset_path 'bootstrap/prt1.gif'}); height:40px; width: 1066px; background-repeat: repeat-x"}
       %a.active{href: "#"} 项目介绍
       = link_to "户型图", new_home_path(@new_home.id, :type => "apartment")
-      %a{href: "#"} 销售动态
+      = link_to "销售动态", new_home_path(@new_home.id, :type => "news")
       %a{href: "#"} 价格行情
       %a{href: "#"} 交通配套
       = link_to "楼盘相册", new_home_path(@new_home.id, :type => "album")
   - type = params[:type]
   - if type == "apartment"
     = render "apartment"
+  - elsif
+    = render "news"
   - elsif
     = render "album"
   - else
