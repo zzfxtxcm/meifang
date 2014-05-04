@@ -78,7 +78,7 @@ ActiveAdmin.register NewHome do
       f.form_buffers.last << "<div id=\"selectItem\" class=\"selectItemhidden\">
                                 <div id=\"selectItemAd\" class=\"selectItemtit bgc_ccc\">
                                   <h2 id=\"selectItemTitle\" class=\"selectItemleft\">请选择城市</h2>
-                                   <div id=\"selectItemClose\" class=\"selectItemright\">关闭</div>
+                                  <div id=\"selectItemClose\" class=\"selectItemright\">关闭</div>
                                 </div>
                                 <div id=\"selectItemCount\" class=\"selectItemcont\">
                                   <div id=\"selectSub\">
@@ -88,14 +88,13 @@ ActiveAdmin.register NewHome do
                                         <input type=\"text\" size=\"20\" name=\"keyword\" id=\"keyword\" style=\"width:100px\" />
                                         <input type=\"submit\" value=\"提交\" onclick=\"MblogDotccMap(document.getElementById('keyword').value)\" />
                                       </div>
-                                        <div id=\"results_info\" style=\"margin-top:10px; margin-left:10px;\"></div>
+                                      <div id=\"results_info\" style=\"margin-top:10px; margin-left:10px;\"></div>
                                     </div>
                                     <div id=\"l-map\" style=\"height:550px; width: 650px; float:left; \"></div>
                                   </div>
                                 </div>
                               </div>".html_safe
       f.form_buffers.last << javascript_tag("
-
                                              var map = new BMap.Map(\"l-map\");
                                              var point = new BMap.Point(117.676205,24.517065);
 
