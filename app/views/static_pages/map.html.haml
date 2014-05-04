@@ -1,0 +1,131 @@
+%script{src: "http://api.map.baidu.com/api?v=2.0&ak=NXagVEyXSs6AmnrCNXl7pKHo", type: "text/javascript"}
+= form_tag '', :method => :get, :class => "form-inline", :role => "form" do
+  .selectItemhidden#selectItem
+    .selectItemtit.bgc_ccc#selectItemAd
+      %h2.selectItemleft#selectItemTitle
+        请选择城市
+      .selectItemright#selectItemClose
+        关闭
+    .selectItemcont#selectItemCount
+      #selectSub
+        #r-result{ :style => "width: 250px; float: right;" }
+          #search{ :style => "margin-top: 10px; margin-left: 10px;" }
+            搜索
+            = text_field_tag :map_keyword, "", :class => "form-control", :id => "map_keyword", :style => "width: 100px", :size => "20",:placeholder => "请输入楼盘"
+            %button.btn.btn-danger{ type: "submit", style: "height: 28px; width: 58px", onclick: "MblogDotccMap(document.getElementById('map_keyword').value)" }
+              搜索
+          #results_info{ :style => "margin-top: 10px; margin-left: 10px;" }
+        #l-map{ :style => "height: 550px; width: 650px; float: left;" }
+.clearfix
+:javascript
+  var map = new BMap.Map("l-map");
+  var point = new BMap.Point(117.676205,24.517065);
+
+  map.centerAndZoom(point, 13);
+
+  // var marker = new BMap.Marker(point);  // 创建标注
+  // map.addOverlay(marker);             // 将标注添加到地图中
+  // marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+
+  // 控件
+
+  map.addControl(new BMap.NavigationControl());
+  map.addControl(new BMap.ScaleControl());
+  map.addControl(new BMap.OverviewMapControl());
+
+  function MblogDotccMap(keyword) {
+    var local = new BMap.LocalSearch(map, {renderOptions: {map: map, panel: "results_info"}});
+    map.panBy(point);
+    local.search(keyword);
+    local.getResults();
+    // 阻止提交
+    // if (event) event.returnValue = false;
+    //   return false;
+  }
+
+  // 加载值到输入框
+  map.addEventListener('click', function(e){ document.getElementById('new_home_map_address').value = e.point.lng + ', ' + e.point.lat;});
+
+  // 复杂的自定义覆盖物
+  function ComplexCustomOverlay(point, text, price, area, project_address, show, tel){
+    this._point = point;
+    this._text = text;
+    this._price = price;
+    this._area = area;
+    this._project_address = project_address;
+    this._show = show;
+    this._tel = tel;
+  }
+  ComplexCustomOverlay.prototype = new BMap.Overlay();
+  ComplexCustomOverlay.prototype.initialize = function(map){
+    this._map = map;
+    var div = this._div = document.createElement("div");
+    div.style.position = "absolute";
+    div.style.zIndex = BMap.Overlay.getZIndex(this._point.lat);
+    div.style.backgroundColor = "#EE5D5B";
+    div.style.border = "1px solid #BC3B3A";
+    div.style.color = "white";
+    div.style.height = "18px";
+    div.style.padding = "2px";
+    div.style.lineHeight = "18px";
+    div.style.whiteSpace = "nowrap";
+    div.style.MozUserSelect = "none";
+    div.style.fontSize = "12px"
+    var span = this._span = document.createElement("span");
+    div.appendChild(span);
+    span.appendChild(document.createTextNode(this._text));
+    var that = this;
+
+    var arrow = this._arrow = document.createElement("div");
+    arrow.style.background = "url(http://map.baidu.com/fwmap/upload/r/map/fwmap/static/house/images/label.png) no-repeat";
+    arrow.style.position = "absolute";
+    arrow.style.width = "11px";
+    arrow.style.height = "10px";
+    arrow.style.top = "22px";
+    arrow.style.left = "10px";
+    arrow.style.overflow = "hidden";
+    div.appendChild(arrow);
+
+    div.onmouseover = function(){
+      // this.style.backgroundColor = "#6BADCA";
+      // this.style.borderColor = "#0000ff";
+      // this.getElementsByTagName("span")[0].innerHTML = that._overText;
+      // arrow.style.backgroundPosition = "0px -20px";
+
+      var opts = {
+        width : 250,     // 信息窗口宽度
+        // height: 100,     // 信息窗口高度
+        // title : "Hello";  // 信息窗口标题
+      }
+      var content = "<img src='http://map.baidu.com/fwmap/upload/r/map/fwmap/static/house/images/label.png'>";
+      content = content + "hh" + that._text;
+      var infoWindow = new BMap.InfoWindow(content, opts);  // 创建信息窗口对象
+      map.openInfoWindow(infoWindow, map.getCenter());      // 打开信息窗口
+
+    }
+
+    div.onmouseout = function(){
+      this.style.backgroundColor = "#EE5D5B";
+      this.style.borderColor = "#BC3B3A";
+      this.getElementsByTagName("span")[0].innerHTML = that._text;
+      arrow.style.backgroundPosition = "0px 0px";
+    }
+
+    map.getPanes().labelPane.appendChild(div);
+
+    return div;
+  }
+  ComplexCustomOverlay.prototype.draw = function(){
+    var map = this._map;
+    var pixel = map.pointToOverlayPixel(this._point);
+    this._div.style.left = pixel.x - parseInt(this._arrow.style.left) + "px";
+    this._div.style.top  = pixel.y - 30 + "px";
+  }
+
+  var txt = "银湖海岸城", mouseoverTxt = txt + " " + parseInt(Math.random() * 1000,10) + "套" ;
+
+  var myCompOverlay = new ComplexCustomOverlay(new BMap.Point(117.676205,24.517065), txt,mouseoverTxt);
+  var myCompOverlay1= new ComplexCustomOverlay(new BMap.Point(117.684086, 24.50871), txt,mouseoverTxt);
+
+  map.addOverlay(myCompOverlay);
+  map.addOverlay(myCompOverlay1);
