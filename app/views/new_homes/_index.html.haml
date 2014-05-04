@@ -1,23 +1,24 @@
+%script{src: "http://api.map.baidu.com/api?v=2.0&ak=NXagVEyXSs6AmnrCNXl7pKHo", type: "text/javascript"}
 .clearfix
 .pr_info
-  .pull-left
-    .item-tab.mt20
+  .pull-left.mt20
+    .item-tab
       .panel{style: "display: block;"}
-        %a{href: "http://newhouse.house365.com/aifeiguoji/xc/type-5/", target: "_blank"}    
-          = image_tag("tmp/newh.jpg", alt: "",:style =>"width:340px; height:257px", target: "_blank" ,title: "艾菲国际-艾菲国际景观示意图（12.18）")
+        %a{href: "", target: "_blank"}    
+          = image_tag(@new_home.new_home_thumb, alt: "",:style =>"width:340px; height:257px", target: "_blank" ,title: "艾菲国际-艾菲国际景观示意图（12.18）")
       .panel{style: "display: none;"}
-        %a{href: "http://newhouse.house365.com/aifeiguoji/xc/type-6/", target: "_blank"}
-          %img{src: "upload/img/138812355652bd15a4a9784.jpg", style: "width:340px; height:257px", target: "_blank", title: "艾菲国际-艾菲国际临时售楼处实景图（12.27）"}/
+        %a{href: "", target: "_blank"}
+          = image_tag("tmp/tg.jpg", alt: "",:style =>"width:340px; height:257px", target: "_blank" ,title: "艾菲国际-艾菲国际景观示意图（12.18）")
       .panel{style: "display: none;"}
-        %a{href: "http://newhouse.house365.com/aifeiguoji/xc/type-3/", target: "_blank"}
+        %a{href: "", target: "_blank"}
           %img{src: "upload/img/138732779652b0f13498ae9.jpg", style: "width:340px; height:257px", target: "_blank", title: "艾菲国际-艾菲国际89㎡C2户型图（12.18）"}/
       %ul.tag.clearfix{style: "z-index:999"}
         %li.on
-          %a{href: "http://newhouse.house365.com/aifeiguoji/xc/type-5/", target: "_blank"} 效果图
+          %a{href: "", target: "_blank"} 效果图
         %li
-          %a{href: "http://newhouse.house365.com/aifeiguoji/xc/type-6/", target: "_blank"} 交通图
+          %a{href: "", target: "_blank"} 交通图
         %li
-          %a{href: "http://newhouse.house365.com/aifeiguoji/xc/type-3/", target: "_blank"} 户型图
+          %a{href: "", target: "_blank"} 户型图
       .cover
     .panel.panel-primary.mt20{style: "width:338px"}
       .panel-heading
@@ -30,10 +31,11 @@
                   MEIFANG消息 东溪流域彻底整治、清风园扩建，今年同安东溪西洋溪段首个6万平开放式湿地公园打造在即、东溪沿岸不行、自行车...
           %a.cl{href: ""} [详情]
         %div{style: "border-top:1px dotted #333; padding:0px 0px 15px 0px;"}
-        %a
-          %li.f14.lh180 漳靖打造同城化"桥头堡" 将实现30分钟内通达
-        %a
-          %li.f14.lh180 漳州地热资源丰富 温泉旅游地产迎来发展新机遇
+        %ul
+          %li.f14.lh180
+            %a 漳靖打造同城化"桥头堡" 将实现30分钟内通达
+          %li.f14.lh180
+            %a 漳州地热资源丰富 温泉旅游地产迎来发展新机遇
     .panel.panel-primary.mt20{style: "width:338px"}
       .panel-heading
         %h3.panel-title 人气指数
@@ -86,27 +88,29 @@
   / end left
   .pull-left.ml30{style: "width:800px;"}
     .pr_info_1
-      %h4.pt20 锦绣华城基本信息
+      %h4.pt20 
+        = @new_home.name+""+"基本信息"
       %div{style: "border-top:1px dotted #333; padding:0px 0px 15px 0px;"}
       %p
         %strong.f14 参考均价：
-        %span.cr.f20 11000元/㎡
+        %span.cr.f20 #{@new_home.price}元/m ²
       %p
         %strong.f14 项目地址：
-        = succeed "\u{6d66}\u{53e3}\u{533a}\u{6d66}\u{73e0}\u{5317}\u{8def}59\u{53f7}\u{ff08}\u{6d66}\u{73e0}\u{5317}\u{8def}\u{548c}\u{67f3}\u{5dde}\u{5357}\u{8def}\u{4ea4}\u{6c47}\u{5904}\u{ff09}\u{697c}\u{76d8}\u{5730}\u{56fe}" do
-          %span.cl [江北·浦口区]
+        %span
+          = @new_home.project_address
       %p
         %strong.f14 主力户型：
-        %span.cl 79㎡（高层）92㎡（高层）122㎡（洋房）
-      %p
+        %span.cl
+          = @new_home.main_units
+      %p    
         %strong.f14> 建筑类别：
-        多层,高层,小高层
+        = ConstructionCategory.find(@new_home.construction_category_id).name
       %p
         %strong.f14 项目特色：
-        %span.cl 花园洋房、江景房、学区房、打折优惠楼盘、团立方楼盘
+        = ProjectFeatures.find(@new_home.project_features_id).name
       %p
         %strong.f14> 物业类别：
-        住宅、别墅
+        = PropertyType.find(@new_home.property_type_id).name
       %p
         %strong.f14> 交房标准：
         毛坯
