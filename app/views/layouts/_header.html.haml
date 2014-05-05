@@ -43,7 +43,13 @@
               搜索
         #tab3.tab-pane
 / 导航
-%div{ style: "height: 70px" }
+:javascript
+  jQuery(function($) {
+    $(document).ready( function() {
+      $('.newnav').stickUp();
+    });
+  });
+%div{ style: "height: 20px" }
 #toc_container.newnav{ align: "center" }
   = link_to "首页", root_path, target: "_blank"
   |
