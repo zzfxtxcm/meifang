@@ -122,10 +122,13 @@
     this._div.style.top  = pixel.y - 30 + "px";
   }
 
-  var txt = "银湖海岸城", mouseoverTxt = txt + " " + parseInt(Math.random() * 1000,10) + "套" ;
+  var map_keyword = "#{@map_keyword}";
 
-  var myCompOverlay = new ComplexCustomOverlay(new BMap.Point(117.676205,24.517065), txt,mouseoverTxt);
-  var myCompOverlay1= new ComplexCustomOverlay(new BMap.Point(117.684086, 24.50871), txt,mouseoverTxt);
+  var new_homes = #{@new_homes.to_json};
 
-  map.addOverlay(myCompOverlay);
-  map.addOverlay(myCompOverlay1);
+  for(var item in new_homes){
+    var map_address = new_homes[item].map_address.split(",");
+    var name = new_homes[item].name;
+    var myCompOverlay = new ComplexCustomOverlay(new BMap.Point(map_address[0], map_address[1]), name);
+    map.addOverlay(myCompOverlay);
+  }
