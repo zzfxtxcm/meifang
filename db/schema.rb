@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20140429030708) do
-=======
-ActiveRecord::Schema.define(version: 20140430071529) do
->>>>>>> develop
+ActiveRecord::Schema.define(version: 20140504063257) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -107,6 +103,7 @@ ActiveRecord::Schema.define(version: 20140430071529) do
     t.string   "character_thumb"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
   end
 
   create_table "ckeditor_assets", force: true do |t|

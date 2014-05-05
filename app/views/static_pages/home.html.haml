@@ -12,7 +12,7 @@
             %h4.f16.mt5.mb5{style: "color:#f65c52"} #{area.name}
             %p
               - NewHome.where(area_id: area.id).limit(4).each do |new_home|
-                = link_to new_home.name, new_home, :class => "areaa", :style => "color: #333"
+                = link_to new_home.name, new_home, :class => "areaa", :style => "color: #333", target: "_blank"
     .panel.panel-primary
       .panel-heading
         %h3.panel-title 帮你找房
@@ -44,26 +44,26 @@
   / 右边
   .pull-left.ml20
     .pull-left
-      = image_tag("tmp/ad.gif", alt: "", :style => "height:58px; width:900px")
+      = image_tag("tmp/ad.jpg", alt: "", :style => "height:58px; width:900px")
     .clearfix
     .pull-left.pt10
       = image_tag("jrtt.gif")
     .pull-left.ml10
       - Information.where(information_type_id: 1).limit(1).each do |information|
         %h3
-          = link_to information.title.first(30), information, :class => "cl"
+          = link_to information.title.first(30), information, :class => "cl", target: "_blank"
           %span.cl
             = "..." if information.title.length >31
         %p
           = information.description.first(60)
           = "..." if information.description.length > 60
-          = link_to "详情", information, :class => "cr"
+          = link_to "详情", information, :class => "cr", target: "_blank"
     / 右边中
   .l_new2.pull-left.ml20{style: "border-right: 1px solid #EEEEEE; width:410px;"}
     .title_l
       %p 楼盘速递
     .title_r
-      = link_to '更多', information_index_path(:information_type_id => 2), :class => 'pull-right mt5'
+      = link_to '更多', information_index_path(:information_type_id => 2), :class => 'pull-right mt5', target: "_blank"
     .pull-left.mt10
       %ul
         - Information.where(information_type_id: 2).limit(7).each do |information|
@@ -350,7 +350,7 @@
                   %h4
                     = link_to item.name.first(8), item
                   %p
-                    = item.content.first(13).html_safe
+                    = item.title.first(13)
             #List2_1
         %a.RightBotton{href: "javascript:void(0);", onmousedown: "ISL_GoDown_1()", onmouseout: "ISL_StopDown_1()", onmouseup: "ISL_StopDown_1()", target: "_self"}
       .c
@@ -440,7 +440,7 @@
       .clearfix
       .mt10.mb10
         %ul
-          - Information.where(information_type_id: 9).limit(6).each do |information|
+          - Information.where(information_type_id: 9).limit(4).each do |information|
             %li
               = link_to information.title.first(40), information
       .title3_l

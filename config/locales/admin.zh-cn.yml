@@ -254,11 +254,13 @@ zh-CN:
       title: "名人堂"
       list:
         name: "姓名"
+        title: "标题"
         character_thumb: "照片"
       search:
         name: "姓名"
       form:
         name: "姓名"
+        title: "标题"
         content: "内容"
         character_thumb: "照片"
   activerecord:
