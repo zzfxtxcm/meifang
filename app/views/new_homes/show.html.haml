@@ -14,7 +14,7 @@
       = link_to "户型图", new_home_path(@new_home.id, :type => "apartment")
       = link_to "销售动态", new_home_path(@new_home.id, :type => "new")
       %a{href: "#"} 价格行情
-      %a{href: "#"} 交通配套
+      = link_to "交通配套", new_home_path(@new_home.id, :type => "traffic")
       = link_to "楼盘相册", new_home_path(@new_home.id, :type => "album")
   - type = params[:type]
   - if type == "apartment"
@@ -25,18 +25,8 @@
     = render "album"
   - elsif type == "introduce"
     = render "introduce"
+  - elsif type == "traffic"
+    = render "traffic"
   - else
     = render "index"
 / con end
-
-:javascript
-  // 百度地图API功能
-  var map = new BMap.Map("property-map");
-  var point = new BMap.Point(#{@new_home.map_address});
-  map.centerAndZoom(point,16);
-  map.enableScrollWheelZoom();
-  var marker1 = new BMap.Marker(point);
-  map.addOverlay(marker1);
-  var infoWindow1 = new BMap.InfoWindow("#{@new_home.name} - #{@new_home.project_address}");
-  marker1.addEventListener("click", function(){this.openInfoWindow(infoWindow1);});
-  map.addControl(new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}));

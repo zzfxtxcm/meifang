@@ -55,7 +55,7 @@ ActiveAdmin.register NewHome do
       script :src => javascript_path('custom/jquery.bgiframe.js'), :type => "text/javascript"
       script :src => javascript_path('http://api.map.baidu.com/api?v=2.0&ak=NXagVEyXSs6AmnrCNXl7pKHo'), :type => "text/javascript"
     end
-    f.inputs "New home" do
+    f.inputs "基本信息" do
       f.input :name,
               :wrapper_html => { :style => "width: 48%" },
               :label => I18n.t("active_admin.new_homes.form.name")
@@ -138,6 +138,9 @@ ActiveAdmin.register NewHome do
       f.input :agents,
               :wrapper_html => { :style => "width: 48%" },
               :label => I18n.t("active_admin.new_homes.form.agents")
+    end
+
+    f.inputs "楼盘信息" do
       f.input :covers,
               :wrapper_html => { :class => "left", :style => "width: 48%" },
               :label => I18n.t("active_admin.new_homes.form.covers")
