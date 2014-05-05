@@ -35,7 +35,7 @@
           %li.f14.lh180
             %a 漳靖打造同城化"桥头堡" 将实现30分钟内通达
           %li.f14.lh180
-            %a 漳州地热资源丰富 温泉旅游地产迎来发展新机遇
+            %a 漳州地热资源丰温泉旅游地产迎来发展新机遇
     .panel.panel-primary.mt20{style: "width:338px"}
       .panel-heading
         %h3.panel-title 人气指数
@@ -112,14 +112,14 @@
         %strong.f14> 物业类别：
         = PropertyType.find(@new_home.property_type_id).name
       %p
-        %strong.f14> 交房标准：
-        毛坯
-      %p
         %strong.f14> 建筑面积：
-        25万m²
+        = @new_home.gfa
+      %p
+        %strong.f14> 占地面积：
+        = @new_home.covers
       %p
         %strong.f14> 开 发 商：
-        南京大华投资发展有限公司
+        = @new_home.developers
       %p
         %strong.f14> 开盘时间：
         3.8日开乐美颂
