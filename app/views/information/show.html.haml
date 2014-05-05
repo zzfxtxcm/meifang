@@ -21,7 +21,7 @@
           = @information.description
     .tj
       - Information.limit(4).each do |information|
-        = link_to information.title, information
+        = link_to information.title, information, target: "_blank"
     .clearfix
     .news_body
       = @information.content.html_safe
