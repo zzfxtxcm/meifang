@@ -18,7 +18,6 @@
   <!--[if lte IE 7]>
     <%= stylesheet_link_tag "bootstrap/ie.css", media: "all", "data-turbolinks-track" => true %>
   <![endif]-->
-  <%= csrf_meta_tags %>
   <%= javascript_include_tag "application",
                               params[:controller],
                               "custom/ad_ls",
@@ -26,6 +25,7 @@
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+  <%= csrf_meta_tags %>
 </head>
   <body>
     <%= render 'layouts/header' %>
