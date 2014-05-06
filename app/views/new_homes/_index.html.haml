@@ -119,22 +119,22 @@
         = @new_home.covers
       %p
         %strong.f14> 开 发 商：
-        = @new_home.developers
+        = Developers.find(@new_home.developers_id).name
       %p
         %strong.f14> 开盘时间：
-        3.8日开乐美颂
+        
       %p
         %strong.f14> 公   摊：
-        约23%
+        = @new_home.pool_area
       %p
         %strong.f14> 车位情况：
-        3923
+        = @new_home.parking
       %p
         %strong.f14.mb10> 售楼地址：
-        浦口区浦珠北路59号（浦珠路南侧 长江北侧）
+        = @new_home.sales_address
       %div{style: "border-top:1px dotted #333; padding:0px 0px 15px 0px; "}
       %p.cl
-        %a.cl{href: "", target: "_blank"} 点击查看朗诗玲珑屿详细信息>>
+        %a.cl{href: "", target: "_blank"} 点击查看#{@new_home.name}详细信息>>
         %a.pull-right 退订
         %a.cl.pull-right.mr20 开盘动免费态订阅
     .pull-left.mt10
