@@ -132,6 +132,8 @@
       %p
         %strong.f14.mb10> 售楼地址：
         = @new_home.sales_address
+        /-Information.where(["new_home_id = :home_id and information_type_id = :type_id",{ home_id: @new_home.id, type_id: 12 }]).limit(1).each do |information|
+        /  = information.title
       %div{style: "border-top:1px dotted #333; padding:0px 0px 15px 0px; "}
       %p.cl
         %a.cl{href: "", target: "_blank"} 点击查看#{@new_home.name}详细信息>>
@@ -141,32 +143,33 @@
       .title3_l
         %p 活动
       .title3_r{align: "right", style: "width:678px;"}
-        %a{href: ""} 更多
+        %a{href: "information?information_type_id=2",target: "_blank"} 更多
       %table{border: "0", width: "800px"}
         %tr
           %td.pl15{colspan: "2"}
             %table.mt20
               %tr
                 %td{width: "290px;"}
-                  %img.img-polaroid{src: "upload/img/ad5.gif", style: "width:270px"}/
+                  -Information.where(new_home_id: @new_home.id).limit(1).each do |information|
+                    = link_to image_tag(information.information_thumb, alt: information.title, :style => "width:270px"), information, target: "_blank"
                 %td
-                  %p.f20.cl 锦绣华城：同安大型湿地公园就在家门口
-                  %p.ch 2014年2月26日更新
-                  %p
-                    MEIFANG消息 东溪流域彻底整治、清风园扩建，今年同安东溪西洋溪段首个6万平开放式湿地公园打造在即、东溪沿岸不行、建，今年同安东溪西洋溪段首个6万平开放式湿地公园打造在即、东溪沿岸不行、自行车自行车...
-                    %a.cr [详情]
+                  -Information.where(new_home_id: @new_home.id).limit(1).each do |information|
+                    %p
+                      = link_to information.title.first(24), information, :class => "f20 cl"
+                    %p.ch
+                      = information.updated_at.strftime("%Y-%m-%d %H:%M")
+                    %p
+                      = information.description.first(120)
+                      = link_to "[详情]", information, :class => "cl", target: "_blank"                  
         %tr
           %td{colspan: "2"}
             .ml20.mr20
-              %p.f16.lh150
-                禹州地产：连夺五项大奖 载誉全国领跑海西
-                %span.ch.pull-right.f12 2014年2月26日更新
-              %p.f16.lh150
-                禹州地产：连夺五项大奖 载誉全国领跑海西
-                %span.ch.pull-right.f12 2014年2月26日更新
-              %p.f16.lh150
-                禹州地产：连夺五项大奖 载誉全国领跑海西
-                %span.ch.pull-right.f12 2014年2月26日更新
+              -Information.where(new_home_id: @new_home.id).limit(3).offset(1).each do |information|
+                %p.f16.lh150
+                  =link_to information.title, information
+                  %span.ch.pull-right.f12 
+                    = information.updated_at.strftime("%Y-%m-%d %H:%M")
+            
       .title3_l
         %p 看房报告
       .title3_r{align: "right", style: "width:678px;"}
