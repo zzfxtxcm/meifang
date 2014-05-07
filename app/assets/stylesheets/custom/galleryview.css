@@ -82,11 +82,7 @@
 }
 
 /* TRANSPARENT BORDER FIX FOR IE6 */
-<<<<<<< HEAD
-/* NOTE - DO NOT CHANGE THIS RULE */
-=======
 /* NOTE - DO NOT CHANGE THIS RULE */
 /**html .pointer {
 	filter: chroma(color=pink);
 }*/
->>>>>>> develop
