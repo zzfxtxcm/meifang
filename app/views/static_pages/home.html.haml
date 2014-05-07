@@ -291,7 +291,7 @@
                 %li
                   = link_to information.title, information, target: "_blank"
       .pt10{style: "width:465px"}
-        %embed{height: "320px;", src:"/assets/tmp/sx.swf", width: "465px;"}
+        %embed{height: "320px;", src:"#{asset_path 'tmp/sx.swf'}", width: "465px;"}
       / %div{style: "width:465px;"}
       /   %ul#myTab.nav.nav-tabs.mb5{style: "border-bottom: 1px solid #2db8ad;"}
       /     %li.active{style: "border-bottom: 1px solid #2db8ad;"}
@@ -396,6 +396,16 @@
       .clearfix
       .pull-left
         = link_to image_tag("tmp/xw.gif", alt: "", :style => "height:260px; width:226px;"),'about#join', target: "_blank"
+    /[if IE 8]
+      <style type="text/css">
+      \#demo1 {
+      float: none;
+      }
+      
+      \#demo2  {
+      float: none;
+      }
+      </style>
     .pull-left.mt10
       .title3_l
         %p 品牌展示
