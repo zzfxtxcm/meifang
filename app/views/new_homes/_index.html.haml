@@ -49,7 +49,7 @@
         %p.f14.lh150 访问人数：11222人
         %p.f14.lh150 今日访问：32人
         %p.f14.lh150 昨日访问：165人
-        %p.f14.lh150 欢迎访问厦门锦绣华城网上售楼处！
+        %p.f14.lh150 欢迎访问#{@new_home.name}网上售楼处！
         %div{style: "border-top:1px dotted #333; padding:0px 0px 15px 0px;"}
         %table{width: "300px"}
           %tr
@@ -144,7 +144,7 @@
         %a.cl.pull-right.mr20 开盘动免费态订阅
     .pull-left.mt10
       .title3_l
-        %p 活动
+        %p 最新动态
       .title3_r{align: "right", style: "width:678px;"}
         %a{href: "information?information_type_id=2",target: "_blank"} 更多
       %table{border: "0", width: "800px"}
@@ -179,7 +179,7 @@
         %a{href: ""} 更多
       .clearfix
       .pt10.m10{style: "width:780px;"}
-      -Information.where(["new_home_id = :home_id and category_id = :c_id",{ home_id: @new_home.id, c_id: 17 }]).limit(1).each do |information|
+      -Information.where(["new_home_id = :home_id and category_id = :c_id",{ home_id: @new_home.id, c_id: 12 }]).limit(1).each do |information|
         %p.f16.cl
           [报告]
           %span.label{style: "background:#f65c52"} 最新
@@ -188,7 +188,7 @@
         %p
           = information.description.first(120)
           = link_to "[详情]", information, :class => "cl", target: "_blank"
-      -Information.where(["new_home_id = :home_id and category_id = :c_id",{ home_id: @new_home.id, c_id: 26 }]).offset(1).limit(3).each do |information|
+      -Information.where(["new_home_id = :home_id and category_id = :c_id",{ home_id: @new_home.id, c_id: 12 }]).offset(1).limit(3).each do |information|
         %p.f16.cl
           [报告]
           =link_to information.title, information, :class => "cl"
@@ -284,6 +284,7 @@
       %p.f14 综合商场:#{@new_home.shopping}
       %p.f14 医院:#{@new_home.hospital}
     .clearfix
+    %a{name: "tuangou"}
     .title3_l
       %p 我要团购
     .title3_r{align: "right", style: "width:785px;"}
@@ -336,13 +337,13 @@
             %tr{style: "color:#f65c52"}
               %th 楼盘名称
               %th 均价
-              %th 对比
+              %th 板块
             -NewHome.where(["price <= :new_id and price >= :new_id1",{ new_id: @new_home.price+1000,new_id1: @new_home.price-1000}]).limit(5).each do |new|
               %tr
                 %td #{new.name.first(7)}
                 %td #{new.price}元/m&sup2
-                %td 对比
-              
+                %td 
+                  = Area.find(new.area_id).name
     .panel.panel-primary
       .panel-heading
         %h3.panel-title
@@ -354,12 +355,13 @@
             %tr{style: "color:#f65c52"}
               %th 楼盘名称
               %th 均价
-              %th 对比
+              %th 板块
           -NewHome.where("area_id = ? ", @new_home.area_id).limit(5).each do |new|
             %tr
               %td #{new.name.first(7)}
               %td #{new.price}元/m&sup2
-              %td 对比
+              %td 
+                = Area.find(new.area_id).name
           
     .panel.panel-primary
       .panel-heading
@@ -377,34 +379,35 @@
             %tr
               %td #{new.name.first(7)}
               %td #{new.price}元/m&sup2
-              %td 对比
+              %td 
+                = Area.find(new.area_id).name
     
-    .panel.panel-primary
-      .panel-heading
-        %h3.panel-title
-          购房工具
-          %a.pull-right.f14{href: "#"} 更多>
-      .panel-body
-        %table{style: "width:215px;"}
-          %tr
-            %td
-              %a.m20{href: ""}
-                %img{src: "img/tool1.gif"}/
-            %td
-              %a.m20{href: ""}
-                %img{src: "img/tool2.gif"}/
-          %tr
-            %td
-              %a.m20{href: ""}
-                %img{src: "img/tool3.gif"}/
-            %td
-              %a.m20{href: ""}
-                %img{src: "img/tool4.gif"}/
-          %tr
-            %td
-              %a.m20{href: ""}
-                %img{src: "img/tool5.gif"}/
-            %td
+    / .panel.panel-primary
+    /   .panel-heading
+    /     %h3.panel-title
+    /       购房工具
+    /       %a.pull-right.f14{href: "#"} 更多>
+    /   .panel-body
+    /     %table{style: "width:215px;"}
+    /       %tr
+    /         %td
+    /           %a.m20{href: ""}
+    /             %img{src: "img/tool1.gif"}/
+    /         %td
+    /           %a.m20{href: ""}
+    /             %img{src: "img/tool2.gif"}/
+    /       %tr
+    /         %td
+    /           %a.m20{href: ""}
+    /             %img{src: "img/tool3.gif"}/
+    /         %td
+    /           %a.m20{href: ""}
+    /             %img{src: "img/tool4.gif"}/
+    /       %tr
+    /         %td
+    /           %a.m20{href: ""}
+    /             %img{src: "img/tool5.gif"}/
+    /         %td
     .panel.panel-primary
       .panel-heading
         %h3.panel-title 帮你找房
