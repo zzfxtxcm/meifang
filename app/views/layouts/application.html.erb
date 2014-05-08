@@ -31,6 +31,7 @@
   <%= csrf_meta_tags %>
 </head>
   <body>
+    <%= render 'layouts/header_ad' if params[:controller]=="static_pages" %>
     <%= render 'layouts/header' %>
     <% flash.each do |key, value| %>
       <div class="alert alert-#{key}">

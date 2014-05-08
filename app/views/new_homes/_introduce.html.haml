@@ -253,13 +253,13 @@
           %tr{style: "color:#f65c52"}
             %th 楼盘名称
             %th 均价
-            %th 对比
-        - NewHome.where(price: @new_home.price).limit(6).each do |new_home|
+            %th 板块
+        -NewHome.where(["price <= :new_id and price >= :new_id1",{ new_id: @new_home.price+1000,new_id1: @new_home.price-1000}]).limit(5).each do |new|
           %tr
-            %td
-              = link_to new_home.name, new_home
-            %td #{new_home.price}元/m&sup2
-            %td 对比
+            %td #{new.name.first(7)}
+            %td #{new.price}元/m&sup2
+            %td 
+              = Area.find(new.area_id).name
   .panel.panel-primary
     .panel-heading
       %h3.panel-title
@@ -271,15 +271,17 @@
           %tr{style: "color:#f65c52"}
             %th 楼盘名称
             %th 均价
-            %th 对比
-        %tr
-          %td 华府国际
-          %td 8000元/m&sup2
-          %td 对比
+            %th 板块
+        -NewHome.where("area_id = ? ", @new_home.area_id).limit(5).each do |new|
+          %tr
+            %td #{new.name.first(7)}
+            %td #{new.price}元/m&sup2
+            %td 
+              = Area.find(new.area_id).name
   .panel.panel-primary
     .panel-heading
       %h3.panel-title
-        热门楼盘推荐
+        最新楼盘推荐
         %a.pull-right.f14{href: "#"} 更多>
     .panel-body
       %table.table.table-condensed
@@ -288,40 +290,26 @@
             %th 楼盘名称
             %th 均价
             %th 板块
-        %tr
-          %td 华府国际
-          %td 8000元/m&sup2
-          %td 芗城
-        %tr
-          %td 华府国际
-          %td 8000元/m&sup2
-          %td 芗城
-        %tr
-          %td 华府国际
-          %td 8000元/m&sup2
-          %td 芗城
-        %tr
-          %td 华府国际
-          %td 8000元/m&sup2
-          %td 芗城
-        %tr
-          %td 华府国际
-          %td 8000元/m&sup2
-          %td 芗城
-  %div
-    %table.prbase2{width: "243px;"}
-      %tr
-        %td{style: "background:#2db8ad;", width: "100px;"}
-          %h4{style: "margin:0px 0px 0px 5px; line-height:200%; color:#FFF"} 购房工具
-        %td{align: "right", style: " background:#ececec"}
-      %tr
-        %td{colspan: "2"}
-          %div
-            = link_to image_tag("tool1.gif", alt: ""), "#", :class => "mt20"
-            = link_to image_tag("tool2.gif", alt: ""), "#", :class => "mt20"
-            = link_to image_tag("tool3.gif", alt: ""), "#", :class => "mt20"
-            = link_to image_tag("tool4.gif", alt: ""), "#", :class => "mt20"
-            = link_to image_tag("tool5.gif", alt: ""), "#", :class => "mt20"
+        -NewHome.order("id DESC").limit(5).each do |new|
+          %tr
+            %td #{new.name.first(7)}
+            %td #{new.price}元/m&sup2
+            %td 
+              = Area.find(new.area_id).name
+  / %div
+  /   %table.prbase2{width: "243px;"}
+  /     %tr
+  /       %td{style: "background:#2db8ad;", width: "100px;"}
+  /         %h4{style: "margin:0px 0px 0px 5px; line-height:200%; color:#FFF"} 购房工具
+  /       %td{align: "right", style: " background:#ececec"}
+  /     %tr
+  /       %td{colspan: "2"}
+  /         %div
+  /           = link_to image_tag("tool1.gif", alt: ""), "#", :class => "mt20"
+  /           = link_to image_tag("tool2.gif", alt: ""), "#", :class => "mt20"
+  /           = link_to image_tag("tool3.gif", alt: ""), "#", :class => "mt20"
+  /           = link_to image_tag("tool4.gif", alt: ""), "#", :class => "mt20"
+  /           = link_to image_tag("tool5.gif", alt: ""), "#", :class => "mt20"
 / end 右边
 
 :javascript
