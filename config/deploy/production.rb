@@ -22,7 +22,7 @@ role :db,  %w{zhangzhou@115.28.216.223}
 # server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
 # server 'meifang365.com', user: 'wwwroot', roles: %w{web}, port: 22229
 # server 'meifang365.com', user: 'wwwroot', roles: %w{web}, port: 22
-sat :password, ask('Server password:', nil)
+set :password, ask('Server password:', nil)
 server '115.28.216.223', user: 'zhangzhou', password: fetch(:password), roles: %w{app web db}
 
 # you can set custom ssh options
