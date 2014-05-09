@@ -107,13 +107,13 @@
           = @new_home.main_units
       %p    
         %strong.f14> 建筑类别：
-        = ConstructionCategory.find(@new_home.construction_category_id).name
+        = ConstructionCategory.find(@new_home.construction_category_id).name if @new_home.construction_category_id = true
       %p
         %strong.f14 项目特色：
-        = ProjectFeatures.find(@new_home.project_features_id).name
+        = ProjectFeatures.find(@new_home.project_features_id).name if @new_home.project_features_id = true
       %p
         %strong.f14> 物业类别：
-        = PropertyType.find(@new_home.property_type_id).name
+        = PropertyType.find(@new_home.property_type_id).name if @new_home.property_type_id = true
       %p
         %strong.f14> 建筑面积：
         = @new_home.gfa
@@ -122,8 +122,8 @@
         = @new_home.covers
       %p
         %strong.f14> 开 发 商：
-        = Developers.find(@new_home.developers_id).name
-      %p
+        = Developers.find(@new_home.developers_id).name if @new_home.developers_id = true
+      %p 
         %strong.f14> 开盘时间：
         
       %p
