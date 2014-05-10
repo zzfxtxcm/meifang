@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140510102602) do
+ActiveRecord::Schema.define(version: 20140510112049) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -224,11 +224,11 @@ ActiveRecord::Schema.define(version: 20140510102602) do
     t.string   "house_area"
     t.string   "greening_rate"
     t.string   "volume_rate"
-    t.string   "fit"
-    t.string   "property"
-    t.string   "school"
-    t.string   "hospital"
-    t.string   "bank"
+    t.text     "fit",                      limit: 255
+    t.text     "property",                 limit: 255
+    t.text     "school",                   limit: 255
+    t.text     "hospital",                 limit: 255
+    t.text     "bank",                     limit: 255
     t.text     "shopping",                 limit: 255
     t.text     "neighborhoods",            limit: 255
     t.text     "landscapes",               limit: 255
