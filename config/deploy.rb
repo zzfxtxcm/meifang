@@ -20,7 +20,7 @@ set :linked_files, %w{config/database.yml}
 #
 # dirs we want symlinking to shared
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets}
+set :linked_dirs, %w{bin log public/uploads tmp/pids tmp/cache tmp/sockets}
 
 set :keep_releases, 5
 
@@ -108,7 +108,6 @@ namespace :deploy do
       # within release_path do
       #   execute :rake, 'cache:clear'
       # end
-      execute "ln -nsf #{shared_path}/public/uploads #{current_path}/public/uploads"
     end
   end
 
