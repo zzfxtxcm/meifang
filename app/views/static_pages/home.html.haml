@@ -295,12 +295,7 @@
                 %li
                   = link_to information.title, information, target: "_blank"
       .pt10{style: "width:465px"}
-        %object{align: "middle", classid: "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000", codebase: "http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0", height: "400", width: "550"}
-          %param{name: "allowScriptAccess", value: "sameDomain"}/
-          %param{name: "movie", value: "mymovie.swf"}/
-          %param{name: "quality", value: "high"}/
-          %param{name: "bgcolor", value: "#ffffff"}/
-          %embed{align: "middle", allowscriptaccess: "sameDomain", bgcolor: "#ffffff", height: "320px", name: "mymovie", pluginspage: "http://www.macromedia.com/go/getflashplayer", quality: "high", src: "#{asset_path 'tmp/sx.swf'}", type: "application/x-shockwave-flash", width: "465px"}
+        %embed{align: "middle", allowscriptaccess: "sameDomain", bgcolor: "#ffffff", height: "320px", name: "mymovie", pluginspage: "http://www.macromedia.com/go/getflashplayer", quality: "high", src: "#{asset_path 'tmp/sx.swf'}", type: "application/x-shockwave-flash", width: "465px"}
       / %div{style: "width:465px;"}
       /   %ul#myTab.nav.nav-tabs.mb5{style: "border-bottom: 1px solid #2db8ad;"}
       /     %li.active{style: "border-bottom: 1px solid #2db8ad;"}
@@ -335,6 +330,10 @@
   / end 右边右
   / end 右边
   / -二楼end
+  .clearfix
+  .mt10
+    %embed{height: "75px;", src:"#{asset_path 'swf/4.swf'}", width: "1170px;",wmode:"opaque"}
+    %embed{height: "75px;", src:"#{asset_path 'swf/5.swf'}", width: "1170px;",wmode:"opaque"}
   / 三楼地产圈
   .dcq
     .clearfix
