@@ -108,6 +108,7 @@ namespace :deploy do
       # within release_path do
       #   execute :rake, 'cache:clear'
       # end
+      execute "ln -nsf #{shared_path}/public/uploads #{current_path}/public/uploads"
     end
   end
 
