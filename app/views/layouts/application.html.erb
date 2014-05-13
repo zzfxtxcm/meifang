@@ -23,8 +23,10 @@
   <%= javascript_include_tag "application",
                               params[:controller],
                               "custom/ad_ls",
-                              "custom/stickUp.min",
                               "data-turbolinks-track" => true %>
+  <% unless mobile? %>
+    <%= javascript_include_tag "custom/stickUp.min" => true %>
+  <% end %>
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
