@@ -1,8 +1,4 @@
 - provide(:title, '漳州房产网,漳州买房，漳州新房，漳州房价，漳州楼盘，漳州二手房，漳州租房')
-- if mobile?
-  您现在用手机浏览
-- else
-  您现在用电脑浏览
 .container
   / 左边
   .pull-left{style: "width:242px;"}
@@ -332,8 +328,8 @@
   / -二楼end
   .clearfix
   .mt10
-    %embed{height: "75px;", src:"#{asset_path 'swf/4.swf'}", width: "1170px;",wmode:"opaque"}
     %embed{height: "75px;", src:"#{asset_path 'swf/5.swf'}", width: "1170px;",wmode:"opaque"}
+    %embed{height: "75px;", src:"#{asset_path 'swf/4.swf'}", width: "1170px;",wmode:"opaque"}
   / 三楼地产圈
   .dcq
     .clearfix
