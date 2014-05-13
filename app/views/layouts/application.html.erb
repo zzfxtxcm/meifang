@@ -20,11 +20,19 @@
   <!--[if lte IE 7]>
     <%= stylesheet_link_tag "bootstrap/ie.css", media: "all", "data-turbolinks-track" => true %>
   <![endif]-->
-  <%= javascript_include_tag "application",
+  
+  <% if mobile? %>
+    <%= javascript_include_tag "application",
+                            params[:controller],
+                            "custom/ad_ls",
+                            "data-turbolinks-track" => true %>
+  <% else %>
+    <%= javascript_include_tag "application",
                               params[:controller],
                               "custom/ad_ls",
                               "custom/stickUp.min",
                               "data-turbolinks-track" => true %>
+  <% end %>
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
