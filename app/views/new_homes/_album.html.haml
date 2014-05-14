@@ -4,6 +4,8 @@
       %h3.panel-title 相册分类
     .panel-body
       %h4
+        = link_to "所有图片",new_home_path(@new_home.id, :type => "album"),:class =>"f16 mt5 mb5 cr"
+      %h4
         = link_to "效果图（#{@albums1.size}）",new_home_path(@new_home.id, :type => "album",:pic =>1),:class =>"f16 mt5 mb5 cr"
       %h4
         = link_to "户型鉴赏（#{@albums2.size}）",new_home_path(@new_home.id, :type => "album",:pic =>2) ,:class =>"f16 mt5 mb5 cr"
