@@ -425,7 +425,6 @@
   // 百度地图API功能
   var map = new BMap.Map("property-map");
   var point = new BMap.Point(#{@new_home.map_address});
-  map.enableScrollWheelZoom(false);
 
   map.centerAndZoom(point,16);
   var marker1 = new BMap.Marker(point);
