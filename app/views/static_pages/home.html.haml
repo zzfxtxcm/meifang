@@ -49,7 +49,7 @@
     .clearfix
     .pull-left.pt10
       = image_tag("jrtt.gif")
-    .pull-left.ml10
+    .pull-left.ml10{style: "width:820px;"}
       - Information.where(information_type_id: 1).limit(1).each do |information|
         %h3
           = link_to information.title.first(30), information, :class => "cl", target: "_blank"
