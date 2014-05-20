@@ -12,7 +12,7 @@
         %p
         楼盘动态：
         -Information.where(["new_home_id = :home_id and category_id = :c_id",{ home_id: new_home.id, c_id: 26 }]).limit(1).each do |information|
-          = link_to information.title.first(24), information, target: "_blank"
+          = link_to information.title.first(24), information, target: "_blank"w
         %p 售楼电话：#{new_home.tel}
         %p 项目地址：#{new_home.project_address}
         %p
