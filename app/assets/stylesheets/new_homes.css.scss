@@ -30,6 +30,19 @@
     padding-left: 32px;
     color: #FFF;
   }
+  .nav_1 {
+    float:left;
+    background:url(asset_path('bootstrap/prt.gif'));
+    height: 40px;
+    width: 104px;
+  }
+  .nav_2 {
+    float:left;
+    background: url(asset_path('bootstrap/prt1.gif'));
+    height:40px; 
+    width: 1066px;
+    background-repeat: repeat-x;
+  }
 }
 
 .prdt {
