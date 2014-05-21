@@ -265,7 +265,7 @@
         #myTabContent.tab-content
           #act.tab-pane.fade.active.in
             %ul
-              - Information.where(information_type_id: 7).limit(6).offset(1).each do |information|
+              - Information.where(information_type_id: 7).limit(5).offset(1).each do |information|
                 %li
                   = link_to information.title.first(26), information, target: "_blank"
     / end右边中
