@@ -1,6 +1,6 @@
 production:
   solr:
-    hostname: localhost
+    hostname: 115.28.216.223
     port: 8596
     log_level: WARNING
     path: /solr/default
