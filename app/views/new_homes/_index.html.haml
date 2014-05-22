@@ -167,7 +167,7 @@
         %tr
           %td{colspan: "2"}
             .ml20.mr20
-              -Information.where(["new_home_id = :home_id and category_id = :c_id",{ home_id: @new_home.id, c_id: 12 }]).limit(3).each do |information|
+              -Information.where("new_home_id = ? and category_id = ?", @new_home.id, 12).limit(3).each do |information|
                 %p.f16.lh150
                   =link_to information.title, information
                   %span.ch.pull-right.f12
