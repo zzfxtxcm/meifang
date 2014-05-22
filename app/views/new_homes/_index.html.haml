@@ -4,24 +4,35 @@
   .pull-left.mt20
     .item-tab
       .panel{style: "display: block;"}
-        %a{href: "", target: "_blank"}
+        %a#click_test2{style: "cursor:pointer;"}
           = image_tag(@new_home.new_home_thumb, alt: "",:style =>"width:340px; height:257px", target: "_blank" ,title:@new_home.name )
+        :javascript
+            var content2 = "<img  style='width:460px; height:300px;'  src='#{@new_home.new_home_thumb}' />";
+            T$('click_test2').onclick = function(){TINY.box.show(content2,0,0,0,1)}
       .panel{style: "display: none;"}
-        -Album.where(["new_home_id = :home_id ",{ home_id: @new_home.id}]).limit(3).each do |album|
-          %a{href: "", target: "_blank"}
+        -Album.where(["new_home_id = :home_id ",{ home_id: @new_home.id}]).limit(1).each do |album|
+          %a#click_test3{style: "cursor:pointer;"}
             = image_tag(album.url, alt: album.name,:style =>"width:340px; height:257px", target: "_blank" ,title: album.name)
+          :javascript
+            var content3 = "<img style='width:460px; height:300px;' src='#{album.url}' />";
+            T$('click_test3').onclick = function(){TINY.box.show(content3,0,0,0,1)}
       .panel{style: "display: none;"}
-        -Apartment.where(["new_home_id = :home_id ",{ home_id: @new_home.id}]).limit(3).each do |apartment|
-          %a{href: "", target: "_blank"}
+        -Apartment.where(["new_home_id = :home_id ",{ home_id: @new_home.id}]).limit(1).each do |apartment|
+          %a#click_test4{style: "cursor:pointer;"}
             = image_tag(apartment.apartment_thumb, alt: apartment.name,:style =>"width:340px; height:257px", target: "_blank" ,title: apartment.name)
+          :javascript
+            var content4 = "<img style='width:460px; height:300px;' src='#{apartment.apartment_thumb}' />";
+            T$('click_test4').onclick = function(){TINY.box.show(content4,0,0,0,1)}
       %ul.tag.clearfix{style: "z-index:999"}
         %li.on
-          %a{href: "", target: "_blank"} 效果图
+          %a{style: "cursor:pointer;"} 效果图
         %li
-          %a{href: "", target: "_blank"} 相册图
+          = link_to "楼盘相册", new_home_path(@new_home.id, :type => "album")
         %li
-          %a{href: "", target: "_blank"} 户型图
+          = link_to "户型图", new_home_path(@new_home.id, :type => "apartment")
       .cover
+      %a#click_test2.ml20 效果预览
+    
     .panel.panel-primary.mt20{style: "width:338px"}
       .panel-heading
         %h3.panel-title
@@ -167,7 +178,7 @@
         %tr
           %td{colspan: "2"}
             .ml20.mr20
-              -Information.where("new_home_id = ? and category_id = ?", @new_home.id, 12).limit(3).each do |information|
+              -Information.where(["new_home_id = :home_id and category_id = :c_id",{ home_id: @new_home.id, c_id: 12 }]).offset(1).limit(3).each do |information|
                 %p.f16.lh150
                   =link_to information.title, information
                   %span.ch.pull-right.f12
@@ -241,7 +252,10 @@
     .clearfix
     -Apartment.where(["new_home_id = :home_id ",{ home_id: @new_home.id}]).limit(3).each do |apartment|
       .prhxtinfo.pull-left.ml10.mr10
-        = image_tag(apartment.apartment_thumb, alt: apartment.name, :class => "img-polaroid", :style => "padding:20px 10px 20px 10px; width:236px ; height:118px")
+        %a{id:"#{apartment.apartment_thumb}", style:"cursor:pointer;"}
+          = image_tag(apartment.apartment_thumb, alt: apartment.name, :class => "img-polaroid", :style => "padding:20px 10px 20px 10px; width:236px ; height:118px")
+        :javascript
+            T$('#{apartment.apartment_thumb}').onclick = function(){TINY.box.show("<img style='width:460px; height:300px;' src='#{apartment.apartment_thumb}' />",0,0,0,1)}
         %table{align: "center"}
           %tr
             %td{colspan: "2"}
@@ -260,7 +274,10 @@
     .clearfix
     -Album.where(["new_home_id = :home_id ",{ home_id: @new_home.id}]).limit(3).each do |album|
       .prhxtinfo.pull-left.ml10.mr10{style:"height:205px;"}
-        = image_tag(album.url, alt: album.name, :class => "img-polaroid", :style => "padding:20px 10px 20px 10px; width:236px ; height:118px")
+        %a{id:"#{album.url}", style:"cursor:pointer;"}
+          = image_tag(album.url, alt: album.name, :class => "img-polaroid", :style => "padding:20px 10px 20px 10px; width:236px ; height:118px")
+        :javascript
+            T$('#{album.url}').onclick = function(){TINY.box.show("<img style='width:460px; height:300px;' src='#{album.url}' />",0,0,0,1)}
         %h4.cl{align: "center"}
           = album.name
         %p{align: "center"}
