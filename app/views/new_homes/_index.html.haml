@@ -313,11 +313,11 @@
         %input{:type => "hidden", :id => "intention_to_register_new_home_id", :name => "intention_to_register[new_home_id]", :value => "#{@new_home.id}"}/
         %table{style: "font-size:14px;"}
           %tr
-            %td{width: "300px;"}
+            %td{width: "350px;"}
               姓名：
               = f.text_field :name, placeholder: "请输入联系姓名"
               %span.cr *
-            %td{width: "300px;"}
+            %td{width: "350px;"}
               性别：
               = f.radio_button :sex, 1, :checked => true
               男
