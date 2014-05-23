@@ -37,3 +37,4 @@
           地图
       %td{style: "text-align:center"}
         %h3.mt20.cr #{new_home.price}元/m ²
+        = link_to "团购报名",URI.unescape(new_home_path(new_home.id,:type =>"index#tuangou")), :class => "btn ", :style => "background:#f65c52; color:#FFF"
