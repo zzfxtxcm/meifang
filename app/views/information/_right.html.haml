@@ -7,5 +7,5 @@
           %strong &nbsp;&nbsp;网站导航
         - Category.all.each do |list|
           %li.f14.mt10
-            = link_to " "+list.name, '#'
+            = link_to " "+list.name, information_index_path(:category_id => list.id)
     = image_tag("tmp/rightad.jpg", alt: "", :style => "height:477px; width:240px")
