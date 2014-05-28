@@ -3,10 +3,14 @@ class InformationController < ApplicationController
   add_breadcrumb "资讯列表", :information_index_path
 
   def index
+
+    @hot = Information.order('updated_at DESC').limit(8)
+    @list = Information.order('hit DESC').limit(8)
     @information = Information.order('created_at DESC')
                               .paginate(page: params[:page])
                               .per_page(10)
     @information.total_entries = 1000 if(@information.total_entries > 1000)
+
 
     case params[:search_type]
     when "news"
@@ -35,7 +39,15 @@ class InformationController < ApplicationController
   end
 
   def show
+    @hot = Information.order('updated_at DESC').limit(8)
+    @list = Information.order('hit DESC ').limit(8)
     @information = Information.find(params[:id])
+    if @information.hit.blank?
+      @hit =rand(9)+1
+    else
+      @hit = @information.hit+rand(49)+1
+    end
+    @information.update_attribute(:hit, "#{@hit}" )
 
     add_breadcrumb "正文", information_path
   end

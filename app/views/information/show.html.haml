@@ -11,7 +11,7 @@
         %h1
           = @information.title
         %p
-          #{@information.created_at.strftime("%Y-%m-%d %H:%M")}　来源: #{@information.source}
+          #{@information.created_at.strftime("%Y-%m-%d %H:%M")}　来源: #{@information.source} 点击量: #{@hit}
       .review
         %p
           = @information.description
