@@ -37,7 +37,6 @@
                         %li
                           - NewHome.where(area_id: area.id).order('updated_at desc').offset(@i).limit(4).each do |new_home|
                             = link_to new_home.name, new_home
-
                       -@i +=1
                   %dl.shadow-right.m0
                     %dt
@@ -45,7 +44,9 @@
                     %dd
                       - NewHome.where(area_id: area.id).order('updated_at desc').each do |new_home|
                         %a
-                          =Developers.find(new_home.developers_id).name
+                          =Developers.find(new_home.developers_id).name.first(9)
+                          = "..." if Developers.find(new_home.developers_id).name.length >10
+                -@i =0
                       
               
     .panel.panel-primary
