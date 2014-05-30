@@ -29,7 +29,7 @@
           .cat-subcategory
             .shadow
               - @i = 0
-              - @areas[0..5].each do |area|
+              - @areas[0..6].each do |area|
                 .entity-main
                   %ul.shadow-left.m0
                     - NewHome.where(area_id: area.id).order('updated_at desc').each do |new_home|
