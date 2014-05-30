@@ -56,7 +56,7 @@ class NewHomesController < ApplicationController
     end
 
     @today_hit = DummyData.where(new_home_id: params[:id],today_hit:1..2,created_at: Time.now.beginning_of_day..Time.now.end_of_day).count
-    @yest_hit = DummyData.where(new_home_id: params[:id],today_hit: 1..2,created_at: Time.now.beginning_of_day-1..Time.now.beginning_of_day).count
+    @yest_hit = DummyData.where(new_home_id: params[:id],today_hit: 1..2,created_at: Time.now.beginning_of_day-86400..Time.now.beginning_of_day).count
     @total_hit =DummyData.where(new_home_id: params[:id],today_hit: 1..2).count
     @want = DummyData.where(new_home_id: params[:id],want: 2).count
     @read = DummyData.where(new_home_id: params[:id],read: 2).count
