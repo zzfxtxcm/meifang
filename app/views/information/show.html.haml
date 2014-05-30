@@ -1,4 +1,6 @@
--provide(:title, '漳州房产资讯')
+-provide(:title, "#{@information.title}-漳州房产资讯")
+-provide(:key, "#{@information.keywords}")
+-provide(:desc, "#{@information.description}")
 .container
   .mb20.pull-left
     当前位置：
@@ -10,7 +12,7 @@
         %h1
           = @information.title
         %p
-          #{@information.created_at.strftime("%Y-%m-%d %H:%M")}　来源: #{@information.source}
+          #{@information.created_at.strftime("%Y-%m-%d %H:%M")}　来源: #{@information.source} 点击量: #{@hit}
       .review
         %p
           = @information.description

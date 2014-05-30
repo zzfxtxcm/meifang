@@ -236,8 +236,12 @@ ActiveAdmin.register NewHome do
               :as => :ckeditor
       f.input :status,
               :prompt => true,
-              :wrapper_html => { :style => "width:48%" },
+              :wrapper_html => { :style => "width:48%" ,:class => "left",},
               :label => I18n.t("active_admin.new_homes.form.status")
+      f.input :best,
+              :wrapper_html => { :class => "right", :style => "width:48%" },
+              :label => I18n.t("active_admin.new_homes.form.best"),
+              :hint => f.template.content_tag(:span, "楼盘的排名")
       f.input :new_home_thumb,
               :wrapper_html => { :style => "width:48%" },
               :hint => f.object.new_home_thumb.present? \

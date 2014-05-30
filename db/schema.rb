@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140520095535) do
+ActiveRecord::Schema.define(version: 20140529070526) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -144,6 +144,17 @@ ActiveRecord::Schema.define(version: 20140520095535) do
 
   add_index "developers", ["name"], name: "index_developers_on_name"
 
+  create_table "dummy_data", force: true do |t|
+    t.integer  "new_home_id"
+    t.integer  "total_hit"
+    t.integer  "today_hit"
+    t.integer  "yest_hit"
+    t.integer  "read"
+    t.integer  "want"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "group_buyings", force: true do |t|
     t.integer  "new_home_id"
     t.integer  "price"
@@ -170,6 +181,8 @@ ActiveRecord::Schema.define(version: 20140520095535) do
     t.string   "source"
     t.integer  "new_home_id"
     t.integer  "information_type_id"
+    t.integer  "hit"
+    t.integer  "best"
   end
 
   add_index "information", ["category_id", "title", "created_at"], name: "index_information_on_category_id_and_title_and_created_at"
@@ -259,6 +272,7 @@ ActiveRecord::Schema.define(version: 20140520095535) do
     t.integer  "area_range_id"
     t.integer  "project_features_id"
     t.string   "map_address"
+    t.integer  "best"
   end
 
   add_index "new_homes", ["area_range_id"], name: "index_new_homes_on_area_range_id"
