@@ -7,11 +7,11 @@
         %h3.panel-title
           楼盘推荐
           = link_to "更多>", new_homes_path, :class => "pull-right f14"
-      .panel-body{style: "height:600px;"}
+      .panel-body{style: "height:532px;"}
         .mallCategory
           .catList
             %ul.m0
-              - @areas[0..5].each do |area|
+              - @areas[0..6].each do |area|
                 %li.J_MenuItem
                   .title
                     %h4.f16.mt5.mb5.ml10
