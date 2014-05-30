@@ -7,7 +7,7 @@
         %h3.panel-title
           楼盘推荐
           = link_to "更多>", new_homes_path, :class => "pull-right f14"
-      .panel-body{style: "height:532px;"}
+      .panel-body{style: "height:540px;"}
         .mallCategory
           .catList
             %ul.m0
@@ -54,7 +54,7 @@
         %h3.panel-title 帮你找房
       .panel-body
         %div{style: "border-bottom: 1px solid #EEEEEE; height:75px;"}
-          %h4.f16.mt5.mb5{style: "color:#f65c52"} 价格
+          %h4.f16.mt2.mb2{style: "color:#f65c52"} 价格
           %p
             = render_option_of_single_price_index(3000, 4000, "")
             = render_option_of_single_price_index(4000, 5000, "color: #333")
@@ -62,7 +62,7 @@
             = render_option_of_single_price_index(7000, 8000, "color: #333")
             = render_option_of_single_price_index(8000, 20000, "color: #333")
         %div{style: " height:75px;"}
-          %h4.f16.mt5.mb5{style: "color:#f65c52"} 面积
+          %h4.f16.mt2.mb2{style: "color:#f65c52"} 面积
           %p
             - AreaRange.limit(1).each do |item|
               = render_option_of_single_area_range_index(item.name, item.id, "")
