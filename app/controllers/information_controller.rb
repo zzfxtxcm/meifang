@@ -13,28 +13,28 @@ class InformationController < ApplicationController
 
 
     case params[:search_type]
-    when "news"
-      redirect_to URI.escape("http://#{params[:station]}.xinwowang.com/information?keyword=#{params[:keyword]}")
-    when "new_homes"
-      redirect_to URI.escape("http://#{params[:station]}.xinwowang.com/new_homes?keyword=#{params[:keyword]}")
-    else
-      @keyword = Sunspot.search(Information) do
-        keywords params[:keyword]
-        with(:information_type_id).equal_to(params[:information_type_id]) if params[:information_type_id].present?
-        with(:category_id).equal_to(params[:category_id]) if params[:category_id].present?
-        order_by :created_at, :desc
-        paginate :page => params[:page], :per_page => 10
+      when "news"
+        redirect_to URI.escape("http://#{params[:station]}.xinwowang.com/information?keyword=#{params[:keyword]}")
+      when "new_homes"
+        redirect_to URI.escape("http://#{params[:station]}.xinwowang.com/new_homes?keyword=#{params[:keyword]}")
+      else
+        @keyword = Sunspot.search(Information) do
+          keywords params[:keyword]
+          with(:information_type_id).equal_to(params[:information_type_id]) if params[:information_type_id].present?
+          with(:category_id).equal_to(params[:category_id]) if params[:category_id].present?
+          order_by :created_at, :desc
+          paginate :page => params[:page], :per_page => 10
+        end
+
+        @information = @keyword.results
+
+        respond_to do |format|
+          format.html
+          format.json { render json: @information }
+          format.js
+        end
+
       end
-
-      @information = @keyword.results
-
-      respond_to do |format|
-        format.html
-        format.json { render json: @information }
-        format.js
-      end
-
-    end
 
   end
 
