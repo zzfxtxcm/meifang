@@ -3,11 +3,11 @@ class NewHomesController < ApplicationController
   add_breadcrumb "新房列表", :new_homes_path
 
   def index
-    per_page = params[:per_page]
-    if per_page.present?
-      per_page = 5
+    @per_page = params[:per_page]
+    if @per_page.present?
+      @per_page = 5
     else
-      per_page = params[:per_page]
+      @per_page = params[:per_page]
     end
 
     @new_homes = NewHome.order('created_at DESC')
@@ -23,7 +23,7 @@ class NewHomesController < ApplicationController
       with(:property_type_id).equal_to(params[:property_type_id]) if params[:property_type_id].present?
       with(:price).between(params[:mix]..params[:max]) if params[:mix].present? && params[:max].present?
       order_by :created_at, :desc
-      paginate :page => params[:page], :per_page => params[:per_page] ? params[:per_page] | 5
+      paginate :page => params[:page], :per_page => @per_page
     end
 
     @new_homes = @keyword.results
