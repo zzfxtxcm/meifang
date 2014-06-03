@@ -16,7 +16,7 @@ class NewHomesController < ApplicationController
       with(:property_type_id).equal_to(params[:property_type_id]) if params[:property_type_id].present?
       with(:price).between(params[:mix]..params[:max]) if params[:mix].present? && params[:max].present?
       order_by :created_at, :desc
-      paginate :page => params[:page], :per_page => 5
+      paginate :page => params[:page], :per_page => params[:per_page] ||= 5
     end
 
     @new_homes = @keyword.results
@@ -40,19 +40,19 @@ class NewHomesController < ApplicationController
                        .per_page(15)
     if IntentionToRegister.where(new_home_id: params[:id]).blank?
       (rand(9) + 1).times do
-        IntentionToRegister.create!(new_home_id: params[:id]) 
+        IntentionToRegister.create!(new_home_id: params[:id])
       end
     end
 
-    DummyData.create!(new_home_id: params[:id],today_hit: 1) 
+    DummyData.create!(new_home_id: params[:id],today_hit: 1)
     (rand(49) + 1).times do
-      DummyData.create!(new_home_id: params[:id],today_hit: 2) 
+      DummyData.create!(new_home_id: params[:id],today_hit: 2)
     end
     (rand(2) + 1).times do
-      DummyData.create!(new_home_id: params[:id],read: 2) 
+      DummyData.create!(new_home_id: params[:id],read: 2)
     end
     (rand(1) + 1).times do
-      DummyData.create!(new_home_id: params[:id],want: 2) 
+      DummyData.create!(new_home_id: params[:id],want: 2)
     end
 
     @today_hit = DummyData.where(new_home_id: params[:id],today_hit:1..2,created_at: Time.now.beginning_of_day..Time.now.end_of_day).count
