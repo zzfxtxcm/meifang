@@ -3,8 +3,7 @@ class NewHomesController < ApplicationController
   add_breadcrumb "新房列表", :new_homes_path
 
   def index
-    @per_page = params[:per_page]
-    if @per_page.present?
+    if params[:per_page].present?
       @per_page = 5
     else
       @per_page = params[:per_page]
