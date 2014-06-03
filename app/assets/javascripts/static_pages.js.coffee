@@ -5,7 +5,7 @@ $(document).ready ->
   $(".J_MenuItem").each (index) ->
     $(this).mouseover ->
       catTop = undefined
-      borderTop = $(this).offset().top - 350
+      borderTop = $(this).offset().top - (269+82*1)
       viewHeight = $(window).height()
       scrollTop = $(document).scrollTop()
       relaxHeight = viewHeight - (borderTop - scrollTop)
