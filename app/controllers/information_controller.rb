@@ -45,9 +45,12 @@ class InformationController < ApplicationController
   end
 
   def show
+    
+
     @hot = Information.order('updated_at DESC').limit(8)
     @list = Information.order('hit DESC ').limit(8)
     @information = Information.find(params[:id])
+    @new_home = NewHome.find_by_id(@information.new_home_id)
     if @information.hit.blank?
       @hit =rand(9)+1
     else
