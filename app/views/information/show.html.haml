@@ -44,7 +44,7 @@
                 
               %td{style: "text-align:center"}
                 %h3.mt20.cr #{@new_home.price}元/m ²
-                = link_to "团购报名",URI.unescape(new_home_path(@new_home.id,:type =>"index#tuangou")), :class => "btn btn-inverse ", :style => "background:#f65c52; color:#FFF"
+                = link_to "团购报名",URI.unescape(new_home_path(@new_home.id,:type =>"index#tuangou")), :class => "btn btn-inverse ", :style => "background:#f65c52; color:#FFF",:target => "_blank"
 
 
       %h4.cr 相关阅读
@@ -71,11 +71,6 @@
         },
         share : [{
           "bdSize" : 32
-        }],
-        slide : [{     
-          bdImg : 0,
-          bdPos : "right",
-          bdTop : 100
         }],
         image : [{
           viewType : 'list',
