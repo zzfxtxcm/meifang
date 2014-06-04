@@ -23,7 +23,7 @@ class InformationController < ApplicationController
           with(:information_type_id).equal_to(params[:information_type_id]) if params[:information_type_id].present?
           with(:category_id).equal_to(params[:category_id]) if params[:category_id].present?
           order_by :created_at, :desc
-          paginate :page => params[:page], :per_page => params[:per_page].blank? ? 10 | params[:per_page]
+          paginate :page => params[:page], :per_page => params[:per_page].blank? ? 10 | params[:per_page] if params[:per_page].present?
         end
 
         @information = @keyword.results
