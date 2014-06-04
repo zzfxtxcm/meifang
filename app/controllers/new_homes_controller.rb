@@ -17,7 +17,7 @@ class NewHomesController < ApplicationController
       keywords params[:keyword]
       with(:area_id).equal_to(params[:area_id]) if params[:area_id].present?
       with(:status_id).equal_to(params[:status_id]) if params[:status_id].present?
-      # with(:section_id).equal_to(params[:section_id]) if params[:section_id].present?
+      with(:section_id).equal_to(params[:section_id]) if params[:section_id].present?
       with(:area_range_id).equal_to(params[:area_range_id]) if params[:area_range_id].present?
       with(:property_type_id).equal_to(params[:property_type_id]) if params[:property_type_id].present?
       with(:price).between(params[:mix]..params[:max]) if params[:mix].present? && params[:max].present?
