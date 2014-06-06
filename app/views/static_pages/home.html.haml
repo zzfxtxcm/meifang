@@ -571,6 +571,26 @@
               %input.btn.btn-info{style: "background:#2db8ad; width:90px;", value: "申请链接>"}/
           %td.yqlj
             %a 百度贴吧
+  :javascript
+    $(document).ready(function(){
+      $("#p").click(function(){
+      $(".newnavb").hide();
+      });
+    });
+  .newnavb{align: "center"}
+    = form_for(@intention_to_register) do |f|
+      姓名：
+      = f.text_field :name, placeholder: "请输入联系姓名", style: "width: 130px; margin-top:5px"
+      电话：
+      = f.text_field :tel, placeholder: "请输入联系电话", style: "width: 130px;margin-top:5px"
+      意向区域：
+      = select_tag :area_id, options_from_collection_for_select(@areas, 'id', 'name'), prompt: "请选择地区", id: "area", :style => "width: 140px;margin-top:5px",:remote => true
+      项目名称：
+      = f.select :new_home_id, options_for_select(new_homes_dropdown(NewHome.all)), { :prompt => "请选择喜欢楼盘" }, { :style => "width: 140px;margin-top:5px" }
+      %input.btn.btn-danger{style: " margin-bottom:7px;", type: "submit", value: "立刻报名"}/
+      %a#p.m0
+        关闭
+        %i.icon-fullscreen
 
       / end友情链接
   / end楼购房百科
