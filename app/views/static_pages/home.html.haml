@@ -42,7 +42,7 @@
                     %dt
                       %b 品牌推荐
                     %dd
-                      - NewHome.where(area_id: area.id).order('updated_at desc').each do |new_home|
+                      - NewHome.where(area_id: area.id).order('updated_at desc').limit(30).each do |new_home|
                         %a
                           =Developers.find(new_home.developers_id).name.first(9)
                           = "..." if Developers.find(new_home.developers_id).name.length >10
