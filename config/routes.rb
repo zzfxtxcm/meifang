@@ -2,6 +2,7 @@ Meifang::Application.routes.draw do
   root to: 'static_pages#home'
   match '/help', to: 'static_pages#help', via: 'get'
   match '/map', to: 'static_pages#map', via: 'get'
+  match '/register', to: 'static_pages#register', via: 'get'
   # match '/home', to: 'static_pages#home', via: 'get'
   devise_for :users
 
@@ -19,6 +20,9 @@ Meifang::Application.routes.draw do
   resources :information_sharings
   resources :characters
   resources :about
+  
+  # 联动
+  match '/intention_to_registers_new_homes', to: 'static_pages#get_new_homes', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

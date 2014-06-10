@@ -6,10 +6,15 @@ class IntentionToRegistersController < ApplicationController
       flash[:success] = "您的信息我们已经收到，会尽快的联系您。"
       redirect_to root_url
     else
+      confirm
+      flash[:err] = "请填写相关信息再提交"
       redirect_to root_url
     end
   end
 
+  def index
+    @areas = Area.all
+  end
   private
 
     def intention_to_register_params

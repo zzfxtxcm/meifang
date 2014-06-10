@@ -1,0 +1,65 @@
+.container
+  .mb20.pull-left
+    当前位置：
+    %a{href: ""} 馨窝网
+    \>
+    %a.cl 意向登记
+  .clearfix
+  .hero-unit
+    %h4.cr 意向登记：
+    %p.f14
+      姓名：
+      %input.input-small.mt5{placeholder: "登记姓名", type: "text"}/
+      电话：
+      %input.input-small.mt5{placeholder: "电话号码", type: "text"}/
+    %p.f14
+      意向区域：
+      %select.span2.mt5
+        %option 1
+      项目名称：
+      %select.span2.mt5
+        %option 1
+    %p.f14
+      物业类型:
+      %label.checkbox.inline
+        %input#inlineCheckbox1{type: "checkbox", value: "option1"}/
+        公寓
+      %label.checkbox.inline
+        %input#inlineCheckbox2{type: "checkbox", value: "option2"}/
+        别墅
+      %label.checkbox.inline
+        %input#inlineCheckbox3{type: "checkbox", value: "option3"}/
+        商铺
+      %label.checkbox.inline
+        %input#inlineCheckbox4{type: "checkbox", value: "option4"}/
+        写字楼
+    %p.f14
+      求购面积:
+      %label.checkbox.inline
+        %input#inlineCheckbox1{type: "checkbox", value: "option1"}/
+        60m²以下
+      %label.checkbox.inline
+        %input#inlineCheckbox2{type: "checkbox", value: "option2"}/
+        60m²-80m²
+      %label.checkbox.inline
+        %input#inlineCheckbox3{type: "checkbox", value: "option3"}/
+        80m²-100m²
+      %label.checkbox.inline
+        %input#inlineCheckbox4{type: "checkbox", value: "option4"}/
+        100m²-120m²
+      %label.checkbox.inline
+        %input#inlineCheckbox4{type: "checkbox", value: "option4"}/
+        120m²以上
+    %p.f14
+      意向户型:
+      %label.checkbox.inline
+        %input#inlineCheckbox1{type: "checkbox", value: "option1"}/
+        一居室
+      %label.checkbox.inline
+        %input#inlineCheckbox2{type: "checkbox", value: "option2"}/
+        二居室
+      %label.checkbox.inline
+        %input#inlineCheckbox3{type: "checkbox", value: "option3"}/
+        三居室以上
+    %input.btn.btn-danger{type: "submit", value: "提交"}/
+    %input.btn.btn-danger{type: "submit", value: "返回"}/
