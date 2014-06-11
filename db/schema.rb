@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140529070526) do
+ActiveRecord::Schema.define(version: 20140611023606) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -182,6 +182,7 @@ ActiveRecord::Schema.define(version: 20140529070526) do
     t.integer  "new_home_id"
     t.integer  "information_type_id"
     t.integer  "hit"
+    t.integer  "best"
   end
 
   add_index "information", ["category_id", "title", "created_at"], name: "index_information_on_category_id_and_title_and_created_at"
@@ -226,6 +227,8 @@ ActiveRecord::Schema.define(version: 20140529070526) do
     t.integer  "budget"
     t.string   "area"
     t.string   "email"
+    t.string   "property_type"
+    t.string   "units"
   end
 
   add_index "intention_to_registers", ["new_home_id"], name: "index_intention_to_registers_on_new_home_id"
