@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140529070526) do
+ActiveRecord::Schema.define(version: 20140605075911) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -267,7 +267,7 @@ ActiveRecord::Schema.define(version: 20140529070526) do
     t.string   "new_home_thumb"
     t.integer  "section_id"
     t.integer  "property_type_id"
-    t.integer  "construction_category_id"
+    t.string   "construction_category_id",             default: "--- []\n"
     t.integer  "area_range_id"
     t.integer  "project_features_id"
     t.string   "map_address"

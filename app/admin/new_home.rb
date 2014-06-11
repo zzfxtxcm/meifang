@@ -17,6 +17,51 @@ ActiveAdmin.register NewHome do
 
   menu priority: 1, :label => proc{ I18n.t("active_admin.new_homes.menu.new_home") }
 
+  permit_params :name,
+                :price,
+                :tel,
+                :map_address,
+                :project_address,
+                :sales_address,
+                :area_id,
+                :section_id,
+                :developers_id,
+                :agents,
+                :covers,
+                :gfa,
+                :pool_area,
+                :parking,
+                :number_users,
+                :building_towers,
+                :floors_case,
+                :main_units,
+                :house_area,
+                :area_range_id,
+                :greening_rate,
+                :volume_rate,
+                :fit,
+                :property,
+                :school,
+                :hospital,
+                :bank,
+                :shopping,
+                :neighborhoods,
+                :landscapes,
+                :bus,
+                :car,
+                :property_type_id,
+                :content,
+                :status_id,
+                :new_home_thumb,
+                # construction_categories_id: params[construction_categories_ids[:id].join(",")],
+                :construction_category_id,
+                # construction_category_ids: [:id],
+                # :construction_categories_id => "hh",
+                # construction_categories_ids: [:id],
+                # construction_categories_id: params[:new_home][:construction_categories_id].join(","),
+                albums_attributes: [:name, :album_class_id, :url, :id, :_destroy]
+
+
   action_item do
     link_to "区域管理", "/admin/areas"
   end
@@ -32,8 +77,6 @@ ActiveAdmin.register NewHome do
   action_item do
     link_to "开盘信息管理", "/admin/information_estate_openeds"
   end
-
-  permit_params [:name]
 
   index :title => proc{ I18n.t("active_admin.new_homes.title") } do
     selectable_column
@@ -157,9 +200,15 @@ ActiveAdmin.register NewHome do
               :wrapper_html => { :class => "index_content", :style => "width: 48%" },
               :label => I18n.t("active_admin.new_homes.form.number_users")
       f.input :construction_category,
-              :prompt => true,
-              :wrapper_html => { :style => "width: 48%" },
-              :label => I18n.t("active_admin.new_homes.form.construction_category")
+              :input_html => { :style => "margin-left: 10px;" },
+              :label => I18n.t("active_admin.new_homes.form.construction_category"),
+              :prompt => true
+              # :as => :check_boxes,
+              # :multiple => true,
+              # :nested_set => true
+              # :input_html => { :value => "hh" }
+              # :collection=>Category.where(["parent_id is NULL"])
+              # :checked => construction_category_id
       f.input :building_towers,
               :wrapper_html => { :style => "width: 48%" },
               :label => I18n.t("active_admin.new_homes.form.building_towers")
@@ -252,7 +301,7 @@ ActiveAdmin.register NewHome do
     end
 
     f.inputs I18n.t("active_admin.alubms.alubms") do
-      f.has_many :albums do |album|
+      f.has_many :albums, :allow_destroy => true do |album|
         album.input :name, :label => "名称"
         album.input :album_class, :label => "分类", :prompt => true
         album.input :url, :as => :file,
@@ -260,7 +309,6 @@ ActiveAdmin.register NewHome do
                           :hint => album.object.url.nil? \
                                    ? album.template.content_tag(:span, "No Image Yet")
                                    : album.template.image_tag(album.object.url.url(:normal))
-        album.input :_destroy, :as => :boolean, :required => false, :label => '选定删除'
         # album.actions do
         #   album.action :submit
         # end
@@ -283,47 +331,50 @@ ActiveAdmin.register NewHome do
     f.actions
   end
 
-  controller do
-    def permitted_params
-      params.permit!
-      # params.permit(:new_home => [:name,
-      #                             :price,
-      #                             :tel,
-      #                             :map_address,
-      #                             :project_address,
-      #                             :sales_address,
-      #                             :area_id,
-      #                             :section_id,
-      #                             :developers_id,
-      #                             :agents,
-      #                             :covers,
-      #                             :gfa,
-      #                             :pool_area,
-      #                             :parking,
-      #                             :number_users,
-      #                             :construction_category_id,
-      #                             :building_towers,
-      #                             :floors_case,
-      #                             :main_units,
-      #                             :house_area,
-      #                             :area_range_id,
-      #                             :greening_rate,
-      #                             :volume_rate,
-      #                             :fit,
-      #                             :property,
-      #                             :school,
-      #                             :hospital,
-      #                             :bank,
-      #                             :shopping,
-      #                             :neighborhoods,
-      #                             :landscapes,
-      #                             :bus,
-      #                             :car,
-      #                             :property_type_id,
-      #                             :content,
-      #                             :status_id,
-      #                             :new_home_thumb,
-      #                             albums_attributes: [:name, :file]])
-    end
-  end
+  # controller do
+  #   def permitted_params
+  #     params.permit!
+  #
+  #     # params.permit(:new_home => [:name,
+  #     #                             :price,
+  #     #                             :tel,
+  #     #                             :map_address,
+  #     #                             :project_address,
+  #     #                             :sales_address,
+  #     #                             :area_id,
+  #     #                             :section_id,
+  #     #                             :developers_id,
+  #     #                             :agents,
+  #     #                             :covers,
+  #     #                             :gfa,
+  #     #                             :pool_area,
+  #     #                             :parking,
+  #     #                             :number_users,
+  #     #                             # :construction_category_id_ids => [],
+  #     #                             :building_towers,
+  #     #                             :floors_case,
+  #     #                             :main_units,
+  #     #                             :house_area,
+  #     #                             :area_range_id,
+  #     #                             :greening_rate,
+  #     #                             :volume_rate,
+  #     #                             :fit,
+  #     #                             :property,
+  #     #                             :school,
+  #     #                             :hospital,
+  #     #                             :bank,
+  #     #                             :shopping,
+  #     #                             :neighborhoods,
+  #     #                             :landscapes,
+  #     #                             :bus,
+  #     #                             :car,
+  #     #                             :property_type_id,
+  #     #                             :content,
+  #     #                             :status_id,
+  #     #                             :new_home_thumb,
+  #     #
+  #     #                             albums_attributes: [:name, :album_class_id, :url, :_destroy]])
+  #   end
+  # end
+
 end
