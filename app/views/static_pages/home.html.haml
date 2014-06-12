@@ -577,6 +577,17 @@
       $(".newnavb").hide();
       });
     });
+    function set_new_homes1(value){
+      $.ajax({
+        type: 'get',
+        url: 'intention_to_registers_new_homes?area_id=' + value,
+        data: 'text',
+        success: function(data){
+          $(".aaaa").html(data);
+        }
+      }
+    )
+    }
   .newnavb{align: "center"}
     = form_for(@intention_to_register) do |f|
       姓名：
@@ -584,13 +595,13 @@
       电话：
       = f.text_field :tel, placeholder: "请输入联系电话", style: "width: 130px;margin-top:5px"
       意向区域：
-      = select_tag :area_id, options_from_collection_for_select(@areas, 'id', 'name'), prompt: "请选择地区", id: "area", :style => "width: 140px;margin-top:5px",:remote => true
+      = select_tag 'intention_to_register[area]', "<option value=''>#{t('请选择区域')}</option>".html_safe+options_from_collection_for_select(Area.all, "id", "name"), { onchange: "set_new_homes1(this.value)", style: "width: 140px" }
       项目名称：
-      = f.select :new_home_id, options_for_select(new_homes_dropdown(NewHome.all)), { :prompt => "请选择喜欢楼盘" }, { :style => "width: 140px;margin-top:5px" }
+      = select_tag 'intention_to_register[new_home_id]', "<option value=''>#{t('请选择楼盘')}</option>".html_safe, { style: "width: 140px",:class =>"aaaa"}
       %input.btn.btn-danger{style: " margin-bottom:7px;", type: "submit", value: "立刻报名"}/
       %a#p.m0
         关闭
-        %i.icon-fullscreen
+        %i.fa.fa-angle-down
 
       / end友情链接
   / end楼购房百科
