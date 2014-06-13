@@ -4,8 +4,7 @@ class IntentionToRegistersController < ApplicationController
     @intention_to_register = IntentionToRegister.new(intention_to_register_params)
     if @intention_to_register.save
       session[:inention_id]=@intention_to_register.id
-      flash[:success] = "您的信息我们已经收到，会尽快的联系您。是否继续完成信息登记？"
-      redirect_to root_url
+      redirect_to '/intention_to_registers'
     else
 
       flash[:err] = "请填写相关信息再提交!"
