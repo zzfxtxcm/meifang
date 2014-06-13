@@ -1,9 +1,9 @@
 class IntentionToRegistersController < ApplicationController
-
+  $id =0
   def create
     @intention_to_register = IntentionToRegister.new(intention_to_register_params)
     if @intention_to_register.save
-      session[:inention_id]=@intention_to_register.id
+      $id=@intention_to_register.id
       redirect_to '/intention_to_registers'
     else
 
@@ -14,7 +14,7 @@ class IntentionToRegistersController < ApplicationController
 
   def index
     @areas = Area.all
-    @inention_id=session[:inention_id]
+    @inention_id=$id
     @intention_to_register = IntentionToRegister.find(@inention_id)
   end
 
