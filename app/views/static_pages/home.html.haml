@@ -16,12 +16,12 @@
                   .title
                     %h4.f16.mt5.mb5.ml10
                       %a.cr #{area.name}
-                      
+
                   .lists
                     .inner
                       - NewHome.where(area_id: area.id).order('updated_at desc').limit(4).each do |new_home|
                         = link_to new_home.name, new_home
-                
+
           .border
             %ul.m0
               %li.mask-top.m0
@@ -47,8 +47,8 @@
                           =Developers.find(new_home.developers_id).name.first(9)
                           = "..." if Developers.find(new_home.developers_id).name.length >10
                 -@i =0
-                      
-              
+
+
     .panel.panel-primary
       .panel-heading
         %h3.panel-title 帮你找房
@@ -570,7 +570,9 @@
             %a.ml30{href: ""}
               %input.btn.btn-info{style: "background:#2db8ad; width:90px;", value: "申请链接>"}/
           %td.yqlj
-            %a 百度贴吧
+            = link_to '中国隆教湾', 'http://www.ljbay.com', target: "_blank"
+            = link_to '送礼无忧', 'http://www.gift5u.com', target: "_blank"
+            = link_to '优买好', 'http://ubuyok.com/', target: "_blank"            
   :javascript
     $(document).ready(function(){
       $("#p").click(function(){

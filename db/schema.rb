@@ -182,7 +182,6 @@ ActiveRecord::Schema.define(version: 20140611023606) do
     t.integer  "new_home_id"
     t.integer  "information_type_id"
     t.integer  "hit"
-    t.integer  "best"
   end
 
   add_index "information", ["category_id", "title", "created_at"], name: "index_information_on_category_id_and_title_and_created_at"
@@ -270,7 +269,7 @@ ActiveRecord::Schema.define(version: 20140611023606) do
     t.string   "new_home_thumb"
     t.integer  "section_id"
     t.integer  "property_type_id"
-    t.integer  "construction_category_id"
+    t.string   "construction_category_id",             default: "--- []\n"
     t.integer  "area_range_id"
     t.integer  "project_features_id"
     t.string   "map_address"

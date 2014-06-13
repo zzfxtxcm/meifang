@@ -60,7 +60,7 @@
 
         %li{style: "border-bottom: 1px solid #2db8ad;"}
           %a{href: "/map"} 地图找房
-        
+
         %li.pull-right
           备注：0元项目为尚未公开售价
       #myTabContent.tab-content
@@ -131,7 +131,7 @@
               %th 楼盘名称
               %th 均价
               %th 板块
-          -@list.uniq[0..5].each do |histroy|          
+          -@list.uniq[0..5].each do |histroy|
             %tr
               %td
                 = link_to NewHome.find_by_id(histroy).name.first(7), new_home_path(histroy)
@@ -151,7 +151,7 @@
     /             %th 楼盘名称
     /             %th 均价
     /             %th 板块
-    /         -@want_id.uniq[0..5].each do |histroy|          
+    /         -@want_id.uniq[0..5].each do |histroy|
     /           %tr
     /             %td
     /               = link_to NewHome.find_by_id(histroy).name.first(7), new_home_path(histroy)
