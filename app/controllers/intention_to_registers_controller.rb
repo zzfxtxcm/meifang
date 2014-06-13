@@ -1,14 +1,5 @@
 class IntentionToRegistersController < ApplicationController
 
-   prepend_before_filter :load_session, only: :flash_upload
-
-  def load_session
-    unless session.loaded?
-      se = Marshal.load(ActiveSupport::Base64.decode64(params["_dituhui_session"]))
-      logger.info("\n--------session is: #{se.inspect}-----------\n")
-      request.session.update(se)
-    end
-  end
   def create
     @intention_to_register = IntentionToRegister.new(intention_to_register_params)
     if @intention_to_register.save
