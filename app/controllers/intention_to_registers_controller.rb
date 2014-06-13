@@ -1,5 +1,6 @@
 class IntentionToRegistersController < ApplicationController
-
+   skip_before_filter :verify_authenticity_token, :only => [:create]
+   
   def create
     @intention_to_register = IntentionToRegister.new(intention_to_register_params)
     if @intention_to_register.save
