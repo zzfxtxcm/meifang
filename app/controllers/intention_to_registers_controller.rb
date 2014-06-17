@@ -1,5 +1,5 @@
 class IntentionToRegistersController < ApplicationController
-  $id =0
+  $id = 0
   def create
     @intention_to_register = IntentionToRegister.new(intention_to_register_params)
     if @intention_to_register.save

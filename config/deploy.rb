@@ -16,11 +16,17 @@ set :pry, true
 
 # files we want symlinking to specific entries in shared
 # set :linked_files, %w{config/database.yml config/application.yml config/secrets.yml}
-set :linked_files, %w{config/database.yml config.ru}
+set :linked_files, %w{ config/database.yml
+                       config.ru
+                       public/sitemap.xml
+                       public/sitemap.html
+                       public/ror.xml
+                       public/sitemap.xml.gz
+                       public/urllist.txt }
 #
 # dirs we want symlinking to shared
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
-set :linked_dirs, %w{bin log public/uploads solr/data tmp/pids tmp/cache tmp/sockets}
+set :linked_dirs, %w{ bin log public/uploads solr/data tmp/pids tmp/cache tmp/sockets }
 
 set :keep_releases, 5
 
