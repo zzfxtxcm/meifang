@@ -29,15 +29,12 @@
   <body>
     <%= render 'layouts/header' %>
     <% flash.each do |key, value| %>
-      <% if value =="您的信息我们已经收到，会尽快的联系您。是否继续完成信息登记？" %>
+      <% if value == "您的信息我们已经收到，会尽快的联系您。是否继续完成信息登记？" %>
         <SCRIPT LANGUAGE="JavaScript">
-          var bln=confirm("是否继续完善登记信息，是点击“确定” 否点击“取消”？")
-          if (bln==true){
-            self.location='/intention_to_registers';
+          var bln = confirm("是否继续完善登记信息，是点击“确定” 否点击“取消”？")
+          if (bln == true){
+            self.location = '/intention_to_registers';
           }
-          else{
-
-         }
         </script>
       <% else %>
         <SCRIPT LANGUAGE="JavaScript">
@@ -59,7 +56,7 @@
                                 "custom/ad_ls",
                                 "custom/stickUp.min",
                                 "data-turbolinks-track" => true %>
-    <% end %>    
+    <% end %>
     <!--[if lte IE 6]>
       <%= javascript_include_tag "bootstrap/bootstrap-ie.js", "data-turbolinks-track" => true %>
     <![endif]-->
