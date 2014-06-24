@@ -9,14 +9,13 @@ redis_namespace = Rails.application.secrets.redis_namespace
 
 Redis::Objects.redis = Redis.new(host: redis_server, port: redis_port)
 
-sidekiq_url = "redis://#{redis_server}:#{redis_port}/#{redis_db_num}"
+# sidekiq_url = "redis://#{redis_server}:#{redis_port}/#{redis_db_num}"
+sidekiq_url = 'redis://localhost:6379/0'
 
 Sidekiq.configure_server do |config|
-  config.logger.level = Logger::ERROR
   config.redis = { url: sidekiq_url, namespace: redis_namespace }
 end
 
 Sidekiq.configure_client do |config|
-  config.logger.level = Logger::ERROR  
   config.redis = { url: sidekiq_url, namespace: redis_namespace }
 end
