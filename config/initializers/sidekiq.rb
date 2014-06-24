@@ -10,12 +10,12 @@ redis_namespace = Rails.application.secrets.redis_namespace
 
 Redis::Objects.redis = Redis.new(host: redis_server, port: redis_port)
 
-sidekiq_url = "redis://#{redis_server}:#{redis_port}/#{redis_db_num}"
+sidekiq_url = URI.parse(ENV["REDISTOGO_URL"] || "redis://#{redis_server}:#{redis_port}/#{redis_db_num}")
 
 Sidekiq.configure_server do |config|
-  config.redis = { url: "redis://#{redis_server}:#{redis_port}/#{redis_db_num}", namespace: redis_namespace }
+  config.redis = { url: sidekiq_url, namespace: redis_namespace }
 end
 
 Sidekiq.configure_client do |config|
-  config.redis = { url: "redis://#{redis_server}:#{redis_port}/#{redis_db_num}", namespace: redis_namespace }
+  config.redis = { url: sidekiq_url, namespace: redis_namespace }
 end
