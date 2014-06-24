@@ -20,9 +20,14 @@ Meifang::Application.routes.draw do
   resources :information_sharings
   resources :characters
   resources :about
-  
+
   # 联动
   match '/intention_to_registers_new_homes', to: 'static_pages#get_new_homes', via: 'get'
+
+  # sidekiq监控
+  require 'sidekiq/web'
+  require 'sidetiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

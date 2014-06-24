@@ -1,4 +1,5 @@
 set :stage, :production
+set :pty, false
 
 # Simple Role Syntax
 # ==================

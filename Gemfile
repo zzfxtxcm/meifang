@@ -52,6 +52,8 @@ gem "breadcrumbs_on_rails", '2.3.0'
 
 # 计划任务
 gem "sidekiq", '3.1.4'
+gem "sidetiq", '0.6.1'
+gem 'sinatra', '>= 1.3.0', :require => nil
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
@@ -70,6 +72,7 @@ group :development, :test do
   gem 'capistrano-rails', '1.1.1'
   gem 'capistrano-bundler', '1.1.2'
   gem 'capistrano-rvm', '0.1.1'
+  gem 'capistrano-sidekiq', '0.3.3'
 end
 
 group :test do
