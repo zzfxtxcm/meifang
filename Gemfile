@@ -55,6 +55,8 @@ gem "sidekiq", '3.1.4'
 gem "sidetiq", '0.6.1'
 gem 'sinatra', '>= 1.3.0', :require => nil
 
+gem 'redis'
+
 # Redis 命名空间
 gem 'redis-namespace'
 
