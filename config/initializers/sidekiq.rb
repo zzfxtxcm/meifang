@@ -1,6 +1,7 @@
 require "redis"
 require "redis-namespace"
 require "redis/objects"
+require "uri"
 
 redis_server = Rails.application.secrets.redis_server
 redis_port = Rails.application.secrets.redis_port
