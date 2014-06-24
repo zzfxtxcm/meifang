@@ -267,8 +267,6 @@ GEM
     redis (3.0.7)
     redis-namespace (1.4.1)
       redis (~> 3.0.4)
-    redis-objects (0.9.1)
-      redis (>= 3.0.2)
     responders (1.1.0)
       railties (>= 3.2, < 5)
     rmmseg-cpp (0.2.9)
@@ -428,9 +426,6 @@ DEPENDENCIES
   pry-rails (= 0.3.2)
   rails (= 4.1.1)
   ransack!
-  redis
-  redis-namespace
-  redis-objects
   rspec-rails (= 2.13.1)
   ruby-pinyin (= 0.4.0)
   sass-rails (~> 4.0.3)

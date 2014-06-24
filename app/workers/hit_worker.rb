@@ -8,7 +8,7 @@ class HitWorker
     @list = Information.order("updated_at DESC").limit(500)
 
     @list.each do |item|
-      item.update_attribute(:hit, "#{item.hit.to_i + rand(56)}")
+      item.update_attribute(:hit, "#{item.hit.to_i + rand(9)}")
     end
   end
 end
