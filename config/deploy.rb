@@ -30,6 +30,9 @@ set :linked_dirs, %w{ bin log public/uploads solr/data tmp/pids tmp/cache tmp/so
 
 set :keep_releases, 5
 
+## or use config.yml file
+set :sidekiq_config, "#{current_path}/config/sidekiq.yml"
+
 # set :rvm_type, :user
 # set :rvm_ruby_version, 'ruby-2.1.0'
 

@@ -1,6 +1,3 @@
 ## sidekiq
 set :sidekiq_concurrency, 10
 set :sidekiq_queue, ['client_sms,2', 'client_emails,5', 'default,3', 'foo']
-
-## or use config.yml file
-set :sidekiq_config, "#{current_path}/config/sidekiq.yml"

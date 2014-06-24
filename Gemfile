@@ -55,6 +55,9 @@ gem "sidekiq", '3.1.4'
 gem "sidetiq", '0.6.1'
 gem 'sinatra', '>= 1.3.0', :require => nil
 
+# Redis 命名空间
+gem 'redis-namespace'
+
 group :development, :test do
   gem 'sqlite3', '1.3.8'
   gem 'pry-rails', '0.3.2'
