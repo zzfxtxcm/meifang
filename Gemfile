@@ -2,7 +2,7 @@
 source 'http://ruby.taobao.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.4'
+gem 'rails', '4.1.1'
 gem 'bootstrap-sass', '2.3.2'
 gem 'haml', '4.0.5'
 
@@ -23,10 +23,10 @@ gem 'cancancan', '1.7'
 gem 'ancestry', '2.0.0'
 
 # 表单
-gem 'simple_form', '3.0.1'
+gem 'simple_form', '3.0.2'
 
 # 编辑器
-gem 'ckeditor', '4.0.10'
+gem 'ckeditor', '4.0.11'
 
 # 图片上传
 gem 'carrierwave', '0.10.0'
@@ -48,7 +48,10 @@ gem 'progress_bar', '1.0.0'
 gem 'nokogiri', '1.6.1'
 
 # 面包屑
-gem "breadcrumbs_on_rails"
+gem "breadcrumbs_on_rails", '2.3.0'
+
+# 计划任务
+gem "sidekiq", '3.1.4'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
@@ -85,6 +88,9 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   gem 'sdoc', require: false
 end
+
+# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+gem 'spring',        group: :development
 
 group :production do
   gem 'pg', '0.15.1'

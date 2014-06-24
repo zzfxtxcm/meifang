@@ -5,6 +5,7 @@ require "active_record/railtie"
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "sprockets/railtie"
+require "active_support/core_ext/object/json"
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -41,5 +42,16 @@ module Meifang
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     config.assets.precompile += Ckeditor.assets
     config.assets.precompile += %w(ckeditor/*)
+
+    config.assets.precompile << Proc.new do |path|
+      if path =~ /\.(css||scss|js|coffee)\z/
+        full_path = Rails.application.assets.resolve(path).to_path
+        app_assets_path = Rails.root.join('app', 'assets').to_path
+        full_path.starts_with?(app_assets_path)
+      else
+        false
+      end
+    end
+
   end
 end
