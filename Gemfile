@@ -53,7 +53,7 @@ gem "breadcrumbs_on_rails", '2.3.0'
 # 计划任务
 gem "sidekiq", '3.1.4'
 gem "sidetiq", '0.6.1'
-gem 'sinatra', '>= 1.3.0', :require => nil
+gem 'sinatra'
 
 # redis
 gem 'redis'
