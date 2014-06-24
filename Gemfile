@@ -58,6 +58,9 @@ gem 'sinatra', '>= 1.3.0', :require => nil
 # Redis 命名空间
 gem 'redis-namespace'
 
+# 将一些数据存放入 Redis
+gem "redis-objects"
+
 group :development, :test do
   gem 'sqlite3', '1.3.8'
   gem 'pry-rails', '0.3.2'
