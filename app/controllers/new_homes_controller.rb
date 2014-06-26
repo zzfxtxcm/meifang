@@ -11,7 +11,7 @@ class NewHomesController < ApplicationController
     @list = []
     @dummy_data.each do |dummy|
       @list << [dummy.new_home_id]
-     end
+    end
 
     @want = DummyData.where("want >= 1 ").order("created_at asc")
     @want_id = []
