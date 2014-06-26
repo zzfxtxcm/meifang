@@ -1,4 +1,4 @@
-worker_processes 1
+worker_processes 2
 
 APP_PATH = File.expand_path("../..", __FILE__)
 working_directory APP_PATH
@@ -51,7 +51,7 @@ end
 
 after_fork do |server, worker|
   # 禁止GC，配合后续的OOB，来减少请求的执行时间
-  GC.disable
+  # GC.disable
   # the following is *required* for Rails + "preload_app true",
   defined?(ActiveRecord::Base) and
     ActiveRecord::Base.establish_connection
