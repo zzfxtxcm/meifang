@@ -7,13 +7,13 @@ class NewHomesController < ApplicationController
                         .paginate(page: params[:page])
                         .per_page(5)
 
-    @dummy_data = DummyData.where("today_hit>=1").order("created_at desc")
+    @dummy_data = DummyData.where("today_hit >= 1").order("created_at desc")
     @list = []
     @dummy_data.each do |dummy|
       @list << [dummy.new_home_id]
-     end 
+     end
 
-    @want = DummyData.where("want>=1 ").order("created_at asc")
+    @want = DummyData.where("want >= 1 ").order("created_at asc")
     @want_id = []
     @want.each do |want|
       @want_id << [want.new_home_id]
@@ -22,7 +22,7 @@ class NewHomesController < ApplicationController
     @keyword = Sunspot.search(NewHome) do
       per_page = params[:per_page]
       if per_page.blank?
-        per_page = 10
+        per_page = 5
       else
         per_page = params[:per_page]
       end
