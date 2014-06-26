@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def full_title(page_title)
-    base_title = "漳州馨窝网zz.xinwowang.com漳州房地产团购、电商第一门户|漳州房产网,漳州买房，漳州新房，漳州房价，漳州楼盘，漳州二手房，漳州租房"
+    base_title = "漳州馨窝网zz.xinwowang.com漳州房地产团购、电商第一门户"
     if page_title.empty?
       base_title
     else
