@@ -102,7 +102,10 @@
       = link_to '更多', information_index_path(:information_type_id => 2), :class => 'pull-right mt5', target: "_blank"
     .pull-left.mt10
       %ul
-        - Information.where(information_type_id: 2).order('created_at desc').limit(7).each do |information|
+        - @lpsd[0..1].each do |information|
+          %li
+            = link_to information["title"].first(26), "/master_new?id=#{information['id']}", target: "_blank"
+        - Information.where(information_type_id: 2).order('created_at desc').limit(5).each do |information|
           %li
             = link_to information.title.first(26), information, target: "_blank"
     .clearfix
@@ -112,7 +115,10 @@
       = link_to '更多', information_index_path(:information_type_id => 3), :class => 'pull-right mt5', target: "_blank"
     .pull-left.mt10
       %ul
-        - Information.where(information_type_id: 3).order('created_at desc').limit(7).each do |information|
+        - @lpyh[0..1].each do |information|
+          %li
+            = link_to information["title"].first(26), "/master_new?id=#{information['id']}", target: "_blank"
+        - Information.where(information_type_id: 3).order('created_at desc').limit(5).each do |information|
           %li
             = link_to information.title.first(26), information, target: "_blank"
     .clearfix
@@ -122,7 +128,10 @@
       = link_to '更多', information_index_path(:information_type_id => 4), :class => 'pull-right mt5', target: "_blank"
     .pull-left.mt10
       %ul
-        - Information.where(information_type_id: 12).order('created_at desc').limit(7).each do |information|
+        - @lppc[0..1].each do |information|
+          %li
+            = link_to information["title"].first(26), "/master_new?id=#{information['id']}", target: "_blank"
+        - Information.where(information_type_id: 12).order('created_at desc').limit(5).each do |information|
           %li
             = link_to information.title.first(26), information, target: "_blank"
     / 右边右
@@ -535,7 +544,10 @@
       .clearfix
       .mb10{style: "border-top:1px dotted #333; width:400px;"}
       %ul
-        - Information.where(information_type_id: 13).order('created_at desc').limit(8).each do |information|
+        - @fsbg[0..1].each do |information|
+          %li
+            = link_to information["title"].first(26), "/master_new?id=#{information['id']}", target: "_blank"
+        - Information.where(information_type_id: 13).order('created_at desc').limit(6).each do |information|
           %li
             = link_to information.title.first(26), information, target: "_blank"
     .pull-left.mt10{style: " margin-left:15px;width:405px;"}

@@ -5,6 +5,12 @@ class StaticPagesController < ApplicationController
     @areas = Area.all
     @sections = Section.all
     @intention_to_register = IntentionToRegister.new
+
+    # 首页全站新闻
+    @lpsd = JSON.parse(open(URI.escape("http://www.xinwowang.com/api/information?information_type_id=2")).read)
+    @lpyh = JSON.parse(open(URI.escape("http://www.xinwowang.com/api/information?information_type_id=3")).read)
+    @lppc = JSON.parse(open(URI.escape("http://www.xinwowang.com/api/information?information_type_id=4")).read)
+    @fsbg = JSON.parse(open(URI.escape("http://www.xinwowang.com/api/information?information_type_id=13")).read)
   end
 
   def help
@@ -19,7 +25,7 @@ class StaticPagesController < ApplicationController
       @new_homes = NewHome.where("map_address IS NOT NULL")
     end
   end
-  
+
   def get_new_homes
     options = ""
     area_id = params[:area_id]
@@ -35,4 +41,7 @@ class StaticPagesController < ApplicationController
     # render :json => @data_for_select.map{|c| [c.id, c.name]}
   end
 
+  def master_new
+    @information = JSON.parse(open(URI.escape("http://www.xinwowang.com/api/information?information_type_id=#{params["id"]}")).read)
+  end
 end

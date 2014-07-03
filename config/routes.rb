@@ -2,6 +2,7 @@ Meifang::Application.routes.draw do
   root to: 'static_pages#home'
   match '/help', to: 'static_pages#help', via: 'get'
   match '/map', to: 'static_pages#map', via: 'get'
+  match '/master_new', to: 'static_pages#master_new', via: 'get'
   match '/register', to: 'static_pages#register', via: 'get'
   # match '/home', to: 'static_pages#home', via: 'get'
   devise_for :users
