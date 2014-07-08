@@ -531,7 +531,7 @@
         %p 房事八卦
       .title3_r{align: "right", style: "width:278px"}
         = link_to '更多', information_index_path(:information_type_id => 13), target: "_blank"
-      .clearfix
+      .clearfix&
       - Information.where("information_type_id = 13 AND information_thumb IS NOT NULL").order('created_at desc').limit(1).each do |information|
         .pull-left.pt10{style: " width:174px;"}
           = link_to image_tag(information.information_thumb, alt: information.title, :class => "mb10", :style => "height:98px; width:174px"), information, target: "_blank"
@@ -563,7 +563,7 @@
             %h4.m0
               = link_to information.title.first(14), information, :class => "cr f14", target: "_blank"
             %p.f12.m0
-              = information.descriptionzt.first(60)
+              = information.description.first(60)
               = link_to "[详情]", information, :class => "cl", target: "_blank"
       .clearfix
       .mb10{style: "border-top:1px dotted #333; width:400px;"}
